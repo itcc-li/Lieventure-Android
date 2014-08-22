@@ -19,7 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements
-	/**Welcome to the itcc Hackaton**/
+	/**Welcome to the itcc.li Hackathon[2014]**/
        NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
