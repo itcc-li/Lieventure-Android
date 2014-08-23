@@ -1,8 +1,8 @@
 
 package li.itcc.hackathon2014;
 
-import li.itcc.hackathon2014.GPS.GPSFragment;
 import li.itcc.hackathon2014.vaduztour.ExampleFragment;
+import GPS.GPSFragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
