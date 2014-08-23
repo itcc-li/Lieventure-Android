@@ -16,7 +16,8 @@
     <string name="example_button">Weiter</string>
     
     <!-- Intro -->
-
+	<string name="intro_tour_text">Herzlich Willkommen in der Tour durch Vaduz</string>
+	<string name="intro_start_button">Start Tour</string>
 
     <!-- Task1 -->
 
