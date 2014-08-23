@@ -36,4 +36,9 @@
 
     <!-- Story3 -->
 
+	<!-- Neigunssensor -->
+	<string name="sculpture_info_text">Lege dein Handy wie im Bild (flach und Display nach oben) auf die Skupture.</string>
+	<string name="sculpture_measurement_button">Messung</string>
+	<string name="sculpture_next_button">Weiter</string>
+	<string name="sculpture_please_wait">Bitte warten</string>
 </resources>
