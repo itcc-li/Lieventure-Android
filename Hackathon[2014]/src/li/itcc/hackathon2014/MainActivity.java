@@ -55,7 +55,7 @@ public class MainActivity extends Activity implements
         if (position == 0) {
             trans.replace(R.id.container, ExampleFragment.newInstance(position + 1, 0));
         } else if (position == 1) {
-            trans.replace(R.id.container, SelfieFragment.newInstance(position + 1,0));
+            trans.replace(R.id.container, CompassFragment.newInstance(position + 1,0));
         } else if (position == 2){
             trans.replace(R.id.container, PlaceholderFragment.newInstance(position + 1));
         } else if (position == 3){

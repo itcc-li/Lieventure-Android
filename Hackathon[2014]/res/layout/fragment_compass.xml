@@ -19,6 +19,14 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="@string/gps_text" />
+       
+       <li.itcc.hackathon2014.vaduztour.compass.CanvasView
+           android:id="@+id/compass_view"
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           android:background="#ffffffff"
+          />
+  
 
        <Button
            android:id="@+id/next_button"
