@@ -8,6 +8,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
@@ -27,6 +28,8 @@ public class MainActivity extends Activity implements
      * {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    private AbstractTourFragment fFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class MainActivity extends Activity implements
     }
 
     public void onFragmentAttached(AbstractTourFragment fragment, int tourNumber, int tourPage) {
+        fFragment = fragment;
         switch (tourNumber) {
             case 1:
                 mTitle = getString(R.string.title_section1);
@@ -109,6 +113,14 @@ public class MainActivity extends Activity implements
         FragmentTransaction trans = fragmentManager.beginTransaction();
         trans.replace(R.id.container, nextFragment);
         trans.commit();
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (fFragment != null) {
+            fFragment.onActivityTourResult(requestCode, resultCode, data);
+        }
     }
 
 }

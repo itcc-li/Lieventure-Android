@@ -3,6 +3,7 @@ package li.itcc.hackathon2014;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -58,6 +59,9 @@ public abstract class AbstractTourFragment extends Fragment {
 
     protected void onNextButtonClicked() {
         ((MainActivity) getActivity()).onFragmentNextClicked(this, fTourNumber, fTourPage);
+    }
+
+    public void onActivityTourResult(int requestCode, int resultCode, Intent data) {
     }
 
 }
