@@ -26,6 +26,7 @@
     <string name="hotcold_limit_warm">50</string>
     <string name="hotcold_limit_cold">200</string>
     <string name="hotcold_limit_minimum">3</string>
+    <string name="hotcold_speach_delay">5000</string>
     
     <!-- Intro -->
 

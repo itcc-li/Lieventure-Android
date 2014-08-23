@@ -2,6 +2,8 @@
 package li.itcc.hackathon2014.vaduztour.hotcold;
 
 import li.itcc.hackathon2014.R;
+import li.itcc.hackathon2014.utils.GPSDeliverer;
+import li.itcc.hackathon2014.utils.GPSLocationListener;
 import android.content.Context;
 import android.content.res.Resources;
 import android.location.Location;
@@ -30,7 +32,8 @@ public class HotColdLogic implements GPSLocationListener {
                 .getString(R.string.hotcold_target_longitude)));
         fDistanceCalculator = new DistanceCalculator();
         fDistanceHintGenerator = new DistanceHintGenerator(context);
-        fDeliverer = new GPSDeliverer(context);
+        long speachDelay = Long.parseLong(res.getString(R.string.hotcold_speach_delay));
+        fDeliverer = new GPSDeliverer(context, speachDelay);
     }
 
     public boolean isRunning() {
