@@ -28,7 +28,12 @@
 
 
     <!-- Story2 -->
-    
+    <string name="story2_text">Ein berühmter Bürger des Fürstentums Liechtenstein heisst Eduard Alexandrowitsch von 
+                               Falz-Fein. Was war er von Beruf?</string>
+    <string name="story2_button1">Unternehmer</string>
+    <string name="story2_button2">Journalist</string>
+	<string name="story2_button3">Sportler</string>
+	<string name="story2_button4">Sportfunktionär</string>   
     
     <!-- Task3 -->
 
