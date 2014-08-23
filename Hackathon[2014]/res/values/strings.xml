@@ -10,10 +10,9 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Example -->
+    <!-- Finish -->
 
-    <string name="example_text">Das ist ein Text</string>
-    <string name="example_button">Weiter</string>
+    <string name="finish_text">Das ist der finish text.</string>
     
     <!-- HotCold -->
 
@@ -49,7 +48,10 @@
     </string-array>
 	<string name="next_button">Weiter</string> 
     	    
-    <!-- Task3 -->
+    <!-- compass -->
+    
+    <string name="compass_next_button">Weiter</string>
+    
 	<string name="gps_text">GPS Fragment!</string>
 
     <!-- Story3 -->
