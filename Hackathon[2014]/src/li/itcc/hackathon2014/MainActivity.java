@@ -1,30 +1,28 @@
 
 package li.itcc.hackathon2014;
 
-
-import li.itcc.hackathon2014.vaduztour.ExampleFragment;
-import li.itcc.hackathon2014.Selfie.SelfieFragment;
+import li.itcc.hackathon2014.vaduztour.CompassFragment;
 import li.itcc.hackathon2014.vaduztour.HotColdFragment;
-
+import li.itcc.hackathon2014.vaduztour.IntroFragment;
+import li.itcc.hackathon2014.vaduztour.QuestionFragment;
+import li.itcc.hackathon2014.vaduztour.SculptureFragment;
+import li.itcc.hackathon2014.vaduztour.finish.FinishFragment;
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 public class MainActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
-     * sprint2 Fragment managing the behaviors, interactions and presentation of
-     * the navigation drawer.
+     * Fragment managing the behaviors, interactions and presentation of the
+     * navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
@@ -33,6 +31,8 @@ public class MainActivity extends Activity implements
      * {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    private AbstractTourFragment fFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,42 +54,15 @@ public class MainActivity extends Activity implements
         FragmentManager fragmentManager = getFragmentManager();
 
         FragmentTransaction trans = fragmentManager.beginTransaction();
-        if (position == 0) {
-            // trans.replace(R.id.container,
-            // ExampleFragment.newInstance(position + 1, 0));
-            trans.replace(R.id.container, HotColdFragment.newInstance(position + 1, 0));
-        }
-        else {
-            trans.replace(R.id.container, SelfieFragment.newInstance(position + 1,0));
-        }
+        trans.replace(R.id.container, IntroFragment.newInstance(position + 1, 0));
         trans.commit();
     }
 
-    @Deprecated
-    public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_section1);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
-                break;
-        }
-    }
-
     public void onFragmentAttached(AbstractTourFragment fragment, int tourNumber, int tourPage) {
+        fFragment = fragment;
         switch (tourNumber) {
             case 1:
-                mTitle = getString(R.string.test);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.title_section1);
                 break;
         }
     }
@@ -126,43 +99,39 @@ public class MainActivity extends Activity implements
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
+    public void onFragmentNextClicked(AbstractTourFragment abstractTourFragment, int tourNumber,
+            int tourPage) {
+        AbstractTourFragment nextFragment;
+        int nextPage = tourPage + 1;
+        if (tourPage == 0) {
+            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage);
         }
-
-        public PlaceholderFragment() {
+        else if (tourPage == 1) {
+            nextFragment = CompassFragment.newInstance(tourNumber, nextPage);
         }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container,
-                    false);
-            return rootView;
+        else if (tourPage == 2) {
+            nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
         }
+        else if (tourPage == 3) {
+            nextFragment = SculptureFragment.newInstance(tourNumber, nextPage);
+        }
+        else if (tourPage == 4) {
+            nextFragment = FinishFragment.newInstance(tourNumber, nextPage);
+        }
+        else {
+            return;
+        }
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction trans = fragmentManager.beginTransaction();
+        trans.replace(R.id.container, nextFragment);
+        trans.commit();
+    }
 
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainActivity) activity).onSectionAttached(getArguments().getInt(
-                    ARG_SECTION_NUMBER));
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (fFragment != null) {
+            fFragment.onActivityTourResult(requestCode, resultCode, data);
         }
     }
 
