@@ -44,15 +44,11 @@ public class SelfieFragment extends AbstractTourFragment implements OnClickListe
 
     }
 
-    public void Photo(View view) {
+    @Override
+    public void onClick(View v) {
         Uri paths = null;
         Logic x = new Logic(this);
         paths = x.TakePictureIntent();
-    }
-
-    @Override
-    public void onClick(View v) {
-        Photo(v);
     }
 
     public void generate_bmp() {
