@@ -1,8 +1,11 @@
 
 package li.itcc.hackathon2014;
 
+
+import li.itcc.hackathon2014.vaduztour.ExampleFragment;
 import li.itcc.hackathon2014.Selfie.SelfieFragment;
 import li.itcc.hackathon2014.vaduztour.HotColdFragment;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
