@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +45,7 @@ public class SelfieFragment extends AbstractTourFragment implements OnClickListe
     }
 
     public void Photo(View view) {
-        String paths = null;
+        Uri paths = null;
         Logic x = new Logic(this);
         paths = x.TakePictureIntent();
     }
@@ -55,14 +56,14 @@ public class SelfieFragment extends AbstractTourFragment implements OnClickListe
     }
 
     public void generate_bmp() {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pic1);
+        //ERROR Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pic1);
     }
 
     // STAMP ITCC hinzufuegen
-    public void stamp() {
+    public void stamp(Bitmap pic, Bitmap watermark) {
         // definieren .. pfad zum bitmap
-        Bitmap bitmap1 = null;
-        Bitmap bitmap2 = null;
+        Bitmap bitmap1 = pic;
+        Bitmap bitmap2 = watermark;
         Bitmap resultBitmap = Bitmap.createBitmap(bitmap1.getWidth(), bitmap1.getHeight(),
                 Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(resultBitmap);
@@ -77,13 +78,13 @@ public class SelfieFragment extends AbstractTourFragment implements OnClickListe
         Paint paint = new Paint();
         canvas.drawColor(Color.GRAY);
         // you need to insert some image flower_blue into res/drawable folder
-        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.Selfie);
+        //ERROR Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.Selfie);
         // Best of quality is 80 and more, 3 is very low quality of image
-        Bitmap bJPGcompress = codec(b, Bitmap.CompressFormat.JPEG, 80);
+        //ERROR: Bitmap bJPGcompress = codec(b, Bitmap.CompressFormat.JPEG, 80);
         // get dimension of bitmap getHeight() getWidth()
-        int h = b.getHeight();
-        canvas.drawBitmap(b, 10, 10, paint); // <-- grösse des Bitmaps?
-        canvas.drawBitmap(bJPGcompress, 10, 10 + h + 10, paint);
+        //ERROR int h = b.getHeight();
+        //ERROR canvas.drawBitmap(b, 10, 10, paint); // <-- grösse des Bitmaps?
+        //ERROR canvas.drawBitmap(bJPGcompress, 10, 10 + h + 10, paint);
     }
 
 }

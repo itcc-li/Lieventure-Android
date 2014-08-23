@@ -15,7 +15,7 @@ public class Logic {
     }
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
-    public String TakePictureIntent() {
+    public Uri TakePictureIntent() {
         String _path = "data/data/li.itcc.hackathon2014.Selfie/";
         File file = new File( _path );
         Uri outputFileUri = Uri.fromFile( file );
@@ -24,6 +24,6 @@ public class Logic {
         intent.putExtra( MediaStore.EXTRA_OUTPUT, outputFileUri );
             
         activity.startActivityForResult( intent, 0 );
-    return _path;
+    return outputFileUri;
     }
 }
