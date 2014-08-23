@@ -6,6 +6,7 @@ import li.itcc.hackathon2014.R;
 import li.itcc.hackathon2014.vaduztour.hotcold.GPSDeliverer;
 import li.itcc.hackathon2014.vaduztour.hotcold.GPSLocationListener;
 import android.app.Activity;
+import android.content.res.Resources;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,10 +26,12 @@ public class HotColdFragment extends AbstractTourFragment implements GPSLocation
         fragment.setTourArguments(tourNumber, tourPage);
         return fragment;
     }
+
     private Button fStartStopButton;
     private Button fNextButton;
     private GPSDeliverer fDeliverer;
     private TextView fLocationLabel;
+    private Location fTargetLocation;
 
     public HotColdFragment() {
     }
@@ -40,25 +43,29 @@ public class HotColdFragment extends AbstractTourFragment implements GPSLocation
                 false);
         return rootView;
     }
-    
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Resources res = getResources();
+        fTargetLocation = new Location("Config");
+        fTargetLocation.setLatitude(Double.parseDouble(res.getString(R.string.hotcold_target_latitude)));
+        fTargetLocation.setLongitude(Double.parseDouble(res.getString(R.string.hotcold_target_longitude)));
         fNextButton = (Button) view.findViewById(R.id.next_button);
         setNextButton(fNextButton);
         fStartStopButton = (Button) view.findViewById(R.id.hotcold_start_button);
         fStartStopButton.setOnClickListener(new OnClickListener() {
-            
+
             @Override
             public void onClick(View v) {
                 onStartStopClicked();
             }
         });
-        fLocationLabel = (TextView)view.findViewById(R.id.hotcold_location_label);
+        fLocationLabel = (TextView) view.findViewById(R.id.hotcold_location_label);
         Activity a = getActivity();
         fDeliverer = new GPSDeliverer(a);
     }
-    
+
     private void onStartStopClicked() {
         if (fDeliverer.isRunning()) {
             fStartStopButton.setText(R.string.hotcold_start_button);
@@ -71,7 +78,6 @@ public class HotColdFragment extends AbstractTourFragment implements GPSLocation
         }
     }
 
-    
     @Override
     public void onStop() {
         super.onStop();
@@ -82,7 +88,8 @@ public class HotColdFragment extends AbstractTourFragment implements GPSLocation
 
     @Override
     public void onLocation(Location location) {
-        fLocationLabel.setText("Latitude: " + location.getLatitude() + " Longitude: " + location.getLongitude());
+        fLocationLabel.setText("Latitude: " + location.getLatitude() + " Longitude: "
+                + location.getLongitude());
     }
 
     @Override

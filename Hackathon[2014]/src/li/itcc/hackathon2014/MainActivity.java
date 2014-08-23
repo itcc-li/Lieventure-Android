@@ -163,4 +163,8 @@ public class MainActivity extends Activity implements
         }
     }
 
+    public void onFragmentNextClicked(AbstractTourFragment abstractTourFragment, int fTourNumber, int fTourPage) {
+        
+    }
+
 }
