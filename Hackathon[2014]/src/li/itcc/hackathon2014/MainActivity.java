@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 public class MainActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    /**
+    /**sprint2
      * Fragment managing the behaviors, interactions and presentation of the
      * navigation drawer.
      */
