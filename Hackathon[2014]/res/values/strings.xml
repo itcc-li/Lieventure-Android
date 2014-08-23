@@ -3,7 +3,7 @@
 
     <string name="app_name">Hackathon</string>
     <string name="title_section1">Tour durch Vaduz</string>
-    <string name="title_section2">Section 2</string>
+    <string name="title_section2">GPS</string>
     <string name="title_section3">Section 3</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -14,8 +14,14 @@
 
     <string name="example_text">Das ist ein Text</string>
     <string name="example_button">Weiter</string>
+
+    <string name="hotcold_text">Bitte suchen sie einen grossen silbernen Gegenstand.</string>
+    <string name="hotcold_start_button">Start</string>
+    <string name="hotcold_stop_button">Stop</string>
+    <string name="hotcold_next_button">Weiter</string>
     
     <!-- Intro -->
+
 	<string name="intro_tour_text">Herzlich Willkommen in der Tour durch Vaduz</string>
 	<string name="intro_start_button">Start Tour</string>
 
@@ -29,11 +35,31 @@
 
 
     <!-- Story2 -->
-    
-    
+    <string name="story2_text">Ein berühmter Bürger des Fürstentums Liechtenstein heisst Eduard Alexandrowitsch von 
+                               Falz-Fein. Was war er von Beruf?</string>
+    <string-array name="story2_array">
+        <item>Unternehmer</item>
+        <item>Journalist</item>
+        <item>Sportler</item>
+        <item>Sportfunktionär</item>
+    </string-array>
+	<string name="next_button">Weiter</string> 
+    	    
+
+
     <!-- Task3 -->
+	<string name="gps_text">GPS Fragment!</string>
 
 
     <!-- Story3 -->
+    
+    <!-- Selfie -->
+   <string name="test">Test Selfie</string>
+    <!-- Selfie Ende -->
 
+<!-- Neigunssensor -->
+	<string name="sculpture_info_text">Lege dein Handy wie im Bild (flach und Display nach oben) auf die Skupture.</string>
+	<string name="sculpture_measurement_button">Messung</string>
+	<string name="sculpture_next_button">Weiter</string>
+	<string name="sculpture_please_wait">Bitte warten</string>
 </resources>
