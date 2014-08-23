@@ -1,4 +1,4 @@
-package li.itcc.hackathon2014.vaduztour.gravity;
+package li.itcc.hackathon2014.vaduztour.sculpture;
 
 import android.location.Location;
 import android.location.LocationListener;
