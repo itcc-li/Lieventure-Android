@@ -1,4 +1,3 @@
-
 package li.itcc.hackathon2014;
 
 import li.itcc.hackathon2014.vaduztour.gravity.SculptureFragment;
