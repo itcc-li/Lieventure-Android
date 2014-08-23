@@ -37,7 +37,7 @@ public class SelfieFragment extends AbstractTourFragment implements OnClickListe
         return rootView;
     
     }
-    
+   
 public void Photo(View view) {
 String paths = null;
 Logic x = new Logic(this);
