@@ -6,6 +6,7 @@ import li.itcc.hackathon2014.R;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -81,7 +82,7 @@ public class SelfieFragment extends AbstractTourFragment implements OnClickListe
         Bitmap bJPGcompress = codec(b, Bitmap.CompressFormat.JPEG, 80);
         // get dimension of bitmap getHeight() getWidth()
         int h = b.getHeight();
-        canvas.drawBitmap(b, 10, 10, paint); // <-- grösse es Bitmaps?
+        canvas.drawBitmap(b, 10, 10, paint); // <-- grösse des Bitmaps?
         canvas.drawBitmap(bJPGcompress, 10, 10 + h + 10, paint);
     }
 
