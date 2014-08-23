@@ -1,6 +1,7 @@
 
 package li.itcc.hackathon2014;
 
+import li.itcc.hackathon2014.GPS.GPSFragment;
 import li.itcc.hackathon2014.vaduztour.ExampleFragment;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -17,7 +18,7 @@ import android.view.ViewGroup;
 
 public class MainActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
-
+    
     /**
      * Fragment managing the behaviors, interactions and presentation of the
      * navigation drawer.
@@ -29,7 +30,7 @@ public class MainActivity extends Activity implements
      * {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,13 +53,14 @@ public class MainActivity extends Activity implements
         FragmentTransaction trans = fragmentManager.beginTransaction();
         if (position == 0) {
             trans.replace(R.id.container, ExampleFragment.newInstance(position + 1, 0));
-        }
-        else {
+        } else if (position == 1) {
+            trans.replace(R.id.container, GPSFragment.newInstance(position + 1, 0));
+        } else {
             trans.replace(R.id.container, PlaceholderFragment.newInstance(position + 1));
         }
         trans.commit();
     }
-
+    
     @Deprecated
     public void onSectionAttached(int number) {
         switch (number) {
