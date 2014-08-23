@@ -34,5 +34,9 @@
 
 
     <!-- Story3 -->
+    
+    <!-- Selfie -->
+   <string name="test">Test Selfie</string>
+    <!-- Selfie Ende -->
 
 </resources>

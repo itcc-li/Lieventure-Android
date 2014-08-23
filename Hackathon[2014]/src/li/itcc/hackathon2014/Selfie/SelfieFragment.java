@@ -26,7 +26,7 @@ public class SelfieFragment extends AbstractTourFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_example, container,
+        View rootView = inflater.inflate(R.layout.fragment_selfie, container,
                 false);
         Button nextButton = (Button)rootView.findViewById(R.id.next_button);
         setNextButton(nextButton);
