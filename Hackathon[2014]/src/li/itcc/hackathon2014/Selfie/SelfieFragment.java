@@ -32,5 +32,12 @@ public class SelfieFragment extends AbstractTourFragment {
         setNextButton(nextButton);
         return rootView;
     }
+    
+public void Photo(View view) {
+//    String paths = null;
+//    Logic x = new Logic(this);
+//    paths = x.TakePictureIntent();
+//    
+}
 
 }
