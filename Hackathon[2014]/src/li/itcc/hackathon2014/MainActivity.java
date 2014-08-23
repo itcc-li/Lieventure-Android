@@ -1,6 +1,6 @@
 
 package li.itcc.hackathon2014;
-
+import li.itcc.hackathon2014.Selfie.*;
 import li.itcc.hackathon2014.vaduztour.ExampleFragment;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -54,7 +54,7 @@ public class MainActivity extends Activity implements
             trans.replace(R.id.container, ExampleFragment.newInstance(position + 1, 0));
         }
         else {
-            trans.replace(R.id.container, PlaceholderFragment.newInstance(position + 1));
+            trans.replace(R.id.container, SelfieFragment.newInstance(position + 1,0));
         }
         trans.commit();
     }
@@ -77,7 +77,7 @@ public class MainActivity extends Activity implements
     public void onFragmentAttached(AbstractTourFragment fragment, int tourNumber, int tourPage) {
         switch (tourNumber) {
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.test);
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
