@@ -10,14 +10,22 @@ public class DistanceHintGenerator {
     private float fHotLimit;
     private float fWarmLimit;
     private float fColdLimit;
-    private float fMinLimit;
+    private float fSteadyLimit;
+    private DistanceHint[] fHintHistory;
+    private int fHintHistoryIndex;
+    private float[] fWalkHistory;
+    private int fWalkHistoryIndex;
 
     public DistanceHintGenerator(Context context) {
         fResources = context.getResources();
         fHotLimit = limit(R.string.hotcold_limit_hot);
         fWarmLimit = limit(R.string.hotcold_limit_warm);
         fColdLimit = limit(R.string.hotcold_limit_cold);
-        fMinLimit = limit(R.string.hotcold_limit_minimum);
+        fSteadyLimit = limit(R.string.hotcold_limit_steady);
+        fHintHistory = new DistanceHint[3];
+        clearHintHistory();
+        fWalkHistory = new float[4];
+        clearWalkHistory();
     }
 
     private float limit(int id) {
@@ -26,33 +34,87 @@ public class DistanceHintGenerator {
 
     // make distance values be made as parameter
     public DistanceHint getDistanceHint(float oldDistance, float newDistance, float walkingDistance) {
+        DistanceHint result;
+
         // calculates distance hint and returns distance Hint
-        if (Math.abs(newDistance - oldDistance) < fMinLimit) {
+        if (Math.abs(newDistance - oldDistance) < fSteadyLimit) {
             if (newDistance > fColdLimit) {
-                return DistanceHint.COLD;
+                result = DistanceHint.COLD;
             }
             else if (newDistance > fWarmLimit) {
-                return DistanceHint.WARM;
+                result = DistanceHint.WARM;
             }
             else if (newDistance > fHotLimit) {
-                return DistanceHint.HOT;
+                result = DistanceHint.HOT;
             }
             else {
-                return DistanceHint.ATDESTINATION;
+                result = DistanceHint.ATDESTINATION;
             }
         }
         else if (newDistance < oldDistance) {
             if (newDistance > fWarmLimit) {
-                return DistanceHint.WARMER;
+                result = DistanceHint.WARMER;
             }
             else if (newDistance > fHotLimit) {
-                return DistanceHint.HOTTER;
+                result = DistanceHint.HOTTER;
             }
             else {
-                return DistanceHint.ATDESTINATION;
+                result = DistanceHint.ATDESTINATION;
             }
-        } else {
-            return DistanceHint.COLDER;
         }
+        else {
+            result = DistanceHint.COLDER;
+        }
+        fWalkHistory[fWalkHistoryIndex] = walkingDistance;
+        fWalkHistoryIndex = (fWalkHistoryIndex + 1) % fWalkHistory.length;
+        fHintHistory[fHintHistoryIndex] = result;
+        fHintHistoryIndex = (fHintHistoryIndex + 1) % fHintHistory.length;
+        if (isLongSteady()) {
+            clearWalkHistory();
+            return DistanceHint.STEADY;
+            
+        }
+        if (isAll(DistanceHint.COLDER)) {
+            clearHintHistory();
+            return DistanceHint.TURN;
+        }
+        else if (isAll(DistanceHint.WARMER)) {
+            clearHintHistory();
+            return DistanceHint.WARMER_PROCEED;
+        }
+        else if (isAll(DistanceHint.HOTTER)) {
+            clearHintHistory();
+            return DistanceHint.HOTTER_PROCEED;
+        }
+        return result;
+    }
+
+    private boolean isLongSteady() {
+        float sum = 0.0f;
+        for (int i = 0; i < fWalkHistory.length; i++) {
+            sum += fWalkHistory[i];
+        }
+        return sum < fSteadyLimit * fWalkHistory.length;
+    }
+
+    private void clearHintHistory() {
+        for (int i = 0; i < fHintHistory.length; i++) {
+            fHintHistory[i] = DistanceHint.COLD;
+        }
+    }
+
+    private void clearWalkHistory() {
+        for (int i = 0; i < fWalkHistory.length; i++) {
+            fWalkHistory[i] = 100.0f;
+        }
+    }
+
+    private boolean isAll(DistanceHint hint) {
+        for (int i = 0; i < fHintHistory.length; i++) {
+            if (fHintHistory[i] != hint) {
+                return false;
+            }
+        }
+        return true;
     }
 }
