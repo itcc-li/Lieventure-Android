@@ -9,18 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class SelfiFragment extends AbstractTourFragment {
+public class SelfieFragment extends AbstractTourFragment {
 
     /**
      * Returns a new instance of this fragment for the given section number.
      */
-    public static SelfiFragment newInstance(int tourNumber, int tourPage) {
-        SelfiFragment fragment = new SelfiFragment();
+    public static SelfieFragment newInstance(int tourNumber, int tourPage) {
+        SelfieFragment fragment = new SelfieFragment();
         fragment.setTourArguments(tourNumber, tourPage);
         return fragment;
     }
 
-    public SelfiFragment() {
+    public SelfieFragment() {
     }
 
     @Override
