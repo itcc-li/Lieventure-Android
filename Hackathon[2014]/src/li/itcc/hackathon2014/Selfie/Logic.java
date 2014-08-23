@@ -16,7 +16,7 @@ public class Logic {
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     public String TakePictureIntent() {
-        String _path = null;
+        String _path = "data/data/li.itcc.hackathon2014.Selfie/";
         File file = new File( _path );
         Uri outputFileUri = Uri.fromFile( file );
             
