@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 public class CompassFragment extends AbstractTourFragment implements OnClickListener {
     GPSTracker tracker;
+    private CanvasView drawView;
     
     /**
      * Returns a new instance of this fragment for the given section number.
@@ -33,7 +34,6 @@ public class CompassFragment extends AbstractTourFragment implements OnClickList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        CanvasView drawView;
         
         View rootView = inflater.inflate(R.layout.fragment_compass, container,
                 false);
@@ -46,12 +46,8 @@ public class CompassFragment extends AbstractTourFragment implements OnClickList
         
         Button distanceBtn = (Button)rootView.findViewById(R.id.distance_button);
         distanceBtn.setOnClickListener(this);
-
-
-        drawView = new CanvasView(getActivity());
-        drawView.setBackgroundColor(Color.WHITE);
         
-        getActivity().setContentView(drawView);
+        drawView = (CanvasView)rootView.findViewById(R.id.compass_view);
         
         return rootView;
     }
