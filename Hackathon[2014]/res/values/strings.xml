@@ -14,6 +14,11 @@
 
     <string name="example_text">Das ist ein Text</string>
     <string name="example_button">Weiter</string>
+
+    <string name="hotcold_text">Bitte suchen sie einen grossen silbernen Gegenstand.</string>
+    <string name="hotcold_start_button">Start</string>
+    <string name="hotcold_stop_button">Stop</string>
+    <string name="hotcold_next_button">Weiter</string>
     
     <!-- Intro -->
 
@@ -39,5 +44,9 @@
 
 
     <!-- Story3 -->
+    
+    <!-- Selfie -->
+   <string name="test">Test Selfie</string>
+    <!-- Selfie Ende -->
 
 </resources>
