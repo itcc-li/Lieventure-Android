@@ -19,8 +19,8 @@ public class MainActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
-     * Fragment managing the behaviors, interactions and presentation of the
-     * navigation drawer.
+     * sprint2 Fragment managing the behaviors, interactions and presentation of
+     * the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
