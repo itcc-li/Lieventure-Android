@@ -1,5 +1,5 @@
 
-package li.itcc.hackathon2014.Selfi;
+package li.itcc.hackathon2014.Selfie;
 
 import li.itcc.hackathon2014.AbstractTourFragment;
 import li.itcc.hackathon2014.R;
