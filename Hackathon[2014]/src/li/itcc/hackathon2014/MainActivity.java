@@ -4,6 +4,7 @@ package li.itcc.hackathon2014;
 import li.itcc.hackathon2014.vaduztour.CompassFragment;
 import li.itcc.hackathon2014.vaduztour.HotColdFragment;
 import li.itcc.hackathon2014.vaduztour.QuestionFragment;
+import li.itcc.hackathon2014.vaduztour.SculptureFragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -105,6 +106,9 @@ public class MainActivity extends Activity implements
         }
         else if (tourPage == 1) {
             nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
+        }
+        else if (tourPage == 2) {
+            nextFragment = SculptureFragment.newInstance(tourNumber, nextPage);
         }
         else {
             return;

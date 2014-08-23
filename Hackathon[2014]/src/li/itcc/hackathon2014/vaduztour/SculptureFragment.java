@@ -1,4 +1,4 @@
-package li.itcc.hackathon2014.vaduztour.gravity;
+package li.itcc.hackathon2014.vaduztour;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import li.itcc.hackathon2014.AbstractTourFragment;
 import li.itcc.hackathon2014.R;
+import li.itcc.hackathon2014.vaduztour.sculpture.LocationListeners;
+import li.itcc.hackathon2014.vaduztour.sculpture.Tilt;
 
 public class SculptureFragment extends AbstractTourFragment implements SensorEventListener {
     private SensorManager mSensorManager;
