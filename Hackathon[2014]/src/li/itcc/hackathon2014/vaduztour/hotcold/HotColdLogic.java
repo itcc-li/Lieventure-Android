@@ -21,6 +21,7 @@ public class HotColdLogic implements GPSLocationListener {
     private Location fTargetLocation;
     private DistanceCalculator fDistanceCalculator;
     private DistanceHintGenerator fDistanceHintGenerator;
+    private int locationCount;
 
     public HotColdLogic(Context context) {
         fSpeechGenerator = new SpeechGenerator(context);
@@ -51,6 +52,7 @@ public class HotColdLogic implements GPSLocationListener {
 
     @Override
     public void onLocation(Location location) {
+        locationCount++;
         if (fLastLocation == null) {
             fLastLocation = location;
             return;
@@ -69,13 +71,18 @@ public class HotColdLogic implements GPSLocationListener {
 
     @Override
     public void onLocationSensorEnabled() {
-        fSpeechGenerator.say(R.raw.gpsischaltamp3);
-        fListener.setLocationText("Enabled");
+        fSpeechGenerator.say(R.raw.suech_setellit_mp3);
+        fListener.setLocationText("Searching...");
     }
 
     @Override
     public void onLocationSensorDisabled() {
-        fSpeechGenerator.say(R.raw.heygpsischaltamp3);
+        if (locationCount > 2) {
+            fSpeechGenerator.say(R.raw.hey_gps_ischalta_mp3);
+        }
+        else {
+            fSpeechGenerator.say(R.raw.gps_ischalta_mp3);
+        }
         fListener.setLocationText("Disabled");
     }
 
