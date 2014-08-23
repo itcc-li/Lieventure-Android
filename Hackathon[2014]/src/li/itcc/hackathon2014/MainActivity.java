@@ -1,7 +1,8 @@
 
 package li.itcc.hackathon2014;
-import li.itcc.hackathon2014.Selfie.*;
-import li.itcc.hackathon2014.vaduztour.ExampleFragment;
+
+import li.itcc.hackathon2014.Selfie.SelfieFragment;
+import li.itcc.hackathon2014.vaduztour.HotColdFragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -19,8 +20,8 @@ public class MainActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
-     * Fragment managing the behaviors, interactions and presentation of the
-     * navigation drawer.
+     * sprint2 Fragment managing the behaviors, interactions and presentation of
+     * the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
@@ -51,7 +52,9 @@ public class MainActivity extends Activity implements
 
         FragmentTransaction trans = fragmentManager.beginTransaction();
         if (position == 0) {
-            trans.replace(R.id.container, ExampleFragment.newInstance(position + 1, 0));
+            // trans.replace(R.id.container,
+            // ExampleFragment.newInstance(position + 1, 0));
+            trans.replace(R.id.container, HotColdFragment.newInstance(position + 1, 0));
         }
         else {
             trans.replace(R.id.container, SelfieFragment.newInstance(position + 1,0));
@@ -73,7 +76,7 @@ public class MainActivity extends Activity implements
                 break;
         }
     }
-    
+
     public void onFragmentAttached(AbstractTourFragment fragment, int tourNumber, int tourPage) {
         switch (tourNumber) {
             case 1:
