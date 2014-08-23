@@ -3,8 +3,10 @@ package li.itcc.hackathon2014;
 
 import li.itcc.hackathon2014.vaduztour.CompassFragment;
 import li.itcc.hackathon2014.vaduztour.HotColdFragment;
+import li.itcc.hackathon2014.vaduztour.IntroFragment;
 import li.itcc.hackathon2014.vaduztour.QuestionFragment;
 import li.itcc.hackathon2014.vaduztour.SculptureFragment;
+import li.itcc.hackathon2014.vaduztour.finish.FinishFragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -52,7 +54,7 @@ public class MainActivity extends Activity implements
         FragmentManager fragmentManager = getFragmentManager();
 
         FragmentTransaction trans = fragmentManager.beginTransaction();
-        trans.replace(R.id.container, QuestionFragment.newInstance(position + 1, 0));
+        trans.replace(R.id.container, IntroFragment.newInstance(position + 1, 0));
         trans.commit();
     }
 
@@ -102,13 +104,19 @@ public class MainActivity extends Activity implements
         AbstractTourFragment nextFragment;
         int nextPage = tourPage + 1;
         if (tourPage == 0) {
-            nextFragment = CompassFragment.newInstance(tourNumber, nextPage);
+            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage);
         }
         else if (tourPage == 1) {
-            nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
+            nextFragment = CompassFragment.newInstance(tourNumber, nextPage);
         }
         else if (tourPage == 2) {
+            nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
+        }
+        else if (tourPage == 3) {
             nextFragment = SculptureFragment.newInstance(tourNumber, nextPage);
+        }
+        else if (tourPage == 4) {
+            nextFragment = FinishFragment.newInstance(tourNumber, nextPage);
         }
         else {
             return;
@@ -118,7 +126,7 @@ public class MainActivity extends Activity implements
         trans.replace(R.id.container, nextFragment);
         trans.commit();
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

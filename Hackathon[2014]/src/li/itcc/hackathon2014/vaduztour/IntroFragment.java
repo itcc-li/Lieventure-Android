@@ -28,7 +28,7 @@ public class IntroFragment extends AbstractTourFragment {
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_intro, container,
                 false);
-        Button nextButton = (Button)rootView.findViewById(R.id.next_button);
+        Button nextButton = (Button)rootView.findViewById(R.id.intro_start_button);
         setNextButton(nextButton);
         return rootView;
     }
