@@ -20,8 +20,13 @@
     <string name="hotcold_start_button">Start</string>
     <string name="hotcold_stop_button">Stop</string>
     <string name="hotcold_next_button">Weiter</string>
-    <string name="hotcold_target_latitude">47.014899139486573</string>
+    <string name="hotcold_target_latitude">47.14899139486573</string>
     <string name="hotcold_target_longitude">9.516886290599105</string>
+    <string name="hotcold_limit_hot">10</string>
+    <string name="hotcold_limit_warm">50</string>
+    <string name="hotcold_limit_cold">200</string>
+    <string name="hotcold_limit_steady">3</string>
+    <string name="hotcold_speach_delay">5000</string>
     
     <!-- Intro -->
 

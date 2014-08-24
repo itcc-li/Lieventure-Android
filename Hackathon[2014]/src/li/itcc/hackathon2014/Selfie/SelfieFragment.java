@@ -3,6 +3,8 @@ package li.itcc.hackathon2014.Selfie;
 
 import li.itcc.hackathon2014.AbstractTourFragment;
 import li.itcc.hackathon2014.R;
+
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,24 +31,25 @@ public class SelfieFragment extends AbstractTourFragment implements OnClickListe
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_selfie, container,
                 false);
-        Button nextButton = (Button)rootView.findViewById(R.id.next_button);
+        Button nextButton = (Button) rootView.findViewById(R.id.next_button);
         setNextButton(nextButton);
-        
+
         final Button testButton = (Button) rootView.findViewById(R.id.intro_button);
         testButton.setOnClickListener(this);
         return rootView;
-    
+
     }
-   
-public void Photo(View view) {
-String paths = null;
-Logic x = new Logic(this);
-paths = x.TakePictureIntent();
-}
 
-@Override
-public void onClick(View v) {
-Photo(v);    
-}
+    @Override
+    public void onClick(View v) {
+        Uri paths = null;
+        Logic x = new Logic(this);
+        paths = x.TakePictureIntent();
+    }
+    
+    public void generate_bmp() {
+        //ERROR Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pic1);
+    }
 
+    // watermark ITCC hinzufuegen
 }
