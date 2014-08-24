@@ -55,9 +55,10 @@ public class MainActivity extends Activity implements
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
-
+        IntroFragment fragment = IntroFragment.newInstance(position + 1, 0);
+        fragment.setId("intro");
         FragmentTransaction trans = fragmentManager.beginTransaction();
-        trans.replace(R.id.container, IntroFragment.newInstance(position + 1, 0));
+        trans.replace(R.id.container, fragment);
         trans.commit();
     }
 
@@ -108,18 +109,23 @@ public class MainActivity extends Activity implements
         int nextPage = tourPage + 1;
         if (tourPage == 0) {
             nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("hotcold");
         }
         else if (tourPage == 1) {
             nextFragment = CompassFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("compass");
         }
         else if (tourPage == 2) {
             nextFragment = SculptureFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("sculpture");
         }
         else if (tourPage == 3) {
             nextFragment = QuestionFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("question");
         }
         else if (tourPage == 4) {
             nextFragment = FinishFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("finish");
         }
         else {
             return;
