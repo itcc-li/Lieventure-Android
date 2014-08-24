@@ -28,7 +28,7 @@ public class HotColdFragment extends AbstractTourFragment implements HotColdLogi
     private Button fStartStopButton;
     private Button fNextButton;
     private HotColdLogic fLogic;
-    private TextView fLocationLabel;
+    private TextView fHintLabel;
 
     public HotColdFragment() {
     }
@@ -54,7 +54,7 @@ public class HotColdFragment extends AbstractTourFragment implements HotColdLogi
                 onStartStopClicked();
             }
         });
-        fLocationLabel = (TextView) view.findViewById(R.id.hotcold_location_label);
+        fHintLabel = (TextView) view.findViewById(R.id.hotcold_hint_label);
         Activity a = getActivity();
         fLogic = new HotColdLogic(a);
     }
@@ -63,7 +63,8 @@ public class HotColdFragment extends AbstractTourFragment implements HotColdLogi
         if (fLogic.isRunning()) {
             fStartStopButton.setText(R.string.hotcold_start_button);
             fLogic.stopDelivery();
-            fLocationLabel.setText("");
+            fHintLabel.setVisibility(View.VISIBLE);
+            fHintLabel.setText(R.string.hotcold_hint_text_default);
         }
         else {
             fStartStopButton.setText(R.string.hotcold_stop_button);
@@ -80,8 +81,18 @@ public class HotColdFragment extends AbstractTourFragment implements HotColdLogi
     }
 
     @Override
-    public void setLocationText(String text) {
-        fLocationLabel.setText(text);
+    public void onHintText(String text) {
+        fHintLabel.setVisibility(View.VISIBLE);
+        fHintLabel.setText(text);
+    }
+
+    @Override
+    public void onTargetReached() {
+        if (fLogic.isRunning()) {
+            fLogic.stopDelivery();
+            fHintLabel.setVisibility(View.GONE);
+            fHintLabel.setText(R.string.hotcold_hint_text_default);
+        }
     }
 
 }
