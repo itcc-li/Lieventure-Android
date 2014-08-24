@@ -2,12 +2,13 @@
 package li.itcc.hackathon2014;
 
 import li.itcc.hackathon2014.Selfie.SelfieLogic;
+import li.itcc.hackathon2014.vaduztour.AboutFragment;
 import li.itcc.hackathon2014.vaduztour.CompassFragment;
+import li.itcc.hackathon2014.vaduztour.FinishFragment;
 import li.itcc.hackathon2014.vaduztour.HotColdFragment;
 import li.itcc.hackathon2014.vaduztour.IntroFragment;
 import li.itcc.hackathon2014.vaduztour.QuestionFragment;
 import li.itcc.hackathon2014.vaduztour.SculptureFragment;
-import li.itcc.hackathon2014.vaduztour.finish.FinishFragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -55,8 +56,15 @@ public class MainActivity extends Activity implements
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
-        IntroFragment fragment = IntroFragment.newInstance(position + 1, 0);
-        fragment.setId("intro");
+        AbstractTourFragment fragment;
+        if (position == 0) {
+            fragment = IntroFragment.newInstance(position + 1, 0);
+            fragment.setId("intro");
+        }
+        else {
+            fragment = AboutFragment.newInstance(position + 1, 0);
+            fragment.setId("about");
+        }
         FragmentTransaction trans = fragmentManager.beginTransaction();
         trans.replace(R.id.container, fragment);
         trans.commit();

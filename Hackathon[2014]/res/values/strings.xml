@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Hackathon</string>
+    <string name="app_name">Lieventure</string>
     <string name="title_section1">Tour durch Vaduz</string>
-    <string name="title_section2">GPS</string>
+    <string name="title_section2">About</string>
     <string name="title_section3">Section 3</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -37,10 +37,10 @@
     <string name="hotcold_start_button">Suche starten</string>
     <string name="hotcold_stop_button">Suche stoppen</string>
     <string name="hotcold_next_button">Weiter</string>
-    <!-- 
+    <!--
     <string name="hotcold_target_latitude">47.14899139486573</string>
-    <string name="hotcold_target_longitude">9.516886290599105</string>
-     -->
+    <string name="hotcold_target_longitude">9.516886290599105</string>
+    -->
     <string name="hotcold_target_latitude">47.138341</string>
     <string name="hotcold_target_longitude">9.521747</string>
     <string name="hotcold_limit_hot">10</string>
@@ -83,20 +83,27 @@
     <string name="gps_text">GPS Fragment!</string>
 
     <!-- Story3 -->
-    
-    <!-- Neigunssensor -->
-	<string name="sculpture_info_text">Nun geht es zurück zu unserem Startpunkt. Dort angekommen, fällt Dir folgende Skulptur,  der Z-Würfel, auf. Lege Dein Handy an die markierte Stelle und messe die Schräge des Z.</string>
-	<string name="sculpture_measurement_button">Messung</string>
-	<string name="sculpture_next_button">Weiter</string>
-	<string name="sculpture_please_wait">Bitte warten</string>
-	<string name="sculpture_this_can_take_a_few_secound">Das kann einige Sekunden dauern</string>
 
+
+    <!-- Neigunssensor -->
+    <string name="sculpture_info_text">Nun geht es zurück zu unserem Startpunkt. Dort angekommen, fällt Dir folgende Skulptur,  der Z-Würfel, auf. Lege Dein Handy an die markierte Stelle und messe die Schräge des Z.</string>
+    <string name="sculpture_measurement_button">Messung</string>
+    <string name="sculpture_next_button">Weiter</string>
+    <string name="sculpture_please_wait">Bitte warten</string>
+    <string name="sculpture_this_can_take_a_few_secound">Das kann einige Sekunden dauern</string>
 
     <!-- Selfie -->
 
-    <string name="selfie_picture_path">Liechtenstein</string>
+    <string name="selfie_picture_path">Lieventure</string>
 
     <!-- Selfie Ende -->
 
+
+    <!-- About -->
+
+    <string name="abount_copyright_text">© Hackaton by itcc.li</string>
+    <string name="abount_text">Diese App wurde im Rahmen des ersten Hackatons in Liechtenstein innerhalb 51 Stunden entwickelt.</string>
+    
+    <!-- About ende -->
 
 </resources>
