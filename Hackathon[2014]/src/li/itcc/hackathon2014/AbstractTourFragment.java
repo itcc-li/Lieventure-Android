@@ -60,5 +60,9 @@ public abstract class AbstractTourFragment extends Fragment {
     protected void onNextButtonClicked() {
         ((MainActivity) getActivity()).onFragmentNextClicked(this, fTourNumber, fTourPage);
     }
+    
+    protected void onTaskSolved() {
+        
+    }
 
 }
