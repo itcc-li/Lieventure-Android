@@ -3,6 +3,7 @@ package li.itcc.hackathon2014;
 
 import li.itcc.hackathon2014.Selfie.SelfieLogic;
 import li.itcc.hackathon2014.vaduztour.AboutFragment;
+import li.itcc.hackathon2014.vaduztour.CastleFragment;
 import li.itcc.hackathon2014.vaduztour.CompassFragment;
 import li.itcc.hackathon2014.vaduztour.FinishFragment;
 import li.itcc.hackathon2014.vaduztour.HotColdFragment;
@@ -144,14 +145,22 @@ public class MainActivity extends Activity implements
             nextFragment.setId("compass");
         }
         else if (tourPage == 2) {
-            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage);
-            nextFragment.setId("question");
+            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage, QuestionFragment.QUESTION_SET_WOMAN);
+            nextFragment.setId("question_woman");
         }
         else if (tourPage == 3) {
+            nextFragment = CastleFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("castle");
+        }
+        else if (tourPage == 4) {
+            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage, QuestionFragment.QUESTION_SET_CASTLE);
+            nextFragment.setId("question_castle");
+        }
+        else if (tourPage == 5) {
             nextFragment = SculptureFragment.newInstance(tourNumber, nextPage);
             nextFragment.setId("sculpture");
         }
-        else if (tourPage == 4) {
+        else if (tourPage == 6) {
             nextFragment = FinishFragment.newInstance(tourNumber, nextPage);
             nextFragment.setId("finish");
         }

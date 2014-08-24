@@ -10,11 +10,16 @@
 
         <TextView
             style="@style/Title"
-            android:text="@string/finish_title" />
+            android:text="@string/castle_title" />
 
         <TextView
             style="@style/Paragraph"
-            android:text="@string/finish_text" />
+            android:text="@string/castle_tour_text" />
+
+        <Button
+            android:id="@+id/castle_start_button"
+            style="@style/NextButton"
+            android:text="@string/castle_start_button" />
     </LinearLayout>
 
 </ScrollView>
