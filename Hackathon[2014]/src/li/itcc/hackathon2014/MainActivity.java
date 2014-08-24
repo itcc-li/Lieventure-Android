@@ -2,12 +2,13 @@
 package li.itcc.hackathon2014;
 
 import li.itcc.hackathon2014.Selfie.SelfieLogic;
+import li.itcc.hackathon2014.vaduztour.AboutFragment;
 import li.itcc.hackathon2014.vaduztour.CompassFragment;
+import li.itcc.hackathon2014.vaduztour.FinishFragment;
 import li.itcc.hackathon2014.vaduztour.HotColdFragment;
 import li.itcc.hackathon2014.vaduztour.IntroFragment;
 import li.itcc.hackathon2014.vaduztour.QuestionFragment;
 import li.itcc.hackathon2014.vaduztour.SculptureFragment;
-import li.itcc.hackathon2014.vaduztour.finish.FinishFragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -36,6 +37,8 @@ public class MainActivity extends Activity implements
 
     private SelfieLogic fSelfieLogic;
 
+    private AbstractTourFragment fCurrentFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,16 +58,38 @@ public class MainActivity extends Activity implements
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
-
+        AbstractTourFragment fragment;
+        if (position == 0) {
+            fragment = IntroFragment.newInstance(position + 1, 0);
+            fragment.setId("intro");
+        }
+        else {
+            fragment = AboutFragment.newInstance(position + 1, 0);
+            fragment.setId("about");
+        }
         FragmentTransaction trans = fragmentManager.beginTransaction();
-        trans.replace(R.id.container, IntroFragment.newInstance(position + 1, 0));
+        trans.replace(R.id.container, fragment);
         trans.commit();
     }
 
+    @Override
+    public void onBackPressed() {
+        if (fCurrentFragment != null) {
+            if (fCurrentFragment.getTourNumber() == 0) {
+
+            }
+        }
+
+    }
+
     public void onFragmentAttached(AbstractTourFragment fragment, int tourNumber, int tourPage) {
+        fCurrentFragment = fragment;
         switch (tourNumber) {
             case 1:
                 mTitle = getString(R.string.title_section1);
+                break;
+            case 2:
+                mTitle = getString(R.string.title_section2);
                 break;
         }
     }
@@ -107,19 +132,24 @@ public class MainActivity extends Activity implements
         AbstractTourFragment nextFragment;
         int nextPage = tourPage + 1;
         if (tourPage == 0) {
-            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage);
+            nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("hotcold");
         }
         else if (tourPage == 1) {
             nextFragment = CompassFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("compass");
         }
         else if (tourPage == 2) {
-            nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
+            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("question");
         }
         else if (tourPage == 3) {
             nextFragment = SculptureFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("sculpture");
         }
         else if (tourPage == 4) {
             nextFragment = FinishFragment.newInstance(tourNumber, nextPage);
+            nextFragment.setId("finish");
         }
         else {
             return;

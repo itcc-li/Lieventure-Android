@@ -63,7 +63,6 @@ public class HotColdFragment extends AbstractTourFragment implements HotColdLogi
         if (fLogic.isRunning()) {
             fStartStopButton.setText(R.string.hotcold_start_button);
             fLogic.stopDelivery();
-            fHintLabel.setVisibility(View.VISIBLE);
             fHintLabel.setText(R.string.hotcold_hint_text_default);
         }
         else {
@@ -82,17 +81,17 @@ public class HotColdFragment extends AbstractTourFragment implements HotColdLogi
 
     @Override
     public void onHintText(String text) {
-        fHintLabel.setVisibility(View.VISIBLE);
         fHintLabel.setText(text);
     }
 
     @Override
     public void onTargetReached() {
         if (fLogic.isRunning()) {
+            fStartStopButton.setText(R.string.hotcold_start_button);
             fLogic.stopDelivery();
-            fHintLabel.setVisibility(View.GONE);
-            fHintLabel.setText(R.string.hotcold_hint_text_default);
+            fHintLabel.setText(R.string.hotcold_hint_text_finish);
         }
+        onTaskSolved();
     }
 
 }

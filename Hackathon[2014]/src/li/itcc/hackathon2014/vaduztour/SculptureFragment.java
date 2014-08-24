@@ -208,4 +208,10 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
         Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
         startActivity(intent);
     }
+
+    @Override
+    public void onLocationSensorSearching() {
+        // TODO Auto-generated method stub
+        
+    }
 }
