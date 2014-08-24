@@ -1,0 +1,30 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/text_title_top"
+            android:src="@drawable/ic_logo"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Paragraph"
+            android:gravity="center_horizontal"
+            android:text="@string/abount_copyright_text" />
+
+        <TextView
+            style="@style/Paragraph"
+            android:gravity="center_horizontal"
+            android:text="@string/abount_text" />
+    </LinearLayout>
+
+</ScrollView>

@@ -9,5 +9,13 @@
          https://developer.android.com/design/patterns/navigation-drawer.html
     -->
     <dimen name="navigation_drawer_width">240dp</dimen>
+    
+    <!-- Texts -->
+    
+    <dimen name="text_title_top">20dp</dimen>
+    <dimen name="text_paragraph_top">16dp</dimen>
+    <dimen name="text_spinner_top">16dp</dimen>
+    <dimen name="text_next_button_top">16dp</dimen>
+    
 
 </resources>
