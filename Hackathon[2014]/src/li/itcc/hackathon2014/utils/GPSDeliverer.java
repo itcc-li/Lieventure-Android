@@ -1,6 +1,8 @@
 
 package li.itcc.hackathon2014.utils;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
@@ -15,6 +17,7 @@ public class GPSDeliverer implements LocationListener {
     private long fSampleDeltaTimeMS;
     private long fNextSampleTimeMS = 0L;
     private boolean fHeartbeatReceived;
+    private ArrayList<Location> fLocations = new ArrayList<Location>();
 
     public GPSDeliverer(Context context, long delay) {
         fContext = context;
@@ -69,11 +72,36 @@ public class GPSDeliverer implements LocationListener {
         if (fSampleDeltaTimeMS == 0) {
             fListener.onLocation(location);
         }
+        fLocations.add(location);
         long now = System.currentTimeMillis();
         if (fNextSampleTimeMS == 0 || now > fNextSampleTimeMS) {
             fNextSampleTimeMS = now + fSampleDeltaTimeMS;
-            fListener.onLocation(location);
+            Location result = calculateAvgLocation();
+            fLocations.clear();
+            fListener.onLocation(result);
         }
+    }
+
+    private Location calculateAvgLocation() {
+        if (fLocations.size() == 1) {
+            return fLocations.get(0);
+        }
+        double latSum = 0;
+        double longSum = 0;
+        int weightSum = 0;
+        for (int i=0; i<fLocations.size();i++) {
+            Location current = fLocations.get(i);
+            int weight = i+1;
+            weightSum += weight;
+            latSum += current.getLatitude() * weight;
+            longSum += current.getLongitude() * weight;
+        }
+        double avgLat = latSum / weightSum;
+        double avgLong = longSum / weightSum;
+        Location location = new Location(fLocations.get(0).getProvider());
+        location.setLatitude(avgLat);
+        location.setLongitude(avgLong);
+        return location;
     }
 
     @Override
