@@ -37,16 +37,16 @@
     <string name="hotcold_start_button">Suche starten</string>
     <string name="hotcold_stop_button">Suche stoppen</string>
     <string name="hotcold_next_button">Weiter</string>
-    <string name="hotcold_target_latitude">47.148834</string>
-    <string name="hotcold_target_longitude">9.516944</string>
+    <string name="hotcold_target_latitude">47.149601</string>
+    <string name="hotcold_target_longitude">9.516799</string>
     <!--
      <string name="hotcold_target_latitude">47.138341</string>
     <string name="hotcold_target_longitude">9.521747</string>
     -->
-    <string name="hotcold_limit_hot">10</string>
-    <string name="hotcold_limit_warm">50</string>
-    <string name="hotcold_limit_cold">90</string>
-    <string name="hotcold_limit_steady">3</string>
+    <string name="hotcold_limit_hot">8</string>
+    <string name="hotcold_limit_warm">38</string>
+    <string name="hotcold_limit_cold">68</string>
+    <string name="hotcold_limit_steady">2</string>
     <string name="hotcold_speach_delay">5000</string>
 
     <!-- Intro -->
