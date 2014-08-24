@@ -42,6 +42,7 @@ public class CompassFragment extends AbstractTourFragment implements OnClickList
         Button nextButton = (Button)rootView.findViewById(R.id.next_button);
         
         setNextButton(nextButton);
+        onTaskSolved();
         
         /*Button clickBtn = (Button)rootView.findViewById(R.id.test_button);
         clickBtn.setOnClickListener(this);

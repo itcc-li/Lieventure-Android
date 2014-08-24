@@ -12,7 +12,7 @@
 
     <!-- Finish -->
 
-    <string name="finish_title">Herzliche Gratulation</string>  
+    <string name="finish_title">Herzliche Gratulation</string>
     <string name="finish_text">Du hast sämtliche Aufgaben gelöst. Um dies zu feiern, mach noch ein letztes Selfie mit dem Z-Würfel.</string>
 
     <!-- HotCold -->
@@ -38,12 +38,8 @@
     <string name="hotcold_start_button">Suche starten</string>
     <string name="hotcold_stop_button">Suche stoppen</string>
     <string name="hotcold_next_button">Weiter</string>
-    <string name="hotcold_target_latitude">47.149601</string>
-    <string name="hotcold_target_longitude">9.516799</string>
-    <!--
-     <string name="hotcold_target_latitude">47.138341</string>
+    <string name="hotcold_target_latitude">47.138341</string>
     <string name="hotcold_target_longitude">9.521747</string>
-    -->
     <string name="hotcold_limit_hot">8</string>
     <string name="hotcold_limit_warm">38</string>
     <string name="hotcold_limit_cold">68</string>
@@ -64,65 +60,77 @@
 
     <!-- Questions -->
     <string name="question_first_text">Aus welchem Material besteht diese Skulptur?</string>
+
     <string-array name="question_first_choises">
         <item>Gold</item>
         <item>Edelstahl</item>
         <item>Bronze</item>
         <item>Marmor</item>
     </string-array>
-    <string name="question_first_answer">3</string> 
+
+    <string name="question_first_answer">3</string>
     <string name="question_second_text">Kannst Du uns sagen, wann das Schloss zum ersten Mal urkundlich erwähnt wurde?</string>
+
     <string-array name="question_second_choises">
         <item>1322</item>
         <item>1233</item>
         <item>1323</item>
         <item>1223</item>
     </string-array>
-    <string name="question_second_answer">1</string> 
+
+    <string name="question_second_answer">1</string>
     <string name="question_third_text">Seit wann hat der Landesfürst seinen festen Wohnsitz im Schloss Vaduz?</string>
+
     <string-array name="question_third_choises">
         <item>Seit 1699</item>
         <item>Seit 1830</item>
         <item>Seit 1938</item>
         <item>Seit 1981</item>
-    </string-array>    
-    <string name="question_third_answer">3</string> 
-     <string name="question_fourth_text">Wie hoch ist der höchste Punkt Liechtensteins, der Grauspitz?</string>
+    </string-array>
+
+    <string name="question_third_answer">3</string>
+    <string name="question_fourth_text">Wie hoch ist der höchste Punkt Liechtensteins, der Grauspitz?</string>
+
     <string-array name="question_fourth_choises">
         <item>1599 Meter unter Meer</item>
         <item>2599 Meter über Meer</item>
         <item>1599 Meter über Meer</item>
         <item>2599 Meter unter Meer</item>
     </string-array>
-    <string name="question_fourth_answer">2</string> 
+
+    <string name="question_fourth_answer">2</string>
     <string name="question_fifth_text">Wann erlangte das Fürstentum Liechtenstein seine Souveränität?</string>
+
     <string-array name="question_fifth_choises">
         <item>1806</item>
         <item>1608</item>
         <item>1968</item>
         <item>1068</item>
     </string-array>
-    <string name="question_fifth_answer">1</string> 
+
+    <string name="question_fifth_answer">1</string>
     <string name="question_sixth_text">Welche Völkergruppe wanderte Ende des 13. Jahrhunderts in unseren Alpenraum ein?</string>
+
     <string-array name="question_sixth_choises">
         <item>Die Buxtehuder</item>
         <item>Die Langobarden</item>
         <item>Die Normannen</item>
         <item>Die Walser</item>
-    </string-array>    
-    <string name="question_sixth_answer">4</string>            
-    <string name="question_check_button">Antwort prüfen</string> 
-	<string name="question_next_button">Weiter</string>
-	<string name="question_right">ist richtig.</string>
-	<string name="question_wrong">ist falsch.</string>
-	<string name="question_title">Quizfrage</string>
-	<string name="question_press_next">Bitte mit WEITER fortfahren.</string>
-    	    
+    </string-array>
+
+    <string name="question_sixth_answer">4</string>
+    <string name="question_check_button">Antwort prüfen</string>
+    <string name="question_next_button">Weiter</string>
+    <string name="question_right">ist richtig.</string>
+    <string name="question_wrong">ist falsch.</string>
+    <string name="question_title">Quizfrage</string>
+    <string name="question_press_next">Bitte mit WEITER fortfahren.</string>
+
     <!-- compass -->
     <string name="compass_next_button">Weiter</string>
     <string name="gps_text">GPS Fragment!</string>
-    <string name="next_button">Weiter</string>     
-	<string name="distance_text"></string>  
+    <string name="next_button">Weiter</string>
+    <string name="distance_text"></string>
 
     <!-- Neigunssensor -->
     <string name="sculpture_info_text">Nun geht es zurück zu unserem Startpunkt. Dort angekommen, fällt Dir folgende Skulptur,  der Z-Würfel, auf. Lege Dein Handy an die markierte Stelle und messe die Schräge des Z.</string>
@@ -136,13 +144,13 @@
     <string name="selfie_picture_path">Lieventure</string>
 
     <!-- Selfie Ende -->
-    
+
 
     <!-- About -->
 
     <string name="abount_copyright_text">© Hackaton by itcc.li</string>
     <string name="abount_text">Diese App wurde im Rahmen des ersten Hackatons in Liechtenstein innerhalb 51 Stunden entwickelt.</string>
-    
+
     <!-- About ende -->
 
 </resources>
