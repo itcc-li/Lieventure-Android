@@ -13,25 +13,42 @@
     <!-- Finish -->
 
     <string name="finish_text">Das ist der finish text.</string>
-    
+
     <!-- HotCold -->
 
-    <string name="hotcold_text">Bitte suchen sie einen grossen silbernen Gegenstand.</string>
-    <string name="hotcold_start_button">Start</string>
-    <string name="hotcold_stop_button">Stop</string>
+    <string name="hotcold_title">Heiss - Kalt</string>
+    <string name="hotcold_text">Dieses Spiel ist bei den Kindern in Liechtenstein sehr beliebt. Es funktioniert so: Du musst einen grossen Gegenstand suchen und bekommst nur die Hinweise wie "Heiss" und "Kalt".</string>
+    <string name="hotcold_hint_text_default">Die Hinweise werden auch in Dialekt auf dem Lautsprecher ausgegeben.</string>
+    <string name="hotcold_hint_cold">Kalt</string>
+    <string name="hotcold_hint_warm">Warm</string>
+    <string name="hotcold_hint_warner">Wärmer</string>
+    <string name="hotcold_hint_warner_proceed">Jaaa! Wärmer, weiter so!</string>
+    <string name="hotcold_hint_hot">Heiss</string>
+    <string name="hotcold_hint_hotter">Heisser!!</string>
+    <string name="hotcold_hint_hotter_proceed"></string>
+    <string name="hotcold_hint_at_destination">Gratulation, Ziel erreicht!</string>
+    <string name="hotcold_hint_colder">Kälter</string>
+    <string name="hotcold_hint_turn">Willst du nicht eine andere Richtung versuchen?</string>
+    <string name="hotcold_hint_steady">Du musst schon schneller gehen, sonst wird das nichts.</string>
+    <string name="hotcold_hint_search_sat">GPS wird gestartet, bitte etwas geduld.</string>
+    <string name="hotcold_hint_turn_on_gps">Bitte GPS einschalten.</string>
+    <string name="hotcold_hint_dont_turn_foo_gps">GPS nicht ausschalten, sonst funktioniert\'s nicht</string>
+    <string name="hotcold_start_button">Suche starten</string>
+    <string name="hotcold_stop_button">Spiel stoppen</string>
     <string name="hotcold_next_button">Weiter</string>
     <string name="hotcold_target_latitude">47.14899139486573</string>
     <string name="hotcold_target_longitude">9.516886290599105</string>
     <string name="hotcold_limit_hot">10</string>
     <string name="hotcold_limit_warm">50</string>
-    <string name="hotcold_limit_cold">200</string>
+    <string name="hotcold_limit_cold">90</string>
     <string name="hotcold_limit_steady">3</string>
     <string name="hotcold_speach_delay">5000</string>
-    
+
     <!-- Intro -->
 
-	<string name="intro_tour_text">Herzlich Willkommen in der Tour durch Vaduz</string>
-	<string name="intro_start_button">Start Tour</string>
+    <string name="intro_title">Tour durch Vaduz</string>
+    <string name="intro_tour_text">Herzlich Willkommen in der Tour durch Vaduz. Hier in Vaduz sind alle per du, so auch dieses App. Na dann kanns ja schon losgehen. Bitte geh\' ins Städtle von Vaduz und starte dies Tour.</string>
+    <string name="intro_start_button">Start Tour</string>
 
     <!-- Task1 -->
 
@@ -42,39 +59,55 @@
     <!-- Task2 -->
 
 
-    <!-- Story2 -->
-    <string name="story2_question">Ein berühmter Bürger des Fürstentums Liechtenstein heisst Eduard Alexandrowitsch von 
-                               Falz-Fein. Was war er von Beruf?</string>
-    <string-array name="story2_choises">
-        <item>Unternehmersberater</item>
-        <item>Journalist</item>
-        <item>Banker</item>
-        <item>Oberst</item>
+    <!-- 3_Fragen_zu_Tafeln -->
+    <string name="first_question">Dies ist die erste Frage zur Tafel?</string>
+    <string-array name="first_choises">
+        <item>Falsche Antwort 1</item>
+        <item>Falsche Antwort 2</item>
+        <item>Falsche Antwort 3</item>
+        <item>Richtige Antwort 4</item>
     </string-array>
-    <string name="story2_answer">2</string> 
+    <string name="first_answer">4</string> 
+    <string name="second_question">Dies ist die zweite Frage zur Tafel?</string>
+    <string-array name="second_choises">
+        <item>Falsche Antwort 1</item>
+        <item>Richtige Antwort 2</item>
+        <item>Falsche Antwort 3</item>
+        <item>Falsche Antwort 4</item>
+    </string-array>
+    <string name="second_answer">2</string> 
+    <string name="third_question">Dies ist die letzte Frage zur Tafel?</string>
+    <string-array name="third_choises">
+        <item>Falsche Antwort 1</item>
+        <item>Falsche Antwort 2</item>
+        <item>Richtige Antwort 3</item>
+        <item>Falsche Antwort 4</item>
+    </string-array>
+    <string name="third_answer">3</string>         
     <string name="check_button">Antwort prüfen</string> 
 	<string name="next_button">Weiter</string>
 	<string name="right">ist richtig.</string>
 	<string name="wrong">ist falsch.</string>
     	    
     <!-- compass -->
-    
+
     <string name="compass_next_button">Weiter</string>
-    
-	<string name="gps_text">GPS Fragment!</string>
+    <string name="gps_text">GPS Fragment!</string>
 
     <!-- Story3 -->
-    
+
+
     <!-- Selfie -->
-    
-    <string name="test">Test Selfie</string>
-    
+
+    <string name="selfie_picture_path">Liechtenstein</string>
+
     <!-- Selfie Ende -->
-    
+
+
     <!-- Neigunssensor -->
-	<string name="sculpture_info_text">Lege dein Handy wie im Bild (flach und Display nach oben) auf die Skupture.</string>
-	<string name="sculpture_measurement_button">Messung</string>
-	<string name="sculpture_next_button">Weiter</string>
-	<string name="sculpture_please_wait">Bitte warten</string>
+    <string name="sculpture_info_text">Lege dein Handy wie im Bild (flach und Display nach oben) auf die Skupture.</string>
+    <string name="sculpture_measurement_button">Messung</string>
+    <string name="sculpture_next_button">Weiter</string>
+    <string name="sculpture_please_wait">Bitte warten</string>
 
 </resources>

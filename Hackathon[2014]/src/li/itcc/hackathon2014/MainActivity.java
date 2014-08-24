@@ -1,6 +1,7 @@
 
 package li.itcc.hackathon2014;
 
+import li.itcc.hackathon2014.Selfie.SelfieLogic;
 import li.itcc.hackathon2014.vaduztour.CompassFragment;
 import li.itcc.hackathon2014.vaduztour.HotColdFragment;
 import li.itcc.hackathon2014.vaduztour.IntroFragment;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
+    public static final int REQUEST_CODE_TAKE_PICTURE = 100;
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the
@@ -32,11 +34,12 @@ public class MainActivity extends Activity implements
      */
     private CharSequence mTitle;
 
-    private AbstractTourFragment fFragment;
+    private SelfieLogic fSelfieLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fSelfieLogic = new SelfieLogic(this);
         setContentView(R.layout.activity_main);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
@@ -59,7 +62,6 @@ public class MainActivity extends Activity implements
     }
 
     public void onFragmentAttached(AbstractTourFragment fragment, int tourNumber, int tourPage) {
-        fFragment = fragment;
         switch (tourNumber) {
             case 1:
                 mTitle = getString(R.string.title_section1);
@@ -94,6 +96,7 @@ public class MainActivity extends Activity implements
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            fSelfieLogic.startTakePictureActivity();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -129,9 +132,11 @@ public class MainActivity extends Activity implements
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (fFragment != null) {
-            fFragment.onActivityTourResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_TAKE_PICTURE) {
+            fSelfieLogic.onPictureResult(requestCode, resultCode, data);
+        }
+        else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
