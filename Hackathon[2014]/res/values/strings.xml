@@ -2,12 +2,96 @@
 <resources>
 
     <string name="app_name">Hackathon</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
+    <string name="title_section1">Tour durch Vaduz</string>
+    <string name="title_section2">GPS</string>
     <string name="title_section3">Section 3</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Finish -->
+
+    <string name="finish_text">Das ist der finish text.</string>
+
+    <!-- HotCold -->
+
+    <string name="hotcold_title">Heiss - Kalt</string>
+    <string name="hotcold_text">Dieses Spiel ist bei den Kindern in Liechtenstein sehr beliebt. Es funktioniert so: Du musst einen grossen Gegenstand suchen und bekommst nur die Hinweise wie "Heiss" und "Kalt".</string>
+    <string name="hotcold_hint_text_default">Die Hinweise werden auch in Dialekt auf dem Lautsprecher ausgegeben.</string>
+    <string name="hotcold_hint_cold">Kalt</string>
+    <string name="hotcold_hint_warm">Warm</string>
+    <string name="hotcold_hint_warner">Wärmer</string>
+    <string name="hotcold_hint_warner_proceed">Jaaa! Wärmer, weiter so!</string>
+    <string name="hotcold_hint_hot">Heiss</string>
+    <string name="hotcold_hint_hotter">Heisser!!</string>
+    <string name="hotcold_hint_hotter_proceed"></string>
+    <string name="hotcold_hint_at_destination">Gratulation, Ziel erreicht!</string>
+    <string name="hotcold_hint_colder">Kälter</string>
+    <string name="hotcold_hint_turn">Willst du nicht eine andere Richtung versuchen?</string>
+    <string name="hotcold_hint_steady">Du musst schon schneller gehen, sonst wird das nichts.</string>
+    <string name="hotcold_hint_search_sat">GPS wird gestartet, bitte etwas geduld.</string>
+    <string name="hotcold_hint_turn_on_gps">Bitte GPS einschalten.</string>
+    <string name="hotcold_hint_dont_turn_foo_gps">GPS nicht ausschalten, sonst funktioniert\'s nicht</string>
+    <string name="hotcold_start_button">Suche starten</string>
+    <string name="hotcold_stop_button">Spiel stoppen</string>
+    <string name="hotcold_next_button">Weiter</string>
+    <string name="hotcold_target_latitude">47.14899139486573</string>
+    <string name="hotcold_target_longitude">9.516886290599105</string>
+    <string name="hotcold_limit_hot">10</string>
+    <string name="hotcold_limit_warm">50</string>
+    <string name="hotcold_limit_cold">90</string>
+    <string name="hotcold_limit_steady">3</string>
+    <string name="hotcold_speach_delay">5000</string>
+
+    <!-- Intro -->
+
+    <string name="intro_title">Tour durch Vaduz</string>
+    <string name="intro_tour_text">Herzlich Willkommen in der Tour durch Vaduz. Hier in Vaduz sind alle per du, so auch dieses App. Na dann kanns ja schon losgehen. Bitte geh\' ins Städtle von Vaduz und starte dies Tour.</string>
+    <string name="intro_start_button">Start Tour</string>
+
+    <!-- Task1 -->
+
+
+    <!-- Story1 -->
+
+
+    <!-- Task2 -->
+
+
+    <!-- Story2 -->
+    <string name="story2_text">Ein berühmter Bürger des Fürstentums Liechtenstein heisst Eduard Alexandrowitsch von 
+                               Falz-Fein. Was war er von Beruf?</string>
+
+    <string-array name="story2_array">
+        <item>Unternehmer</item>
+        <item>Journalist</item>
+        <item>Sportler</item>
+        <item>Sportfunktionär</item>
+    </string-array>
+
+    <string name="next_button">Weiter</string>
+
+    <!-- compass -->
+
+    <string name="compass_next_button">Weiter</string>
+    <string name="gps_text">GPS Fragment!</string>
+
+    <!-- Story3 -->
+    
+    <!-- Neigunssensor -->
+	<string name="sculpture_info_text">Nun geht es zurück zu unserem Startpunkt. Dort angekommen, fällt Dir folgende Skulptur,  der Z-Würfel, auf. Lege Dein Handy an die markierte Stelle und messe die Schräge des Z.</string>
+	<string name="sculpture_measurement_button">Messung</string>
+	<string name="sculpture_next_button">Weiter</string>
+	<string name="sculpture_please_wait">Bitte warten</string>
+	<string name="sculpture_this_can_take_a_few_secound">Das kann einige Sekunden dauern</string>
+
+
+    <!-- Selfie -->
+
+    <string name="selfie_picture_path">Liechtenstein</string>
+
+    <!-- Selfie Ende -->
+
 
 </resources>
