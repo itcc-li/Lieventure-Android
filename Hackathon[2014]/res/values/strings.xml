@@ -44,8 +44,9 @@
 	<string name="next_button">Weiter</string> 
     	    
     <!-- Task3 -->
-	<string name="gps_text">GPS Fragment!</string>
-
+	<string name="gps_text">Schloss Vaduz</string>
+	<string name="distance_text"></string>
+	
     <!-- Story3 -->
     
     <!-- Selfie -->

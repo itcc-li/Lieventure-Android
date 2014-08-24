@@ -22,11 +22,15 @@
        
        <li.itcc.hackathon2014.vaduztour.compass.CanvasView
            android:id="@+id/compass_view"
-           android:layout_width="100dp"
-           android:layout_height="100dp"
-           android:background="#ffffffff"
-          />
-  
+           android:layout_width="match_parent"
+           android:layout_height="300dp"
+           android:background="#ffffffff" />
+
+       <TextView
+           android:id="@+id/distance_text"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/distance_text" />
 
        <Button
            android:id="@+id/next_button"
@@ -34,20 +38,6 @@
            android:layout_height="wrap_content"
            android:gravity="center_vertical|center_horizontal|bottom|fill_horizontal"
            android:text="@string/example_button" />
-
-       <Button
-           android:id="@+id/test_button"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Click Me" />
-
-       <Button
-           android:id="@+id/distance_button"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Get Distance" />
-		
-
 
    </LinearLayout>
 
