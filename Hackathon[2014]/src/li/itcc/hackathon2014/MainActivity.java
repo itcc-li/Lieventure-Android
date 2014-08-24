@@ -75,7 +75,7 @@ public class MainActivity extends Activity implements
     @Override
     public void onBackPressed() {
         if (fCurrentFragment != null) {
-            if (fCurrentFragment.getTourNumber() == 0) {
+            if (fCurrentFragment.getTourNumber() != 0) {
 
             }
         }
