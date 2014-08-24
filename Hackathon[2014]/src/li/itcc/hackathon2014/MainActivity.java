@@ -37,6 +37,8 @@ public class MainActivity extends Activity implements
 
     private SelfieLogic fSelfieLogic;
 
+    private AbstractTourFragment fCurrentFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,10 +72,24 @@ public class MainActivity extends Activity implements
         trans.commit();
     }
 
+    @Override
+    public void onBackPressed() {
+        if (fCurrentFragment != null) {
+            if (fCurrentFragment.getTourNumber() == 0) {
+
+            }
+        }
+
+    }
+
     public void onFragmentAttached(AbstractTourFragment fragment, int tourNumber, int tourPage) {
+        fCurrentFragment = fragment;
         switch (tourNumber) {
             case 1:
                 mTitle = getString(R.string.title_section1);
+                break;
+            case 2:
+                mTitle = getString(R.string.title_section2);
                 break;
         }
     }
