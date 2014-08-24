@@ -64,21 +64,65 @@
     <!-- Task2 -->
 
 
-    <!-- Story2 -->
-    <string name="story2_text">Ein berühmter Bürger des Fürstentums Liechtenstein heisst Eduard Alexandrowitsch von 
-                               Falz-Fein. Was war er von Beruf?</string>
-
-    <string-array name="story2_array">
-        <item>Unternehmer</item>
-        <item>Journalist</item>
-        <item>Sportler</item>
-        <item>Sportfunktionär</item>
+    <!-- Questions -->
+    <string name="question_first_text">Aus welchem Material besteht diese Skulptur?</string>
+    <string-array name="question_first_choises">
+        <item>Gold</item>
+        <item>Edelstahl</item>
+        <item>Bronze</item>
+        <item>Marmor</item>
     </string-array>
-	<string name="next_button">Weiter</string> 
+    <string name="question_first_answer">3</string> 
+    <string name="question_second_text">Kannst Du uns sagen, wann das Schloss zum ersten Mal urkundlich erwähnt wurde?</string>
+    <string-array name="question_second_choises">
+        <item>1322</item>
+        <item>1233</item>
+        <item>1323</item>
+        <item>1223</item>
+    </string-array>
+    <string name="question_second_answer">1</string> 
+    <string name="question_third_text">Seit wann hat der Landesfürst seinen festen Wohnsitz im Schloss Vaduz?</string>
+    <string-array name="question_third_choises">
+        <item>Seit 1699</item>
+        <item>Seit 1830</item>
+        <item>Seit 1938</item>
+        <item>Seit 1981</item>
+    </string-array>    
+    <string name="question_third_answer">3</string> 
+     <string name="question_fourth_text">Wie hoch ist der höchste Punkt Liechtensteins, der Grauspitz?</string>
+    <string-array name="question_fourth_choises">
+        <item>1599 Meter unter Meer</item>
+        <item>2599 Meter über Meer</item>
+        <item>1599 Meter über Meer</item>
+        <item>2599 Meter unter Meer</item>
+    </string-array>
+    <string name="question_fourth_answer">2</string> 
+    <string name="question_fifth_text">Wann erlangte das Fürstentum Liechtenstein seine Souveränität?</string>
+    <string-array name="question_fifth_choises">
+        <item>1806</item>
+        <item>1608</item>
+        <item>1968</item>
+        <item>1068</item>
+    </string-array>
+    <string name="question_fifth_answer">1</string> 
+    <string name="question_sixth_text">Welche Völkergruppe wanderte Ende des 13. Jahrhunderts in unseren Alpenraum ein?</string>
+    <string-array name="question_sixth_choises">
+        <item>Die Buxtehuder</item>
+        <item>Die Langobarden</item>
+        <item>Die Normannen</item>
+        <item>Die Walser</item>
+    </string-array>    
+    <string name="question_sixth_answer">4</string>            
+    <string name="question_check_button">Antwort prüfen</string> 
+	<string name="question_next_button">Weiter</string>
+	<string name="question_right">ist richtig.</string>
+	<string name="question_wrong">ist falsch.</string>
+	<string name="question_title">Quizfrage</string>
+	<string name="question_press_next">Bitte mit WEITER fortfahren.</string>
     	    
+    <string name="next_button">Weiter</string>     
     <!-- Task3 -->
 	<string name="distance_text"></string>
-
     <!-- compass -->
 
     <string name="compass_next_button">Weiter</string>
