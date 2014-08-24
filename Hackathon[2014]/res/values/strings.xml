@@ -37,8 +37,12 @@
     <string name="hotcold_start_button">Suche starten</string>
     <string name="hotcold_stop_button">Suche stoppen</string>
     <string name="hotcold_next_button">Weiter</string>
+    <!-- 
     <string name="hotcold_target_latitude">47.14899139486573</string>
     <string name="hotcold_target_longitude">9.516886290599105</string>
+     -->
+    <string name="hotcold_target_latitude">47.138341</string>
+    <string name="hotcold_target_longitude">9.521747</string>
     <string name="hotcold_limit_hot">10</string>
     <string name="hotcold_limit_warm">50</string>
     <string name="hotcold_limit_cold">90</string>
