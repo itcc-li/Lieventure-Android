@@ -74,8 +74,10 @@
         <item>Sportler</item>
         <item>Sportfunktionär</item>
     </string-array>
-
-    <string name="next_button">Weiter</string>
+	<string name="next_button">Weiter</string> 
+    	    
+    <!-- Task3 -->
+	<string name="distance_text"></string>
 
     <!-- compass -->
 
