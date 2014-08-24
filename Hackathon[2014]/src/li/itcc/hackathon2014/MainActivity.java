@@ -76,11 +76,15 @@ public class MainActivity extends Activity implements
     @Override
     public void onBackPressed() {
         if (fCurrentFragment != null) {
-            if (fCurrentFragment.getTourNumber() != 0) {
-
+            if (fCurrentFragment.getTourNumber() == 1 && fCurrentFragment.getTourPage() > 0) {
+                FragmentManager fragmentManager = getFragmentManager();
+                AbstractTourFragment fragment = IntroFragment.newInstance(1, 0);
+                fragment.setId("intro");
+                FragmentTransaction trans = fragmentManager.beginTransaction();
+                trans.replace(R.id.container, fragment);
+                trans.commit();
             }
         }
-
     }
 
     public void onFragmentAttached(AbstractTourFragment fragment, int tourNumber, int tourPage) {
