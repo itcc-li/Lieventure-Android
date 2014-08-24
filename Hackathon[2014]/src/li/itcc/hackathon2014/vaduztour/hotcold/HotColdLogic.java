@@ -24,7 +24,7 @@ public class HotColdLogic implements GPSLocationListener {
     private DistanceCalculator fDistanceCalculator;
     private DistanceHintGenerator fDistanceHintGenerator;
     private int locationCount;
-    private boolean fDebugMode = true;
+    private boolean fDebugMode = false;
     private Resources fResources;
 
     public HotColdLogic(Context context) {
@@ -67,16 +67,21 @@ public class HotColdLogic implements GPSLocationListener {
         float walkingDistance = fDistanceCalculator.getDistance(fLastLocation, location);
         DistanceHint hint = fDistanceHintGenerator.getDistanceHint(oldDistance, newDistance,
                 walkingDistance);
-        String hintText;
-        if (fDebugMode) {
-            hintText = "Latitude: " + location.getLatitude() + " Longitude: "
-                    + location.getLongitude() + "\noldDistance: " + oldDistance + "\nnewDistance: "
-                    + newDistance + "\nwalkingDistance: " + walkingDistance;
+        if (hint == DistanceHint.AT_DESTINATION) {
+            fListener.onTargetReached();
         }
         else {
-            hintText = fResources.getString(hint.getTextHint());
+            String hintText;
+            if (fDebugMode) {
+                hintText = "Latitude: " + location.getLatitude() + " Longitude: "
+                        + location.getLongitude() + "\noldDistance: " + oldDistance + "\nnewDistance: "
+                        + newDistance + "\nwalkingDistance: " + walkingDistance;
+            }
+            else {
+                hintText = fResources.getString(hint.getTextHint());
+            }
+            fListener.onHintText(hintText);
         }
-        fListener.onHintText(hintText);
         fSpeechGenerator.say(hint.getAudioHint());
         fLastLocation = location;
     }
@@ -97,6 +102,12 @@ public class HotColdLogic implements GPSLocationListener {
             fSpeechGenerator.say(R.raw.gps_ischalta_mp3);
             fListener.onHintText(fResources.getString(R.string.hotcold_hint_turn_on_gps));
         }
+    }
+
+    @Override
+    public void onLocationSensorSearching() {
+        fSpeechGenerator.say(R.raw.suech_satellit_mp3);
+        fListener.onHintText(fResources.getString(R.string.hotcold_hint_search_sat));
     }
 
 }

@@ -1,5 +1,5 @@
 
-package li.itcc.hackathon2014.vaduztour.finish;
+package li.itcc.hackathon2014.vaduztour;
 
 import li.itcc.hackathon2014.AbstractTourFragment;
 import li.itcc.hackathon2014.R;
