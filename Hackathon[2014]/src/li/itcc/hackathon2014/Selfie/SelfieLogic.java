@@ -27,6 +27,7 @@ public class SelfieLogic {
     private Activity fActivity;
     private int pictureNumber;
     private File fImagesFolder;
+    public static final int REQUEST_CODE_TAKE_PICTURE = 100;
 
     public SelfieLogic(Activity a) {
         this.fActivity = a;
@@ -39,9 +40,6 @@ public class SelfieLogic {
 
     public void startTakePictureActivity() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-      
-
         // Create Filename-String
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(fActivity);
         pictureNumber = settings.getInt(KEY_NEXT_SELFIE_PIC_NUM, 0);
@@ -60,7 +58,7 @@ public class SelfieLogic {
         }
         Uri uriSavedImage = Uri.fromFile(output);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
-        fActivity.startActivityForResult(intent, MainActivity.REQUEST_CODE_TAKE_PICTURE);
+        fActivity.startActivityForResult(intent, REQUEST_CODE_TAKE_PICTURE);
     } 
 
     private File getPictureFile(int pictureNumber) {
@@ -70,6 +68,7 @@ public class SelfieLogic {
     }
 
     public void onPictureResult(int requestCode, int resultCode, Intent data) {
+        int test = 5;
         if (resultCode != -1) {
             return;
         }
