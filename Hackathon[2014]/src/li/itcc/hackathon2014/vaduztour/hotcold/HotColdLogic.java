@@ -47,6 +47,7 @@ public class HotColdLogic implements GPSLocationListener {
 
     public void stopDelivery() {
         fDeliverer.stopDelivery();
+        fSpeechGenerator.stop();
     }
 
     public void startDelivery(HotColdLogicListener listener) {
