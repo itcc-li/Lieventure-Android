@@ -1,4 +1,3 @@
-
 package li.itcc.hackathon2014.vaduztour;
 
 import li.itcc.hackathon2014.AbstractTourFragment;

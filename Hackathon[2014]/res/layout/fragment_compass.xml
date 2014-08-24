@@ -37,8 +37,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:gravity="center_vertical|center_horizontal|bottom|fill_horizontal"
-           android:text="@string/example_button" />
+           android:text="@string/next_button" />
 
    </LinearLayout>
-
 </ScrollView>
