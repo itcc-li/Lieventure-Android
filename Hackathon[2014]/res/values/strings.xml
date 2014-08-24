@@ -61,9 +61,10 @@
     <!-- Selfie Ende -->
     
     <!-- Neigunssensor -->
-	<string name="sculpture_info_text">Lege dein Handy wie im Bild (flach und Display nach oben) auf die Skupture.</string>
+	<string name="sculpture_info_text">Nun geht es zurück zu unserem Startpunkt. Dort angekommen, fällt Dir folgende Skulptur,  der Z-Würfel, auf. Lege Dein Handy an die markierte Stelle und messe die Schräge des Z.</string>
 	<string name="sculpture_measurement_button">Messung</string>
 	<string name="sculpture_next_button">Weiter</string>
 	<string name="sculpture_please_wait">Bitte warten</string>
+	<string name="sculpture_this_can_take_a_few_secound">Das kann einige Sekunden dauern</string>
 
 </resources>

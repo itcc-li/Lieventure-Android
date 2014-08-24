@@ -54,7 +54,7 @@ public class GPSHandler implements LocationListener {
     @Override
     public void onProviderEnabled(String provider) {
        isGPSEnabled = true;
-       mListener.onLocationSensorDisabled();
+       mListener.onLocationSensorEnabled();
     }
 
     @Override

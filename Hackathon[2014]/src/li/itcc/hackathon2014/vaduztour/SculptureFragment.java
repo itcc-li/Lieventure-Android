@@ -1,5 +1,8 @@
 package li.itcc.hackathon2014.vaduztour;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
@@ -12,6 +15,7 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,20 +33,20 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
     private SensorManager mSensorManager;
     private Sensor mGravitySensor;
     private Button mBtnMeasurment;
-    private TextView mTextView;
-    private TextView mTextView_Tilt;
     private Tilt mCurrentTilt;
     private GPSHandler mGPSHandler;
+    private ProgressDialog mProgressDialog;
     
+    private final String LOG_SCULPTURE = "SCULPTURE";
     private final float METER_PER_DEZIMALGRAD_OW = 78714; // umrechnenung von gps daten in meter (ost west richtung)
     private final float METER_PER_DEZIMALGRAD_NS = 111319; // umrechnenung von gps daten in meter (nord süd richtung)
-    private final float DELTA_ABSTAND_METER = 60; // meter
-    private final float DELTA_TILT = 0.1f; // in grad
+    private final float DELTA_ABSTAND_METER = 50; // meter
+    private final float DELTA_TILT = 0.05f; // in grad
     
     // solution
-    private final double SOLUTION_LOCATION_LATITUDE  = 47.149081; 
-    private final double SOLUTION_LOCATION_LONGITUDE = 9.516950; 
-    private final int SOLUTION_TILT = 30;
+    private final double SOLUTION_LOCATION_LATITUDE  = 47.1384742; 
+    private final double SOLUTION_LOCATION_LONGITUDE = 9.52190201; 
+    private final int SOLUTION_TILT = 40;
     
     /**
      * Returns a new instance of this fragment for the given section number.
@@ -73,14 +77,18 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
         super.onStart();
         // init ui elements
         mBtnMeasurment = (Button)getActivity().findViewById(R.id.btnMeasurement);
-        mTextView = (TextView)getActivity().findViewById(R.id.textView2);
-        mTextView_Tilt = (TextView)getActivity().findViewById(R.id.textView3);
         
         // init sensores
         mSensorManager = (SensorManager)getActivity().getSystemService(getActivity().SENSOR_SERVICE);
         mGravitySensor = mSensorManager.getSensorList(Sensor.TYPE_GRAVITY).get(0);
         mGPSHandler = new GPSHandler(getActivity());
-                
+           
+        //init progressdialog
+        mProgressDialog = new ProgressDialog(getActivity());
+        mProgressDialog.setTitle(R.string.sculpture_please_wait);
+        mProgressDialog.setMessage(getString(R.string.sculpture_this_can_take_a_few_secound));
+        mProgressDialog.setCancelable(true);
+               
         initListener();        
     }
        
@@ -92,11 +100,10 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
         // calculate the different between ist/soll
         if (location != null) {
             double deltaX = SOLUTION_LOCATION_LONGITUDE - location.getLongitude();
-            double deltaY = SOLUTION_LOCATION_LATITUDE - location.getLatitude();
-            
-            mTextView.setText("Lat: " + location.getLatitude() + "; Long: " + location.getLongitude());
-            
+            double deltaY = SOLUTION_LOCATION_LATITUDE - location.getLatitude();            
             double diff = Math.sqrt(Math.pow((deltaX * METER_PER_DEZIMALGRAD_OW),2)  + Math.pow((deltaY * METER_PER_DEZIMALGRAD_NS),2));
+            
+            Log.d(LOG_SCULPTURE, "Lat: " + location.getLatitude() + "; Long: " + location.getLongitude());
             
             if (diff - DELTA_ABSTAND_METER <= 0.0) {
                 return true;
@@ -114,7 +121,7 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
         if (Math.abs((SOLUTION_TILT - mCurrentTilt.getZ()) / 90) < DELTA_TILT) {
             isCorrect = true;
         }
-        mTextView_Tilt.setText("Tilt: " + mCurrentTilt.getZ());
+        Log.d(LOG_SCULPTURE, "Tilt: " + mCurrentTilt.getZ());
         
         return isCorrect;
     }
@@ -124,13 +131,21 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
      */
     private void initListener() {
         mSensorManager.registerListener(this, mGravitySensor, SensorManager.SENSOR_DELAY_NORMAL);
-        // TODO: change to gps
-        //mLocationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, mLocationListener, null);
-               
+             
+        mProgressDialog.setOnCancelListener(new OnCancelListener() {
+            
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                mGPSHandler.stopDelivery();
+                Toast.makeText(getActivity(), "GPS suche abgebrochen", Toast.LENGTH_SHORT).show();
+            }
+        });
+        
         mBtnMeasurment.setOnClickListener(new OnClickListener() {
             @Override     
             public void onClick(View v) {
                 mGPSHandler.startDelivery(SculptureFragment.this);
+                mProgressDialog.show();
             }
         });
     }
@@ -152,9 +167,10 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
     
     @Override
     public void onPause() {
-        // TODO Auto-generated method stub
         super.onPause();
         mSensorManager.unregisterListener(this);
+        mGPSHandler.stopDelivery();
+        mProgressDialog.dismiss();
     }
     
     @Override
@@ -164,11 +180,14 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
 
     @Override
     public void onLocation(Location location) {
-        boolean isNearbyCorrect = isNearbyByLocation(location);
+        // progressdialog stopen
+        mProgressDialog.dismiss();
         boolean isTiltCorrect = isTiltCorrect();
+        boolean isNearbyCorrect = isNearbyByLocation(location);
         
         if (isNearbyCorrect && isTiltCorrect) {
             Toast.makeText(getActivity(), "korrekt", Toast.LENGTH_LONG).show();
+            onTaskSolved();
         } else {
             if (!isNearbyCorrect) {
                 Toast.makeText(getActivity(), "Position nicht korrekt", Toast.LENGTH_LONG).show();
@@ -186,6 +205,7 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
     @Override
     public void onLocationSensorDisabled() {
         Toast.makeText(getActivity(), "GPS nicht aktiviert", Toast.LENGTH_LONG).show();
+        mProgressDialog.dismiss();
         Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
         startActivity(intent);
     }
