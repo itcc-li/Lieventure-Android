@@ -1,5 +1,5 @@
 
-package li.itcc.hackathon2014.vaduztour.hotcold;
+package li.itcc.hackathon2014.utils;
 
 import android.content.Context;
 import android.location.Location;
@@ -11,11 +11,12 @@ public class GPSDeliverer implements LocationListener {
     private GPSLocationListener fListener;
     private Context fContext;
     private LocationManager fLocManager;
-    private long fSampleDeltaTimeMS = 5000L;
+    private long fSampleDeltaTimeMS;
     private long fNextSampleTimeMS = 0L;
 
-    public GPSDeliverer(Context context) {
+    public GPSDeliverer(Context context, long delay) {
         fContext = context;
+        fSampleDeltaTimeMS = delay;
     }
 
     public void startDelivery(GPSLocationListener gpsLocationListener) {
@@ -35,8 +36,18 @@ public class GPSDeliverer implements LocationListener {
         }
     }
 
+    public boolean isRunning() {
+        return fListener != null;
+    }
+
     @Override
     public void onLocationChanged(Location location) {
+        if (fListener == null) {
+            return;
+        }
+        if (fSampleDeltaTimeMS == 0) {
+            fListener.onLocation(location);
+        }
         long now = System.currentTimeMillis();
         if (fNextSampleTimeMS == 0 || now > fNextSampleTimeMS) {
             fNextSampleTimeMS = now + fSampleDeltaTimeMS;
@@ -59,7 +70,4 @@ public class GPSDeliverer implements LocationListener {
         fListener.onLocationSensorDisabled();
     }
 
-    public boolean isRunning() {
-        return fListener != null;
-    }
 }
