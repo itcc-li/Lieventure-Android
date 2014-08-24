@@ -18,6 +18,7 @@ public abstract class AbstractTourFragment extends Fragment {
     private Button fNextButton;
     private int fTourNumber;
     private int fTourPage;
+    private boolean fAlwaysShowNextButton = false;
 
     public void setTourArguments(int tourNumber, int tourPage) {
         Bundle args = new Bundle();
@@ -48,6 +49,9 @@ public abstract class AbstractTourFragment extends Fragment {
             throw new NullPointerException();
         }
         fNextButton = nextButton;
+        if (!fAlwaysShowNextButton) {
+            fNextButton.setVisibility(View.GONE);
+        }
         fNextButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -60,9 +64,9 @@ public abstract class AbstractTourFragment extends Fragment {
     protected void onNextButtonClicked() {
         ((MainActivity) getActivity()).onFragmentNextClicked(this, fTourNumber, fTourPage);
     }
-    
+
     protected void onTaskSolved() {
-        
+        fNextButton.setVisibility(View.VISIBLE);
     }
 
 }

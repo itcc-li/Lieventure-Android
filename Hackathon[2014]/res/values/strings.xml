@@ -17,12 +17,13 @@
     <!-- HotCold -->
 
     <string name="hotcold_title">Heiss - Kalt</string>
-    <string name="hotcold_text">Dieses Spiel ist bei den Kindern in Liechtenstein sehr beliebt. Es funktioniert so: Du musst einen grossen Gegenstand suchen und bekommst nur die Hinweise wie "Heiss" und "Kalt".</string>
-    <string name="hotcold_hint_text_default">Die Hinweise werden auch in Dialekt auf dem Lautsprecher ausgegeben.</string>
+    <string name="hotcold_text">Unsere Tour beginnt auf einem Bogen mitten in Vaduz. Findest Du den beschriebenen Startpunkt?</string>
+    <string name="hotcold_hint_text_default"></string>
+    <string name="hotcold_hint_text_finish">Du hast schon die erste Aufgabe gemeistert und den Start gefunden. Um den Moment festzuhalten, mach am besten ein Foto von Dir und dem Schloss Vaduz.</string>
     <string name="hotcold_hint_cold">Kalt</string>
     <string name="hotcold_hint_warm">Warm</string>
     <string name="hotcold_hint_warner">Wärmer</string>
-    <string name="hotcold_hint_warner_proceed">Jaaa! Wärmer, weiter so!</string>
+    <string name="hotcold_hint_warner_proceed">Ja! Wärmer, weiter so!</string>
     <string name="hotcold_hint_hot">Heiss</string>
     <string name="hotcold_hint_hotter">Heisser!!</string>
     <string name="hotcold_hint_hotter_proceed"></string>
@@ -30,11 +31,11 @@
     <string name="hotcold_hint_colder">Kälter</string>
     <string name="hotcold_hint_turn">Willst du nicht eine andere Richtung versuchen?</string>
     <string name="hotcold_hint_steady">Du musst schon schneller gehen, sonst wird das nichts.</string>
-    <string name="hotcold_hint_search_sat">GPS wird gestartet, bitte etwas geduld.</string>
+    <string name="hotcold_hint_search_sat">GPS wird gestartet, bitte etwas Geduld.</string>
     <string name="hotcold_hint_turn_on_gps">Bitte GPS einschalten.</string>
     <string name="hotcold_hint_dont_turn_foo_gps">GPS nicht ausschalten, sonst funktioniert\'s nicht</string>
     <string name="hotcold_start_button">Suche starten</string>
-    <string name="hotcold_stop_button">Spiel stoppen</string>
+    <string name="hotcold_stop_button">Suche stoppen</string>
     <string name="hotcold_next_button">Weiter</string>
     <string name="hotcold_target_latitude">47.14899139486573</string>
     <string name="hotcold_target_longitude">9.516886290599105</string>

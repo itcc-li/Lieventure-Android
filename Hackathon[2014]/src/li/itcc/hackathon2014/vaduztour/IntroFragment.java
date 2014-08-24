@@ -30,6 +30,7 @@ public class IntroFragment extends AbstractTourFragment {
                 false);
         Button nextButton = (Button)rootView.findViewById(R.id.intro_start_button);
         setNextButton(nextButton);
+        onTaskSolved();
         return rootView;
     }
 

@@ -107,16 +107,16 @@ public class MainActivity extends Activity implements
         AbstractTourFragment nextFragment;
         int nextPage = tourPage + 1;
         if (tourPage == 0) {
-            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage);
+            nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
         }
         else if (tourPage == 1) {
             nextFragment = CompassFragment.newInstance(tourNumber, nextPage);
         }
         else if (tourPage == 2) {
-            nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
+            nextFragment = SculptureFragment.newInstance(tourNumber, nextPage);
         }
         else if (tourPage == 3) {
-            nextFragment = SculptureFragment.newInstance(tourNumber, nextPage);
+            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage);
         }
         else if (tourPage == 4) {
             nextFragment = FinishFragment.newInstance(tourNumber, nextPage);
