@@ -23,10 +23,13 @@ public class QuestionFragment extends AbstractTourFragment {
     private String question_stage="first";
     private String answer=null;
     private Button checkButton=null;
+    private Button nextButton=null;
+    private static int runNumber;
     
     public static QuestionFragment newInstance(int tourNumber, int tourPage) {
         QuestionFragment fragment = new QuestionFragment();
         fragment.setTourArguments(tourNumber, tourPage);
+        runNumber = tourPage;
         return fragment;
     }
 
@@ -39,41 +42,44 @@ public class QuestionFragment extends AbstractTourFragment {
         //Setup View
         rootView = inflater.inflate(R.layout.fragment_question, container,
                 false);
-        resultView=(TextView)rootView.findViewById(R.id.section_label);
-        resultView.setText(getResources().getString(R.string.question_first_text));
-        answer = getResources().getString(R.string.question_first_answer);
         
-        //Setup Buttons
-        Button nextButton = (Button)rootView.findViewById(R.id.next_button);
-        checkButton = (Button)rootView.findViewById(R.id.check_button);
+        resultView=(TextView)rootView.findViewById(R.id.question_text);
+        if (runNumber == 1) {
+            resultView.setText(getResources().getString(R.string.question_first_text));
+            answer = getResources().getString(R.string.question_first_answer);     
+            question_spinner = (Spinner)rootView.findViewById(R.id.question_spinner);
+            ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_first_choises, android.R.layout.simple_spinner_dropdown_item);
+            choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            question_spinner.setAdapter(choises_adapter);                                 
+        } else {
+            question_stage = "second";
+            resultView.setText(getResources().getString(R.string.question_second_text));
+            answer = getResources().getString(R.string.question_second_answer);
+            question_spinner = (Spinner)rootView.findViewById(R.id.question_spinner);
+            ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_second_choises, android.R.layout.simple_spinner_dropdown_item);
+            choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            question_spinner.setAdapter(choises_adapter); 
+        }
+        nextButton = (Button)rootView.findViewById(R.id.question_next_button);
+        checkButton = (Button)rootView.findViewById(R.id.question_check_button);
         checkButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 onButtonClick((Button) v);
             }
         });                
-        setNextButton(nextButton);
-        
-        //Setup Drop-Down-Box
-        question_spinner = (Spinner)rootView.findViewById(R.id.spinner_question);
-        ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_first_choises, android.R.layout.simple_spinner_dropdown_item);
-        choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        question_spinner.setAdapter(choises_adapter);                                 
-        return rootView;        
+        return rootView;       
     }
     
     private void onButtonClick(Button v) {
-        String compare = String.valueOf(question_spinner.getSelectedItemId()+1);
-        //Debug: resultView.setText(compare+" "+answer);
-       
+        String compare = String.valueOf(question_spinner.getSelectedItemId()+1);  
         if (compare.equals(answer)) {
             resultView.setText(question_spinner.getSelectedItem().toString()+" "+getResources().getString(R.string.question_right));
-            if (question_stage.equals("first")){
-                question_stage = "second";                
-                resultView.append("\n\n"+getResources().getString(R.string.question_second_text));
-                ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_second_choises, android.R.layout.simple_spinner_dropdown_item);
-                choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                question_spinner.setAdapter(choises_adapter);   
-                answer = getResources().getString(R.string.question_second_answer); 
+            if (question_stage.equals("first")){                         
+                checkButton.setOnClickListener(null);
+                checkButton.setVisibility(View.INVISIBLE);
+                setNextButton(nextButton);
+                resultView.append(getResources().getString(R.string.question_press_next));                
+                onTaskSolved();
             } else if (question_stage.equals("second")) {
                 question_stage = "third";
                 resultView.append("\n\n"+getResources().getString(R.string.question_third_text));
@@ -81,10 +87,32 @@ public class QuestionFragment extends AbstractTourFragment {
                 choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 question_spinner.setAdapter(choises_adapter);   
                 answer = getResources().getString(R.string.question_third_answer);
+            } else if (question_stage.equals("third")) {
+                question_stage = "fourth";
+                resultView.append("\n\n"+getResources().getString(R.string.question_fourth_text));
+                ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_fourth_choises, android.R.layout.simple_spinner_dropdown_item);
+                choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                question_spinner.setAdapter(choises_adapter);   
+                answer = getResources().getString(R.string.question_fourth_answer);
+            } else if (question_stage.equals("fourth")) {
+                question_stage = "fifth";
+                resultView.append("\n\n"+getResources().getString(R.string.question_fifth_text));
+                ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_fifth_choises, android.R.layout.simple_spinner_dropdown_item);
+                choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                question_spinner.setAdapter(choises_adapter);   
+                answer = getResources().getString(R.string.question_fifth_answer);             
+            } else if (question_stage.equals("fifth")) {
+                question_stage = "sixth";
+                resultView.append("\n\n"+getResources().getString(R.string.question_sixth_text));
+                ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_sixth_choises, android.R.layout.simple_spinner_dropdown_item);
+                choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                question_spinner.setAdapter(choises_adapter);   
+                answer = getResources().getString(R.string.question_sixth_answer);                   
             } else {
                 checkButton.setOnClickListener(null);
                 checkButton.setVisibility(View.INVISIBLE);
                 resultView.append(getResources().getString(R.string.question_press_next));
+                setNextButton(nextButton);
                 onTaskSolved();
             }                               
         } else {
