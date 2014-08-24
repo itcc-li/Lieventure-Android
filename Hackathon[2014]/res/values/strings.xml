@@ -8,11 +8,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Settings</string>  
 
     <!-- Finish -->
 
-    <string name="finish_text">Das ist der finish text.</string>
+    <string name="finish_title">Herzliche Gratulation</string>  
+    <string name="finish_text">Du hast sämtliche Aufgaben gelöst. Um dies zu feiern, mach noch ein letztes Selfie mit dem Z-Würfel.</string>
 
     <!-- HotCold -->
 
@@ -55,14 +56,11 @@
     <string name="intro_tour_text">Herzlich Willkommen bei unserer Tour durch Vaduz. Hier in Liechtenstein spricht man sich gegenseitig mit Du an, was die Persönlichkeit in unserem kleinen Land widerspiegelt. Wir möchten Dir nun das Fürstentum Liechtenstein und insbesondere dessen Hauptstadt ein wenig näher bringen. Viel Spass bei unserem Rundgang!</string>
     <string name="intro_start_button">Start Tour</string>
 
-    <!-- Task1 -->
+    <!-- Castle -->
 
-
-    <!-- Story1 -->
-
-
-    <!-- Task2 -->
-
+    <string name="castle_title">Schloss Vaduz</string>
+    <string name="castle_tour_text">Nun führt uns unser Weg weiter zum wohl bekanntesten Wahrzeichen Liechtensteins, dem Schloss Vaduz. Dazu laufen wir zuerst weiter durch die Residenz, um dann den schmalen Weg zwischen der Brasserie Burg und dem Restaurant Engel zu finden. Dann gehen wir weiter den 10-minütigen Pfad nach oben durch den Wald in Richtung Schloss. Oben angekommen, finden wir einen Aussichtspunkt, von wo aus wir einen grandiosen Blick über Vaduz und das Rheintal haben.\n\nNun hast Du die perfekte Gelegenheit, ein Selfie von Dir mit dem Hauptort Liechtensteins im Hintergrund zu machen.\n\nGratulation, Du hast den Aufstieg zum Fürsten geschafft. Auf dem Weg hierher sind Dir wahrscheinlich die Schilder mit verschiedenen Informationen zum Fürstenhaus und dem Land Liechtenstein aufgefallen.</string>
+    <string name="castle_start_button">Fragen zu Schildern</string>
 
     <!-- Questions -->
     <string name="question_first_text">Aus welchem Material besteht diese Skulptur?</string>
@@ -120,16 +118,11 @@
 	<string name="question_title">Quizfrage</string>
 	<string name="question_press_next">Bitte mit WEITER fortfahren.</string>
     	    
-    <string name="next_button">Weiter</string>     
-    <!-- Task3 -->
-	<string name="distance_text"></string>
     <!-- compass -->
-
     <string name="compass_next_button">Weiter</string>
     <string name="gps_text">GPS Fragment!</string>
-
-    <!-- Story3 -->
-
+    <string name="next_button">Weiter</string>     
+	<string name="distance_text"></string>  
 
     <!-- Neigunssensor -->
     <string name="sculpture_info_text">Nun geht es zurück zu unserem Startpunkt. Dort angekommen, fällt Dir folgende Skulptur,  der Z-Würfel, auf. Lege Dein Handy an die markierte Stelle und messe die Schräge des Z.</string>
@@ -143,7 +136,7 @@
     <string name="selfie_picture_path">Lieventure</string>
 
     <!-- Selfie Ende -->
-
+    
 
     <!-- About -->
 

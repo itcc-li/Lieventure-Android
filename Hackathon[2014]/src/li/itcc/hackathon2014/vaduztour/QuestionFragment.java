@@ -13,6 +13,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class QuestionFragment extends AbstractTourFragment {
+    public static final int QUESTION_SET_WOMAN = 0;
+    public static final int QUESTION_SET_CASTLE = 1;
+    private static final String ARG_QUESTION_SET = "tour_question_set";
 
     /**
      * Returns a new instance of this fragment for the given section number.
@@ -24,12 +27,12 @@ public class QuestionFragment extends AbstractTourFragment {
     private String answer=null;
     private Button checkButton=null;
     private Button nextButton=null;
-    private static int runNumber;
+    private int questionSet;
     
-    public static QuestionFragment newInstance(int tourNumber, int tourPage) {
+    public static QuestionFragment newInstance(int tourNumber, int tourPage, int questionSet) {
         QuestionFragment fragment = new QuestionFragment();
         fragment.setTourArguments(tourNumber, tourPage);
-        runNumber = tourPage;
+        fragment.getArguments().putInt(ARG_QUESTION_SET, questionSet);
         return fragment;
     }
 
@@ -39,12 +42,13 @@ public class QuestionFragment extends AbstractTourFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        questionSet = getArguments().getInt(ARG_QUESTION_SET);
         //Setup View
         rootView = inflater.inflate(R.layout.fragment_question, container,
                 false);
         
         resultView=(TextView)rootView.findViewById(R.id.question_text);
-        if (runNumber == 1) {
+        if (questionSet == QUESTION_SET_WOMAN) {
             resultView.setText(getResources().getString(R.string.question_first_text));
             answer = getResources().getString(R.string.question_first_answer);     
             question_spinner = (Spinner)rootView.findViewById(R.id.question_spinner);
