@@ -39,6 +39,10 @@ public abstract class AbstractTourFragment extends Fragment {
         return fTourNumber;
     }
     
+    public int getTourPage() {
+        return fTourPage;
+    }
+    
     public void setId(String id) {
         Bundle args = this.getArguments();
         args.putString(ARG_TOUR_FRAGMENT_ID, id);

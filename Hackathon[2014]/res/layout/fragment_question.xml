@@ -6,29 +6,33 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="li.itcc.hackathon2014.MainActivity$PlaceholderFragment" >
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/section_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/story2_text" />
+            android:id="@+id/question_title"
+            style="@style/Title"
+            android:text="@string/question_title" />
+
+        <TextView
+            android:id="@+id/question_text"
+            style="@style/Paragraph"
+            android:text="@string/question_first_text" />
 
         <Spinner
-            android:id="@+id/spinner_question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-            
+            android:id="@+id/question_spinner"
+            style="@style/Spinner" />
+
         <Button
-            android:id="@+id/next_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/next_button" ></Button>                          
+            android:id="@+id/question_check_button"
+            style="@style/NextButton"
+            android:text="@string/question_check_button" >
+        </Button>
+
+        <Button
+            android:id="@+id/question_next_button"
+            style="@style/NextButton"
+            android:text="@string/question_next_button" >
+        </Button>
     </LinearLayout>
 
 </ScrollView>
