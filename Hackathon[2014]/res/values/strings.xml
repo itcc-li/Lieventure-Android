@@ -60,37 +60,36 @@
 
 
     <!-- 3_Fragen_zu_Tafeln -->
-    <string name="first_question">Dies ist die erste Frage zur Tafel?</string>
-    <string-array name="first_choises">
+    <string name="question_first_text">Dies ist die erste Frage zur Tafel?</string>
+    <string-array name="question_first_choises">
         <item>Falsche Antwort 1</item>
         <item>Falsche Antwort 2</item>
         <item>Falsche Antwort 3</item>
         <item>Richtige Antwort 4</item>
     </string-array>
-    <string name="first_answer">4</string> 
-    <string name="second_question">Dies ist die zweite Frage zur Tafel?</string>
-    <string-array name="second_choises">
+    <string name="question_first_answer">4</string> 
+    <string name="question_second_text">Dies ist die zweite Frage zur Tafel?</string>
+    <string-array name="question_second_choises">
         <item>Falsche Antwort 1</item>
         <item>Richtige Antwort 2</item>
         <item>Falsche Antwort 3</item>
         <item>Falsche Antwort 4</item>
     </string-array>
-    <string name="second_answer">2</string> 
-    <string name="third_question">Dies ist die letzte Frage zur Tafel?</string>
-    <string-array name="third_choises">
+    <string name="question_second_answer">2</string> 
+    <string name="question_third_text">Dies ist die letzte Frage zur Tafel?</string>
+    <string-array name="question_third_choises">
         <item>Falsche Antwort 1</item>
         <item>Falsche Antwort 2</item>
         <item>Richtige Antwort 3</item>
         <item>Falsche Antwort 4</item>
     </string-array>
-    <string name="third_answer">3</string>         
-    <string name="check_button">Antwort prüfen</string> 
-	<string name="next_button">Weiter</string>
-	<string name="right">ist richtig.</string>
-	<string name="wrong">ist falsch.</string>
+    <string name="question_third_answer">3</string>         
+    <string name="question_check_button">Antwort prüfen</string> 
+	<string name="question_next_button">Weiter</string>
+	<string name="question_right">ist richtig.</string>
+	<string name="question_wrong">ist falsch.</string>
 	<string name="question_title">Quizfragen</string>
-	
-	
+	<string name="question_press_next">Bitte mit WEITER fortfahren.</string>
     	    
     <!-- compass -->
 

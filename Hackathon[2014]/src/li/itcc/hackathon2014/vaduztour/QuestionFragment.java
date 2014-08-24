@@ -40,8 +40,8 @@ public class QuestionFragment extends AbstractTourFragment {
         rootView = inflater.inflate(R.layout.fragment_question, container,
                 false);
         resultView=(TextView)rootView.findViewById(R.id.section_label);
-        resultView.setText(getResources().getString(R.string.first_question));
-        answer = getResources().getString(R.string.first_answer);
+        resultView.setText(getResources().getString(R.string.question_first_text));
+        answer = getResources().getString(R.string.question_first_answer);
         
         //Setup Buttons
         Button nextButton = (Button)rootView.findViewById(R.id.next_button);
@@ -55,7 +55,7 @@ public class QuestionFragment extends AbstractTourFragment {
         
         //Setup Drop-Down-Box
         question_spinner = (Spinner)rootView.findViewById(R.id.spinner_question);
-        ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.first_choises, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_first_choises, android.R.layout.simple_spinner_dropdown_item);
         choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         question_spinner.setAdapter(choises_adapter);                                 
         return rootView;        
@@ -66,29 +66,29 @@ public class QuestionFragment extends AbstractTourFragment {
         //Debug: resultView.setText(compare+" "+answer);
        
         if (compare.equals(answer)) {
-            resultView.setText(question_spinner.getSelectedItem().toString()+" "+getResources().getString(R.string.right));
+            resultView.setText(question_spinner.getSelectedItem().toString()+" "+getResources().getString(R.string.question_right));
             if (question_stage.equals("first")){
                 question_stage = "second";                
-                resultView.append("\n\n"+getResources().getString(R.string.second_question));
-                ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.second_choises, android.R.layout.simple_spinner_dropdown_item);
+                resultView.append("\n\n"+getResources().getString(R.string.question_second_text));
+                ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_second_choises, android.R.layout.simple_spinner_dropdown_item);
                 choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 question_spinner.setAdapter(choises_adapter);   
-                answer = getResources().getString(R.string.second_answer); 
+                answer = getResources().getString(R.string.question_second_answer); 
             } else if (question_stage.equals("second")) {
                 question_stage = "third";
-                resultView.append("\n\n"+getResources().getString(R.string.third_question));
-                ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.third_choises, android.R.layout.simple_spinner_dropdown_item);
+                resultView.append("\n\n"+getResources().getString(R.string.question_third_text));
+                ArrayAdapter<CharSequence> choises_adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.question_third_choises, android.R.layout.simple_spinner_dropdown_item);
                 choises_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 question_spinner.setAdapter(choises_adapter);   
-                answer = getResources().getString(R.string.third_answer);
+                answer = getResources().getString(R.string.question_third_answer);
             } else {
                 checkButton.setOnClickListener(null);
                 checkButton.setVisibility(View.INVISIBLE);
-                resultView.append("Bitte mit WEITER fortfahren.");
+                resultView.append(getResources().getString(R.string.question_press_next));
                 onTaskSolved();
             }                               
         } else {
-            resultView.append("\n"+question_spinner.getSelectedItem().toString()+" "+getResources().getString(R.string.wrong));
+            resultView.append("\n"+question_spinner.getSelectedItem().toString()+" "+getResources().getString(R.string.question_wrong));
         }
     }
     

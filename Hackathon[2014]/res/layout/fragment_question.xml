@@ -23,13 +23,13 @@
         <Button
             android:id="@+id/check_button"
             style="@style/NextButton"
-            android:text="@string/check_button" >
+            android:text="@string/question_check_button" >
         </Button>
 
         <Button
             android:id="@+id/next_button"
             style="@style/NextButton"
-            android:text="@string/next_button" >
+            android:text="@string/question_next_button" >
         </Button>
     </LinearLayout>
 
