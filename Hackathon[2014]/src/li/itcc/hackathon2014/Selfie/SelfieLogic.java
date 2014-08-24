@@ -77,34 +77,28 @@ public class SelfieLogic {
             return;
         }
        // BitmapFactory fb = BitmapFactory.decodeFile(input.getPath())
+      
+        // addWatermark
         
-
-    }
-
-    public void addWatermark(Bitmap bitmap1, int watermark) {
-        // definieren .. pfad zum bitmap
-        Bitmap bitmap2 = BitmapFactory.decodeResource(fActivity.getResources(), watermark);
-
-        // create white Image
-        Bitmap resultBitmap = Bitmap.createBitmap(bitmap1.getWidth(), bitmap1.getHeight(),
-                Bitmap.Config.ARGB_8888);
-
-        // create Canvas with white Image
-        Canvas c = new Canvas(resultBitmap);
-
-        // draw pic
-        c.drawBitmap(bitmap1, 0, 0, null);
-        Paint p = new Paint();
-        p.setAlpha(127);
-
-        // draw watermark
-        c.drawBitmap(bitmap2, 0, 0, p);
-
         // try {
         // resultBitmap.compress(Bitmap.CompressFormat.JPEG, 100, null);
         // } catch (FileNotFoundException e) {
         // e.printStackTrace();
         // }
+
+    }
+
+    public void addWatermark(Bitmap pictureBitmap, int watermark) {
+        // definieren .. pfad zum bitmap
+        Bitmap watermarkBitmap = BitmapFactory.decodeResource(fActivity.getResources(), watermark);
+
+        // create Canvas with white Image
+        Canvas c = new Canvas(pictureBitmap);
+        Paint p = new Paint();
+        p.setAlpha(127);
+
+        // draw watermark
+        c.drawBitmap(watermarkBitmap, 0, 0, p);
 
     }
 
