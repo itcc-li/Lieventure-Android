@@ -2,6 +2,9 @@
 package li.itcc.hackathon2014.Selfie;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import li.itcc.hackathon2014.MainActivity;
 import li.itcc.hackathon2014.R;
@@ -76,30 +79,39 @@ public class SelfieLogic {
         if (!input.exists()) {
             return;
         }
-       // BitmapFactory fb = BitmapFactory.decodeFile(input.getPath())
-      
-        // addWatermark
-        
-        // try {
-        // resultBitmap.compress(Bitmap.CompressFormat.JPEG, 100, null);
-        // } catch (FileNotFoundException e) {
-        // e.printStackTrace();
-        // }
+        Bitmap b = BitmapFactory.decodeFile(input.getPath());
+
+        Bitmap result = addWatermark(b, R.raw.icon_selfie);
+        FileOutputStream stream;
+        try {
+            stream = new FileOutputStream(input);
+            result.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            stream.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
 
     }
 
-    public void addWatermark(Bitmap pictureBitmap, int watermark) {
+    public Bitmap addWatermark(Bitmap pictureBitmap, int watermark) {
         // definieren .. pfad zum bitmap
         Bitmap watermarkBitmap = BitmapFactory.decodeResource(fActivity.getResources(), watermark);
 
+        Bitmap.Config conf= Bitmap.Config.ARGB_8888;
+        Bitmap bmp= Bitmap.createBitmap(pictureBitmap.getWidth(),pictureBitmap.getHeight() ,conf);
+        
+        
         // create Canvas with white Image
-        Canvas c = new Canvas(pictureBitmap);
+        Canvas c = new Canvas(bmp);
         Paint p = new Paint();
         p.setAlpha(127);
 
         // draw watermark
         c.drawBitmap(watermarkBitmap, 0, 0, p);
-
+        c.drawBitmap(pictureBitmap, 0, 0, p);
+        return bmp;
     }
 
 }
