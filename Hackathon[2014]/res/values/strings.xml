@@ -88,6 +88,9 @@
 	<string name="next_button">Weiter</string>
 	<string name="right">ist richtig.</string>
 	<string name="wrong">ist falsch.</string>
+	<string name="question_title">Quizfragen</string>
+	
+	
     	    
     <!-- compass -->
 

@@ -14,6 +14,7 @@
     
     <dimen name="text_title_top">20dp</dimen>
     <dimen name="text_paragraph_top">16dp</dimen>
+    <dimen name="text_spinner_top">16dp</dimen>
     <dimen name="text_next_button_top">16dp</dimen>
     
 
