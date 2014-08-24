@@ -1,5 +1,11 @@
 package li.itcc.hackathon2014.vaduztour;
 
+import java.util.List;
+
+import li.itcc.hackathon2014.AbstractTourFragment;
+import li.itcc.hackathon2014.R;
+import li.itcc.hackathon2014.vaduztour.sculpture.LocationListeners;
+import li.itcc.hackathon2014.vaduztour.sculpture.Tilt;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,10 +19,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-import li.itcc.hackathon2014.AbstractTourFragment;
-import li.itcc.hackathon2014.R;
-import li.itcc.hackathon2014.vaduztour.sculpture.LocationListeners;
-import li.itcc.hackathon2014.vaduztour.sculpture.Tilt;
 
 public class SculptureFragment extends AbstractTourFragment implements SensorEventListener {
     private SensorManager mSensorManager;
@@ -68,7 +70,13 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
         
         // init sensores
         mSensorManager = (SensorManager)getActivity().getSystemService(getActivity().SENSOR_SERVICE);
-        mGravitySensor = mSensorManager.getSensorList(Sensor.TYPE_GRAVITY).get(0);
+        List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GRAVITY);
+        if (!list.isEmpty()){
+            mGravitySensor = mSensorManager.getSensorList(Sensor.TYPE_GRAVITY).get(0);
+        }
+        else {
+            mGravitySensor = null;
+        }
         mLocationManager = (LocationManager)getActivity().getSystemService(getActivity().LOCATION_SERVICE);        
  
         // TODO: check is gps enabled
@@ -130,6 +138,10 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
      * init listeners for services and ui elements
      */
     private void initListener() {
+        if (mGravitySensor == null) {
+            btnMeasurment.setEnabled(false);
+            return;
+        }
         mSensorManager.registerListener(this, mGravitySensor, SensorManager.SENSOR_DELAY_NORMAL);
         // TODO: change to gps
         mLocationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, mLocationListener, null);
