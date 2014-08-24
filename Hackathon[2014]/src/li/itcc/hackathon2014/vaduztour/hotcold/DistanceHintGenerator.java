@@ -48,7 +48,7 @@ public class DistanceHintGenerator {
                 result = DistanceHint.HOT;
             }
             else {
-                result = DistanceHint.ATDESTINATION;
+                result = DistanceHint.AT_DESTINATION;
             }
         }
         else if (newDistance < oldDistance) {
@@ -59,7 +59,7 @@ public class DistanceHintGenerator {
                 result = DistanceHint.HOTTER;
             }
             else {
-                result = DistanceHint.ATDESTINATION;
+                result = DistanceHint.AT_DESTINATION;
             }
         }
         else {

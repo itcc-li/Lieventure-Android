@@ -5,15 +5,23 @@ import android.content.Context;
 import android.media.MediaPlayer;
 
 public class SpeechGenerator {
-
     private Context fContext;
+    private MediaPlayer fPlayer;
 
     public SpeechGenerator(Context context) {
         fContext = context;
     }
 
     public void say(int resourceId) {
-        MediaPlayer mPlayer = MediaPlayer.create(fContext, resourceId);
-        mPlayer.start();
+        stop();
+        fPlayer = MediaPlayer.create(fContext, resourceId);
+        fPlayer.start();
+    }
+    
+    public void stop() {
+        if (fPlayer != null) {
+            fPlayer.release();
+            fPlayer = null;
+        }
     }
 }
