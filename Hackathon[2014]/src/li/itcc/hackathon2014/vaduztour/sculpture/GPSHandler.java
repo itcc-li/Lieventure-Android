@@ -1,12 +1,11 @@
 package li.itcc.hackathon2014.vaduztour.sculpture;
 
-import li.itcc.hackathon2014.vaduztour.hotcold.GPSLocationListener;
+import li.itcc.hackathon2014.utils.GPSLocationListener;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.widget.Toast;
 
 public class GPSHandler implements LocationListener {
     private Context mContext;

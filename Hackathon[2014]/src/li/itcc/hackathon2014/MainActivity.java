@@ -1,10 +1,13 @@
 
 package li.itcc.hackathon2014;
 
+import li.itcc.hackathon2014.Selfie.SelfieLogic;
 import li.itcc.hackathon2014.vaduztour.CompassFragment;
 import li.itcc.hackathon2014.vaduztour.HotColdFragment;
+import li.itcc.hackathon2014.vaduztour.IntroFragment;
 import li.itcc.hackathon2014.vaduztour.QuestionFragment;
 import li.itcc.hackathon2014.vaduztour.SculptureFragment;
+import li.itcc.hackathon2014.vaduztour.finish.FinishFragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -17,6 +20,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
+    public static final int REQUEST_CODE_TAKE_PICTURE = 100;
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the
@@ -30,11 +34,12 @@ public class MainActivity extends Activity implements
      */
     private CharSequence mTitle;
 
-    private AbstractTourFragment fFragment;
+    private SelfieLogic fSelfieLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fSelfieLogic = new SelfieLogic(this);
         setContentView(R.layout.activity_main);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
@@ -52,12 +57,11 @@ public class MainActivity extends Activity implements
         FragmentManager fragmentManager = getFragmentManager();
 
         FragmentTransaction trans = fragmentManager.beginTransaction();
-        trans.replace(R.id.container, QuestionFragment.newInstance(position + 1, 0));
+        trans.replace(R.id.container, IntroFragment.newInstance(position + 1, 0));
         trans.commit();
     }
 
     public void onFragmentAttached(AbstractTourFragment fragment, int tourNumber, int tourPage) {
-        fFragment = fragment;
         switch (tourNumber) {
             case 1:
                 mTitle = getString(R.string.title_section1);
@@ -92,6 +96,7 @@ public class MainActivity extends Activity implements
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            fSelfieLogic.startTakePictureActivity();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -102,13 +107,19 @@ public class MainActivity extends Activity implements
         AbstractTourFragment nextFragment;
         int nextPage = tourPage + 1;
         if (tourPage == 0) {
-            nextFragment = CompassFragment.newInstance(tourNumber, nextPage);
+            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage);
         }
         else if (tourPage == 1) {
-            nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
+            nextFragment = CompassFragment.newInstance(tourNumber, nextPage);
         }
         else if (tourPage == 2) {
+            nextFragment = HotColdFragment.newInstance(tourNumber, nextPage);
+        }
+        else if (tourPage == 3) {
             nextFragment = SculptureFragment.newInstance(tourNumber, nextPage);
+        }
+        else if (tourPage == 4) {
+            nextFragment = FinishFragment.newInstance(tourNumber, nextPage);
         }
         else {
             return;
@@ -118,12 +129,14 @@ public class MainActivity extends Activity implements
         trans.replace(R.id.container, nextFragment);
         trans.commit();
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (fFragment != null) {
-            fFragment.onActivityTourResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_TAKE_PICTURE) {
+            fSelfieLogic.onPictureResult(requestCode, resultCode, data);
+        }
+        else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 

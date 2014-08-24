@@ -1,18 +1,19 @@
 package li.itcc.hackathon2014.vaduztour;
 
+import li.itcc.hackathon2014.AbstractTourFragment;
+import li.itcc.hackathon2014.R;
+import li.itcc.hackathon2014.utils.GPSLocationListener;
+import li.itcc.hackathon2014.vaduztour.sculpture.GPSHandler;
+import li.itcc.hackathon2014.vaduztour.sculpture.Tilt;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -21,13 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
-import li.itcc.hackathon2014.AbstractTourFragment;
-import li.itcc.hackathon2014.R;
-import li.itcc.hackathon2014.vaduztour.hotcold.GPSLocationListener;
-import li.itcc.hackathon2014.vaduztour.sculpture.GPSHandler;
-import li.itcc.hackathon2014.vaduztour.sculpture.Tilt;
 
 public class SculptureFragment extends AbstractTourFragment implements SensorEventListener, GPSLocationListener {
     private SensorManager mSensorManager;
@@ -130,6 +125,10 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
      * init listeners for services and ui elements
      */
     private void initListener() {
+        if (mGravitySensor == null) {
+            mBtnMeasurment.setEnabled(false);
+            return;
+        }
         mSensorManager.registerListener(this, mGravitySensor, SensorManager.SENSOR_DELAY_NORMAL);
              
         mProgressDialog.setOnCancelListener(new OnCancelListener() {

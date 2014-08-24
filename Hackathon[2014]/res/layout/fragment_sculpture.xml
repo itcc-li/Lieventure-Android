@@ -11,12 +11,7 @@
 
         <TextView
             android:id="@+id/lblInfoText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:paddingBottom="16dp"
-            android:paddingLeft="@dimen/activity_vertical_margin"
-            android:paddingRight="@dimen/activity_vertical_margin"
+			style="@style/Paragraph"
             android:text="@string/sculpture_info_text" />
 
         <ImageView
@@ -33,16 +28,13 @@
 
             <Button
                 android:id="@+id/btnMeasurement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/NextButton"
                 android:layout_marginBottom="0dp"
                 android:text="@string/sculpture_measurement_button" />
 
             <Button
                 android:id="@+id/btnNext"
-                style="@style/AppTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/NextButton"
                 android:text="@string/sculpture_next_button" />
         </LinearLayout>
     </LinearLayout>
