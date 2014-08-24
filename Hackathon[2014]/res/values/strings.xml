@@ -43,15 +43,19 @@
 
 
     <!-- Story2 -->
-    <string name="story2_text">Ein berühmter Bürger des Fürstentums Liechtenstein heisst Eduard Alexandrowitsch von 
+    <string name="story2_question">Ein berühmter Bürger des Fürstentums Liechtenstein heisst Eduard Alexandrowitsch von 
                                Falz-Fein. Was war er von Beruf?</string>
-    <string-array name="story2_array">
-        <item>Unternehmer</item>
+    <string-array name="story2_choises">
+        <item>Unternehmersberater</item>
         <item>Journalist</item>
-        <item>Sportler</item>
-        <item>Sportfunktionär</item>
+        <item>Banker</item>
+        <item>Oberst</item>
     </string-array>
-	<string name="next_button">Weiter</string> 
+    <string name="story2_answer">2</string> 
+    <string name="check_button">Antwort prüfen</string> 
+	<string name="next_button">Weiter</string>
+	<string name="right">ist richtig.</string>
+	<string name="wrong">ist falsch.</string>
     	    
     <!-- compass -->
     
