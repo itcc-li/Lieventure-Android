@@ -1,20 +1,22 @@
 
-package li.itcc.hackathon2014;
+package li.itcc.lieventure;
 
-import li.itcc.hackathon2014.Selfie.SelfieLogic;
-import li.itcc.hackathon2014.vaduztour.AboutFragment;
-import li.itcc.hackathon2014.vaduztour.CastleFragment;
-import li.itcc.hackathon2014.vaduztour.CompassFragment;
-import li.itcc.hackathon2014.vaduztour.FinishFragment;
-import li.itcc.hackathon2014.vaduztour.HotColdFragment;
-import li.itcc.hackathon2014.vaduztour.IntroFragment;
-import li.itcc.hackathon2014.vaduztour.QuestionFragment;
-import li.itcc.hackathon2014.vaduztour.SculptureFragment;
+import li.itcc.lieventure.R;
+import li.itcc.lieventure.Selfie.SelfieLogic;
+import li.itcc.lieventure.vaduztour.AboutFragment;
+import li.itcc.lieventure.vaduztour.CastleFragment;
+import li.itcc.lieventure.vaduztour.CompassFragment;
+import li.itcc.lieventure.vaduztour.FinishFragment;
+import li.itcc.lieventure.vaduztour.HotColdFragment;
+import li.itcc.lieventure.vaduztour.IntroFragment;
+import li.itcc.lieventure.vaduztour.QuestionFragment;
+import li.itcc.lieventure.vaduztour.SculptureFragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
@@ -55,6 +57,11 @@ public class MainActivity extends Activity implements
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+    
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments

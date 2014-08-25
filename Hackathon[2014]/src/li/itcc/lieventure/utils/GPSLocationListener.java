@@ -1,5 +1,5 @@
 
-package li.itcc.hackathon2014.utils;
+package li.itcc.lieventure.utils;
 
 import android.location.Location;
 

@@ -1,10 +1,10 @@
-package li.itcc.hackathon2014.vaduztour;
+package li.itcc.lieventure.vaduztour;
 
-import li.itcc.hackathon2014.AbstractTourFragment;
-import li.itcc.hackathon2014.R;
-import li.itcc.hackathon2014.utils.GPSLocationListener;
-import li.itcc.hackathon2014.vaduztour.sculpture.GPSHandler;
-import li.itcc.hackathon2014.vaduztour.sculpture.Tilt;
+import li.itcc.lieventure.R;
+import li.itcc.lieventure.AbstractTourFragment;
+import li.itcc.lieventure.utils.GPSLocationListener;
+import li.itcc.lieventure.vaduztour.sculpture.GPSHandler;
+import li.itcc.lieventure.vaduztour.sculpture.Tilt;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;

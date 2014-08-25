@@ -1,6 +1,6 @@
-package li.itcc.hackathon2014.vaduztour.compass;
+package li.itcc.lieventure.vaduztour.compass;
 
-import li.itcc.hackathon2014.R;
+import li.itcc.lieventure.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;

@@ -1,5 +1,5 @@
 
-package li.itcc.hackathon2014;
+package li.itcc.lieventure;
 
 import android.app.Activity;
 import android.app.Fragment;

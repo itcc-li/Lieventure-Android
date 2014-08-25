@@ -1,5 +1,5 @@
 
-package li.itcc.hackathon2014.vaduztour.hotcold;
+package li.itcc.lieventure.vaduztour.hotcold;
 
 import android.location.Location;
 

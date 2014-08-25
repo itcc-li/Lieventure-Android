@@ -1,6 +1,7 @@
-package li.itcc.hackathon2014;
+package li.itcc.lieventure;
 
-import li.itcc.hackathon2014.Selfie.SelfieLogic;
+import li.itcc.lieventure.R;
+import li.itcc.lieventure.Selfie.SelfieLogic;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
