@@ -23,7 +23,7 @@ public abstract class AbstractTourFragment extends Fragment {
     private Button fNextButton;
     private int fTourNumber;
     private int fTourPage;
-    private boolean fAlwaysShowNextButton = true;
+    private boolean fAlwaysShowNextButton = false;
     private String fFragmentId;
     private String fPersistKey;
     private boolean fIsComplete;
