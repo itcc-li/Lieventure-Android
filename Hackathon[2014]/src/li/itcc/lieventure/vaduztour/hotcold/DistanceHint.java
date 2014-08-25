@@ -1,7 +1,7 @@
 
-package li.itcc.hackathon2014.vaduztour.hotcold;
+package li.itcc.lieventure.vaduztour.hotcold;
 
-import li.itcc.hackathon2014.R;
+import li.itcc.lieventure.R;
 
 public enum DistanceHint {
     COLD(R.raw.kalt_mp3, R.string.hotcold_hint_cold),

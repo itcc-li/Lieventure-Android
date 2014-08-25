@@ -1,4 +1,4 @@
-package li.itcc.hackathon2014.vaduztour.sculpture;
+package li.itcc.lieventure.vaduztour.sculpture;
 
 public class Tilt {
     public double getX() {

@@ -148,8 +148,8 @@
 
     <!-- About -->
 
-    <string name="abount_copyright_text">© Hackaton by itcc.li</string>
-    <string name="abount_text">Diese App wurde im Rahmen des ersten Hackatons in Liechtenstein innerhalb 51 Stunden entwickelt.</string>
+    <string name="abount_copyright_text">© Hackathon by itcc.li</string>
+    <string name="abount_text">Diese App wurde im Rahmen des ersten Hackathons in Liechtenstein innerhalb von 51 Stunden entwickelt.</string>
 
     <!-- About ende -->
 

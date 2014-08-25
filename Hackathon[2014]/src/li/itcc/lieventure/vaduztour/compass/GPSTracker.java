@@ -1,4 +1,4 @@
-package li.itcc.hackathon2014.vaduztour.compass;
+package li.itcc.lieventure.vaduztour.compass;
 
 import android.app.AlertDialog;
 import android.app.Service;

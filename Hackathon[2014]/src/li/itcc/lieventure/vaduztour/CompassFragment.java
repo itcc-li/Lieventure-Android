@@ -1,9 +1,9 @@
-package li.itcc.hackathon2014.vaduztour;
+package li.itcc.lieventure.vaduztour;
 
-import li.itcc.hackathon2014.AbstractTourFragment;
-import li.itcc.hackathon2014.R;
-import li.itcc.hackathon2014.vaduztour.compass.CanvasView;
-import li.itcc.hackathon2014.vaduztour.compass.GPSTracker;
+import li.itcc.lieventure.R;
+import li.itcc.lieventure.AbstractTourFragment;
+import li.itcc.lieventure.vaduztour.compass.CanvasView;
+import li.itcc.lieventure.vaduztour.compass.GPSTracker;
 
 import org.w3c.dom.Text;
 

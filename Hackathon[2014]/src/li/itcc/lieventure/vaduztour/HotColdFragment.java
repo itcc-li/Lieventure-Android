@@ -1,10 +1,10 @@
 
-package li.itcc.hackathon2014.vaduztour;
+package li.itcc.lieventure.vaduztour;
 
-import li.itcc.hackathon2014.AbstractTourFragment;
-import li.itcc.hackathon2014.R;
-import li.itcc.hackathon2014.vaduztour.hotcold.HotColdLogic;
-import li.itcc.hackathon2014.vaduztour.hotcold.HotColdLogic.HotColdLogicListener;
+import li.itcc.lieventure.R;
+import li.itcc.lieventure.AbstractTourFragment;
+import li.itcc.lieventure.vaduztour.hotcold.HotColdLogic;
+import li.itcc.lieventure.vaduztour.hotcold.HotColdLogic.HotColdLogicListener;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;

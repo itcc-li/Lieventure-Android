@@ -1,9 +1,9 @@
 
-package li.itcc.hackathon2014.vaduztour.hotcold;
+package li.itcc.lieventure.vaduztour.hotcold;
 
-import li.itcc.hackathon2014.R;
-import li.itcc.hackathon2014.utils.GPSDeliverer;
-import li.itcc.hackathon2014.utils.GPSLocationListener;
+import li.itcc.lieventure.R;
+import li.itcc.lieventure.utils.GPSDeliverer;
+import li.itcc.lieventure.utils.GPSLocationListener;
 import android.content.Context;
 import android.content.res.Resources;
 import android.location.Location;

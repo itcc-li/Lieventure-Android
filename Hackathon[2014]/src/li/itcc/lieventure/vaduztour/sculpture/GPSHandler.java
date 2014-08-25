@@ -1,6 +1,6 @@
-package li.itcc.hackathon2014.vaduztour.sculpture;
+package li.itcc.lieventure.vaduztour.sculpture;
 
-import li.itcc.hackathon2014.utils.GPSLocationListener;
+import li.itcc.lieventure.utils.GPSLocationListener;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;

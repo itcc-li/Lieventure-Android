@@ -12,7 +12,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="li.itcc.hackathon2014.MainActivity$PlaceholderFragment" >
+        tools:context="li.itcc.lieventure.MainActivity$PlaceholderFragment" >
 
         <TextView
             android:id="@+id/section_label"
@@ -20,8 +20,7 @@
             android:layout_height="wrap_content"
             android:text="" />
 
-        <li.itcc.hackathon2014.vaduztour.compass.CanvasView
-            android:id="@+id/compass_view"
+        <li.li.itcc.lieventure.vaduztour.compass.CanvasView           android:id="@+id/compass_view"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_gravity="center_vertical"

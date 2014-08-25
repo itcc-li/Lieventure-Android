@@ -1,8 +1,8 @@
 
-package li.itcc.hackathon2014.vaduztour;
+package li.itcc.lieventure.vaduztour;
 
-import li.itcc.hackathon2014.AbstractTourFragment;
-import li.itcc.hackathon2014.R;
+import li.itcc.lieventure.R;
+import li.itcc.lieventure.AbstractTourFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
