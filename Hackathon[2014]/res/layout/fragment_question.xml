@@ -1,0 +1,38 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/question_title"
+            style="@style/Title"
+            android:text="@string/question_title" />
+
+        <TextView
+            android:id="@+id/question_text"
+            style="@style/Paragraph"
+            android:text="@string/question_first_text" />
+
+        <Spinner
+            android:id="@+id/question_spinner"
+            style="@style/Spinner" />
+
+        <Button
+            android:id="@+id/question_check_button"
+            style="@style/NextButton"
+            android:text="@string/question_check_button" >
+        </Button>
+
+        <Button
+            android:id="@+id/question_next_button"
+            style="@style/NextButton"
+            android:text="@string/question_next_button" >
+        </Button>
+    </LinearLayout>
+
+</ScrollView>

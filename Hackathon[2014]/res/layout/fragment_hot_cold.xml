@@ -1,0 +1,37 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/Title"
+            android:text="@string/hotcold_title" />
+        
+        <TextView
+            style="@style/Paragraph"
+            android:text="@string/hotcold_text" />
+        
+         <Button
+            android:id="@+id/hotcold_start_button"
+            style="@style/NextButton"
+            android:text="@string/hotcold_start_button" />
+         
+         <TextView
+            android:id="@+id/hotcold_hint_label"
+            style="@style/Paragraph"
+            android:text="@string/hotcold_hint_text_default"
+         />
+        
+        <Button
+            android:id="@+id/next_button"
+            style="@style/NextButton"
+            android:text="@string/hotcold_next_button" />
+        
+    </LinearLayout>
+
+</ScrollView>
