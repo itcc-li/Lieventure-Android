@@ -21,7 +21,7 @@ public class HotColdFragment extends AbstractTourFragment implements HotColdLogi
      */
     public static HotColdFragment newInstance(int tourNumber, int tourPage) {
         HotColdFragment fragment = new HotColdFragment();
-        fragment.setTourArguments(tourNumber, tourPage);
+        fragment.setTourArguments("hotcold", tourNumber, tourPage);
         return fragment;
     }
 

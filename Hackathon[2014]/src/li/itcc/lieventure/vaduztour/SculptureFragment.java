@@ -49,7 +49,7 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
      */
     public static SculptureFragment newInstance(int tourNumber, int tourPage) {
         SculptureFragment fragment = new SculptureFragment();
-        fragment.setTourArguments(tourNumber, tourPage);
+        fragment.setTourArguments("sculpture", tourNumber, tourPage);
         return fragment;
     }
 

@@ -16,7 +16,7 @@ public class IntroFragment extends AbstractTourFragment {
      */
     public static IntroFragment newInstance(int tourNumber, int tourPage) {
         IntroFragment fragment = new IntroFragment();
-        fragment.setTourArguments(tourNumber, tourPage);
+        fragment.setTourArguments("intro", tourNumber, tourPage);
         return fragment;
     }
 

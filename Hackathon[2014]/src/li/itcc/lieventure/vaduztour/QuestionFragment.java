@@ -31,7 +31,14 @@ public class QuestionFragment extends AbstractTourFragment {
     
     public static QuestionFragment newInstance(int tourNumber, int tourPage, int questionSet) {
         QuestionFragment fragment = new QuestionFragment();
-        fragment.setTourArguments(tourNumber, tourPage);
+        String id;
+        if (questionSet == QUESTION_SET_WOMAN) {
+            id = "question_woman";
+        }
+        else {
+            id = "question_castle";
+        }
+        fragment.setTourArguments(id, tourNumber, tourPage);
         fragment.getArguments().putInt(ARG_QUESTION_SET, questionSet);
         return fragment;
     }

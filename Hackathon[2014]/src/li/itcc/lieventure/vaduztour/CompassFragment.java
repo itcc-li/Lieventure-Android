@@ -22,7 +22,7 @@ public class CompassFragment extends AbstractTourFragment implements OnClickList
      */
     public static CompassFragment newInstance(int tourNumber, int tourPage) {
         CompassFragment fragment = new CompassFragment();
-        fragment.setTourArguments(tourNumber, tourPage);
+        fragment.setTourArguments("compass", tourNumber, tourPage);
         return fragment;
     }
 

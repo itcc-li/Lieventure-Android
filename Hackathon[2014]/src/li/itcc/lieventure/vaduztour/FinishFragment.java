@@ -15,7 +15,7 @@ public class FinishFragment extends AbstractTourFragment {
      */
     public static FinishFragment newInstance(int tourNumber, int tourPage) {
         FinishFragment fragment = new FinishFragment();
-        fragment.setTourArguments(tourNumber, tourPage);
+        fragment.setTourArguments("finish", tourNumber, tourPage);
         return fragment;
     }
 

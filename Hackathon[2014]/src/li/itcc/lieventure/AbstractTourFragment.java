@@ -22,13 +22,14 @@ public abstract class AbstractTourFragment extends Fragment {
     private Button fNextButton;
     private int fTourNumber;
     private int fTourPage;
-    private boolean fAlwaysShowNextButton = false;
+    private boolean fAlwaysShowNextButton = true;
     private String fFragmentId;
     private String fPersistKey;
     private boolean fIsComplete;
 
-    public void setTourArguments(int tourNumber, int tourPage) {
+    public void setTourArguments(String id, int tourNumber, int tourPage) {
         Bundle args = new Bundle();
+        args.putString(ARG_TOUR_FRAGMENT_ID, id);
         args.putInt(ARG_TOUR_NUMBER, tourNumber);
         args.putInt(ARG_TOUR_PAGE, tourPage);
         this.setArguments(args);
@@ -40,11 +41,6 @@ public abstract class AbstractTourFragment extends Fragment {
 
     public int getTourPage() {
         return fTourPage;
-    }
-
-    public void setId(String id) {
-        Bundle args = this.getArguments();
-        args.putString(ARG_TOUR_FRAGMENT_ID, id);
     }
 
     public AbstractTourFragment() {
