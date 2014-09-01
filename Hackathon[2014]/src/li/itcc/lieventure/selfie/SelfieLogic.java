@@ -79,7 +79,7 @@ public class SelfieLogic {
         }
         Bitmap b = BitmapFactory.decodeFile(input.getPath());
 
-        Bitmap result = addWatermark(b, R.raw.icon_selfie);
+        Bitmap result = addWatermark(b, R.raw.selfie_icon);
 
         FileOutputStream stream;
 
