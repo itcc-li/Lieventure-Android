@@ -1,15 +1,18 @@
-package li.itcc.hackathon2014;
+package li.itcc.lieventure;
 
-import android.app.Activity;
+import li.itcc.lieventure.R;
+import li.itcc.lieventure.Selfie.SelfieLogic;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,7 +22,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation
@@ -49,6 +51,9 @@ public class NavigationDrawerFragment extends Fragment {
 	/**
 	 * Helper component that ties the action bar to the navigation drawer.
 	 */
+	
+	public static final int REQUEST_CODE_TAKE_PICTURE = 100;
+	
 	private ActionBarDrawerToggle mDrawerToggle;
 
 	private DrawerLayout mDrawerLayout;
@@ -58,7 +63,8 @@ public class NavigationDrawerFragment extends Fragment {
 	private int mCurrentSelectedPosition = 0;
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
-
+	private SelfieLogic fSelfieLogic;
+	
 	public NavigationDrawerFragment() {
 	}
 
@@ -78,7 +84,8 @@ public class NavigationDrawerFragment extends Fragment {
 					.getInt(STATE_SELECTED_POSITION);
 			mFromSavedInstanceState = true;
 		}
-
+		fSelfieLogic = new SelfieLogic(getActivity());
+		
 		// Select either the default item (0) or the last selected item.
 		selectItem(mCurrentSelectedPosition);
 	}
@@ -109,8 +116,7 @@ public class NavigationDrawerFragment extends Fragment {
 				android.R.layout.simple_list_item_activated_1,
 				android.R.id.text1, new String[] {
 						getString(R.string.title_section1),
-						getString(R.string.title_section2),
-						getString(R.string.title_section3), }));
+						getString(R.string.title_section2)}));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
 	}
@@ -233,6 +239,16 @@ public class NavigationDrawerFragment extends Fragment {
 		}
 	}
 
+    
+    public void myOnActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_TAKE_PICTURE) {
+            fSelfieLogic.onPictureResult(requestCode, resultCode, data);
+        }
+        else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+	
 	@Override
 	public void onDetach() {
 		super.onDetach();
@@ -272,8 +288,8 @@ public class NavigationDrawerFragment extends Fragment {
 		}
 
 		if (item.getItemId() == R.id.action_example) {
-			Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT)
-					.show();
+		    fSelfieLogic.startTakePictureActivity();
+		    //Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
 			return true;
 		}
 
@@ -291,7 +307,7 @@ public class NavigationDrawerFragment extends Fragment {
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setTitle(R.string.app_name);
 	}
-
+	
 	private ActionBar getActionBar() {
 		return getActivity().getActionBar();
 	}
