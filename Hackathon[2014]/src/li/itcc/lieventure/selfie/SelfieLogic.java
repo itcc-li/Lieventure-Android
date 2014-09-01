@@ -1,5 +1,5 @@
 
-package li.itcc.lieventure.Selfie;
+package li.itcc.lieventure.selfie;
 
 import java.io.File;
 import java.io.FileOutputStream;
