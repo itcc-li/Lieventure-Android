@@ -20,7 +20,8 @@
             android:layout_height="wrap_content"
             android:text="" />
 
-        <li.li.itcc.lieventure.vaduztour.compass.CanvasView           android:id="@+id/compass_view"
+        <li.itcc.lieventure.vaduztour.compass.CanvasView           
+            android:id="@+id/compass_view"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_gravity="center_vertical"
