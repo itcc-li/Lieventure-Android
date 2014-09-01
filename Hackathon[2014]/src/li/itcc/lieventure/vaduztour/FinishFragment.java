@@ -1,13 +1,12 @@
 
 package li.itcc.lieventure.vaduztour;
 
-import li.itcc.lieventure.R;
 import li.itcc.lieventure.AbstractTourFragment;
+import li.itcc.lieventure.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 public class FinishFragment extends AbstractTourFragment {
 

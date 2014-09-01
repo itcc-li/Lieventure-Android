@@ -1,10 +1,11 @@
 package li.itcc.lieventure.vaduztour;
 
-import li.itcc.lieventure.R;
 import li.itcc.lieventure.AbstractTourFragment;
+import li.itcc.lieventure.R;
 import li.itcc.lieventure.utils.GPSLocationListener;
 import li.itcc.lieventure.vaduztour.sculpture.GPSHandler;
 import li.itcc.lieventure.vaduztour.sculpture.Tilt;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
@@ -74,7 +75,7 @@ public class SculptureFragment extends AbstractTourFragment implements SensorEve
         mBtnMeasurment = (Button)getActivity().findViewById(R.id.btnMeasurement);
         
         // init sensores
-        mSensorManager = (SensorManager)getActivity().getSystemService(getActivity().SENSOR_SERVICE);
+        mSensorManager = (SensorManager)getActivity().getSystemService(Activity.SENSOR_SERVICE);
         mGravitySensor = mSensorManager.getSensorList(Sensor.TYPE_GRAVITY).get(0);
         mGPSHandler = new GPSHandler(getActivity());
            

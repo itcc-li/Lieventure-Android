@@ -3,7 +3,6 @@ package li.itcc.lieventure;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -34,15 +33,15 @@ public abstract class AbstractTourFragment extends Fragment {
         args.putInt(ARG_TOUR_PAGE, tourPage);
         this.setArguments(args);
     }
-    
+
     public int getTourNumber() {
         return fTourNumber;
     }
-    
+
     public int getTourPage() {
         return fTourPage;
     }
-    
+
     public void setId(String id) {
         Bundle args = this.getArguments();
         args.putString(ARG_TOUR_FRAGMENT_ID, id);
@@ -97,7 +96,8 @@ public abstract class AbstractTourFragment extends Fragment {
         fNextButton.setVisibility(View.VISIBLE);
         if (!fIsComplete) {
             fIsComplete = true;
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity());
             Editor edit = settings.edit();
             edit.putBoolean(fPersistKey, true);
             edit.commit();

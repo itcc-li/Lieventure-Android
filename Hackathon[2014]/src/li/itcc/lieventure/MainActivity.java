@@ -1,8 +1,6 @@
 
 package li.itcc.lieventure;
 
-import li.itcc.lieventure.R;
-import li.itcc.lieventure.Selfie.SelfieLogic;
 import li.itcc.lieventure.vaduztour.AboutFragment;
 import li.itcc.lieventure.vaduztour.CastleFragment;
 import li.itcc.lieventure.vaduztour.CompassFragment;
@@ -24,7 +22,6 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
-    
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the
@@ -38,14 +35,12 @@ public class MainActivity extends Activity implements
      */
     private CharSequence mTitle;
 
-    
-
     private AbstractTourFragment fCurrentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         setContentView(R.layout.activity_main);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
@@ -61,7 +56,7 @@ public class MainActivity extends Activity implements
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     }
-    
+
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
@@ -133,7 +128,7 @@ public class MainActivity extends Activity implements
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            //fSelfieLogic.startTakePictureActivity();
+            // fSelfieLogic.startTakePictureActivity();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -152,7 +147,8 @@ public class MainActivity extends Activity implements
             nextFragment.setId("compass");
         }
         else if (tourPage == 2) {
-            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage, QuestionFragment.QUESTION_SET_WOMAN);
+            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage,
+                    QuestionFragment.QUESTION_SET_WOMAN);
             nextFragment.setId("question_woman");
         }
         else if (tourPage == 3) {
@@ -160,7 +156,8 @@ public class MainActivity extends Activity implements
             nextFragment.setId("castle");
         }
         else if (tourPage == 4) {
-            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage, QuestionFragment.QUESTION_SET_CASTLE);
+            nextFragment = QuestionFragment.newInstance(tourNumber, nextPage,
+                    QuestionFragment.QUESTION_SET_CASTLE);
             nextFragment.setId("question_castle");
         }
         else if (tourPage == 5) {
