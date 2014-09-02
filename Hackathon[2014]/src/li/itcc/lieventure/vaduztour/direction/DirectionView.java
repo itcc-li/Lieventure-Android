@@ -22,6 +22,7 @@ public class DirectionView extends View {
     private Rect fTempRect = new Rect();
     private Rect fNeedleBounds;
     private Point fNeedlePivot;
+    private boolean fAngleInvalid;
 
     public DirectionView(Context ctx) {
         super(ctx);
@@ -43,9 +44,10 @@ public class DirectionView extends View {
     }
 
     public void setAngle(float angle) {
-        if (fAngle == angle) {
+        if (fAngle == angle && !fAngleInvalid) {
             return;
         }
+        fAngleInvalid = false;
         fAngle = angle;
         super.invalidate();
     }
@@ -66,7 +68,9 @@ public class DirectionView extends View {
         int width = getWidth();
         int height = getHeight();
         drawBackground(canvas, width, height);
-        drawNeedle(canvas, width, height);
+        if (!fAngleInvalid) {
+            drawNeedle(canvas, width, height);
+        }
     }
 
     private void drawBackground(Canvas canvas, int width, int height) {
@@ -86,6 +90,14 @@ public class DirectionView extends View {
         int bottom = top + (int) (fNeedleBounds.height() * needleScale);
         fTempRect.set(left, top, right, bottom);
         canvas.drawBitmap(fNeedle, fNeedleBounds, fTempRect, fPaint);
+    }
+
+    public void setAngleInvalid() {
+        if (fAngleInvalid) {
+            return;
+        }
+        fAngleInvalid = true;
+        invalidate();
     }
 
 }

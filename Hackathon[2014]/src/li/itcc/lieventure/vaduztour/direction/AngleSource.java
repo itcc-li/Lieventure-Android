@@ -6,6 +6,8 @@ public interface AngleSource {
     
     void onPause();
     
+    boolean isAngleValid();
+    
     float getAngle(float deltaTime);
 
 }

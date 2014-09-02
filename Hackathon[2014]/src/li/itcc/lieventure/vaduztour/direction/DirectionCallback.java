@@ -4,6 +4,9 @@ public interface DirectionCallback {
     
     void onAngleChange(float angle);
     
+    void onAngleInvalid();
+    
     void onStatusChange(String newStatus);
+
 
 }

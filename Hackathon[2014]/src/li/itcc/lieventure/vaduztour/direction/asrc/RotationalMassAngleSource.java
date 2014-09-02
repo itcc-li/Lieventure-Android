@@ -13,6 +13,10 @@ public class RotationalMassAngleSource implements AngleSource {
     public RotationalMassAngleSource(AngleSource forceDirection) {
         fForceDirection = forceDirection;
     }
+    @Override
+    public boolean isAngleValid() {
+        return fForceDirection.isAngleValid();
+    }
 
     @Override
     public float getAngle(float deltaTime) {

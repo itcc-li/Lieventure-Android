@@ -14,8 +14,9 @@ public class AzimuthAngleSource implements AngleSource, SensorEventListener {
     private SensorManager fSensorManager;
     private Sensor fAccelerometer;
     private Sensor fMagnetometer;
-    private float[] mGravity;
-    private float[] mGeomagnetic;
+    private float[] fGravity;
+    private float[] fGeomagnetic;
+    private boolean fIsValid;
 
     public AzimuthAngleSource(Context context) {
         fContext = context;
@@ -23,6 +24,11 @@ public class AzimuthAngleSource implements AngleSource, SensorEventListener {
         fAccelerometer = fSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         fMagnetometer = fSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
+    }
+    
+    @Override
+    public boolean isAngleValid() {
+        return fIsValid;
     }
 
     @Override
@@ -32,32 +38,35 @@ public class AzimuthAngleSource implements AngleSource, SensorEventListener {
 
     @Override
     public void onResume() {
+        fIsValid = false;
         fSensorManager.registerListener(this, fAccelerometer, SensorManager.SENSOR_DELAY_UI);
         fSensorManager.registerListener(this, fMagnetometer, SensorManager.SENSOR_DELAY_UI);
     }
 
     @Override
     public void onPause() {
+        fIsValid = false;
         fSensorManager.unregisterListener(this);
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            mGravity = event.values;
+            fGravity = event.values;
         }
         if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
-            mGeomagnetic = event.values;
+            fGeomagnetic = event.values;
         }
-        if (mGravity != null && mGeomagnetic != null) {
+        if (fGravity != null && fGeomagnetic != null) {
             float R[] = new float[9];
             float I[] = new float[9];
-            boolean success = SensorManager.getRotationMatrix(R, I, mGravity, mGeomagnetic);
+            boolean success = SensorManager.getRotationMatrix(R, I, fGravity, fGeomagnetic);
             if (success) {
                 float orientation[] = new float[3];
                 SensorManager.getOrientation(R, orientation);
                 fAngle = -orientation[0]; // orientation contains: azimut, pitch
                                          // and roll
+                fIsValid = true;
             }
         }
     }

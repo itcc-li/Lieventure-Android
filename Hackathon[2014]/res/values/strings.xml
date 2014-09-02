@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Lieventure</string>
     <string name="title_section1">Tour durch Vaduz</string>
@@ -10,10 +10,11 @@
     <string name="action_example">Selfie-Cam</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Finish -->
+    <!-- Intro -->
 
-    <string name="finish_title">Herzliche Gratulation</string>
-    <string name="finish_text">Du hast sämtliche Aufgaben gelöst. Um dies zu feiern, mach noch ein letztes Selfie mit dem Z-Würfel.</string>
+    <string name="intro_title">Tour durch Vaduz</string>
+    <string name="intro_tour_text">Herzlich Willkommen bei unserer Tour durch Vaduz. Hier in Liechtenstein spricht man sich gegenseitig mit Du an, was die Persönlichkeit in unserem kleinen Land widerspiegelt. Wir möchten Dir nun das Fürstentum Liechtenstein und insbesondere dessen Hauptstadt ein wenig näher bringen. Viel Spass bei unserem Rundgang!</string>
+    <string name="intro_start_button">Start Tour</string>
 
     <!-- HotCold -->
 
@@ -45,13 +46,22 @@
     <string name="hotcold_limit_cold">68</string>
     <string name="hotcold_limit_steady">2</string>
     <string name="hotcold_speach_delay">5000</string>
-
-    <!-- Intro -->
-
-    <string name="intro_title">Tour durch Vaduz</string>
-    <string name="intro_tour_text">Herzlich Willkommen bei unserer Tour durch Vaduz. Hier in Liechtenstein spricht man sich gegenseitig mit Du an, was die Persönlichkeit in unserem kleinen Land widerspiegelt. Wir möchten Dir nun das Fürstentum Liechtenstein und insbesondere dessen Hauptstadt ein wenig näher bringen. Viel Spass bei unserem Rundgang!</string>
-    <string name="intro_start_button">Start Tour</string>
-
+    
+    <!-- Direction -->
+    
+    <string name="direction_title">Folge dem Pfeil</string>
+    <string name="direction_status"></string>
+    <!--
+    <string name="direction_target_latitude">47.139652</string>
+    <string name="direction_target_longitude">9.522078</string>
+-->
+    <string name="direction_target_latitude">47.210852</string>
+    <string name="direction_target_longitude">9.524942</string>
+    <string name="direction_next_button">Weiter</string>
+    <string name="direction_search_GPS" tools:ignore="TypographyEllipsis">GPS wird gestartet...</string>
+    <string name="direction_enable_GPS">Bitte GPS aktivieren</string>
+    <string name="direction_meter">Meter</string>
+    
     <!-- Castle -->
 
     <string name="castle_title">Schloss Vaduz</string>
@@ -59,6 +69,7 @@
     <string name="castle_start_button">Fragen zu Schildern</string>
 
     <!-- Questions -->
+    
     <string name="question_first_text">Aus welchem Material besteht diese Skulptur?</string>
 
     <string-array name="question_first_choises">
@@ -127,17 +138,24 @@
     <string name="question_press_next">Bitte mit WEITER fortfahren.</string>
 
     <!-- compass -->
+    
     <string name="compass_next_button">Weiter</string>
     <string name="gps_text">GPS Fragment!</string>
     <string name="next_button">Weiter</string>
     <string name="distance_text"></string>
 
     <!-- Neigunssensor -->
+    
     <string name="sculpture_info_text">Nun geht es zurück zu unserem Startpunkt. Dort angekommen, fällt Dir folgende Skulptur,  der Z-Würfel, auf. Lege Dein Handy an die markierte Stelle und messe die Schräge des Z.</string>
     <string name="sculpture_measurement_button">Messung</string>
     <string name="sculpture_next_button">Weiter</string>
     <string name="sculpture_please_wait">Bitte warten</string>
     <string name="sculpture_this_can_take_a_few_secound">Das kann einige Sekunden dauern</string>
+    
+    <!-- Finish -->
+
+    <string name="finish_title">Herzliche Gratulation</string>
+    <string name="finish_text">Du hast sämtliche Aufgaben gelöst. Um dies zu feiern, mach noch ein letztes Selfie mit dem Z-Würfel.</string>
 
     <!-- Selfie -->
 

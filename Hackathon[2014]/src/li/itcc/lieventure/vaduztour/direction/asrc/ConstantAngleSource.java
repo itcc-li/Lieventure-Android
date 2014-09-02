@@ -7,6 +7,11 @@ public class ConstantAngleSource implements AngleSource {
     private float fAngle;
 
     @Override
+    public boolean isAngleValid() {
+        return true;
+    }
+
+    @Override
     public float getAngle(float deltaTime) {
         return fAngle;
     }
@@ -22,5 +27,6 @@ public class ConstantAngleSource implements AngleSource {
     @Override
     public void onPause() {
     }
+
 
 }

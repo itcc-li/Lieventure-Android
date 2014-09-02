@@ -9,34 +9,26 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/section_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
+            style="@style/Title"
+            android:text="@string/direction_title" />
 
-        <li.itcc.lieventure.vaduztour.direction.DirectionView           
+        <li.itcc.lieventure.vaduztour.direction.DirectionView
             android:id="@+id/direction_view"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/text_title_top"
             android:background="#ffff0000" />
 
         <TextView
-            android:id="@+id/distance_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/distance_text" />
+            android:id="@+id/direction_status_text"
+            style="@style/Paragraph"
+            android:text="@string/direction_status" />
 
-        
-         <Button
-            android:id="@+id/test_button"
-            style="@style/NextButton"
-            android:text="Test" />
-        
         <Button
             android:id="@+id/next_button"
             style="@style/NextButton"
-            android:text="@string/next_button" />
+            android:text="@string/direction_next_button" />
     </LinearLayout>
 
 </ScrollView>

@@ -9,7 +9,6 @@ import li.itcc.lieventure.vaduztour.direction.DirectionView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
@@ -40,19 +39,9 @@ public class DirectionFragment extends AbstractTourFragment implements Direction
         setNextButton(nextButton);
         onTaskSolved();
         fDirectionView = (DirectionView) rootView.findViewById(R.id.direction_view);
-        fStatusView = (TextView) rootView.findViewById(R.id.distance_text);
+        fStatusView = (TextView) rootView.findViewById(R.id.direction_status_text);
         fLogic = new DirectionLogic(getActivity());
         fLogic.setDirectionCallback(this);
-        // test
-        Button testButton = (Button) rootView.findViewById(R.id.test_button);
-        testButton.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                fLogic.onTestClick();
-            }
-        });
-
         return rootView;
     }
 
@@ -71,6 +60,11 @@ public class DirectionFragment extends AbstractTourFragment implements Direction
     @Override
     public void onAngleChange(float angle) {
         fDirectionView.setAngle(angle);
+    }
+
+    @Override
+    public void onAngleInvalid() {
+        fDirectionView.setAngleInvalid();
     }
 
     @Override

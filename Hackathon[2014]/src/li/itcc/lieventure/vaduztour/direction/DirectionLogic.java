@@ -1,10 +1,12 @@
 
 package li.itcc.lieventure.vaduztour.direction;
 
-import li.itcc.lieventure.vaduztour.direction.asrc.ConstantAngleSource;
-import li.itcc.lieventure.vaduztour.direction.asrc.AzimuthAngleSource;
+import li.itcc.lieventure.R;
+import li.itcc.lieventure.vaduztour.direction.asrc.DirectionAngleSource;
 import li.itcc.lieventure.vaduztour.direction.asrc.RotationalMassAngleSource;
 import android.content.Context;
+import android.content.res.Resources;
+import android.location.Location;
 import android.os.Handler;
 
 public class DirectionLogic {
@@ -16,7 +18,8 @@ public class DirectionLogic {
     private long fLastTickTime = 0;
     private boolean fRunning;
     private AngleSource fAngleSource;
-    private ConstantAngleSource fConstantAngleSource;
+    private DirectionAngleSource fDirectionAngleSource;
+    private int tickCount;
 
     public DirectionLogic(Context context) {
         fContext = context;
@@ -30,10 +33,22 @@ public class DirectionLogic {
 
         };
         // fAngleSource = new RotateAngleSource();
-        fConstantAngleSource = new ConstantAngleSource();
-        //fAngleSource = new RotationalMassAngleSource(fConstantAngleSource);
-        //fAngleSource = new OrientationAngleSource(fContext);
-        fAngleSource = new RotationalMassAngleSource(new AzimuthAngleSource(fContext));
+        // fAngleSource = new ConstantAngleSource();
+        // fAngleSource = new RotationalMassAngleSource(fConstantAngleSource);
+        // fAngleSource = new OrientationAngleSource(fContext);
+        // fAngleSource = new AzimuthAngleSource(fContext);
+        // fAngleSource = new DirectionAngleSource(fContext);
+        // fAngleSource = new RotationalMassAngleSource(new
+        // AzimuthAngleSource(fContext));
+        fDirectionAngleSource = new DirectionAngleSource(fContext);
+        fAngleSource = new RotationalMassAngleSource(fDirectionAngleSource);
+        Resources resources = context.getResources();
+        Location targetLocation = new Location("Target");
+        targetLocation.setLatitude(Double.parseDouble(resources
+                .getString(R.string.direction_target_latitude)));
+        targetLocation.setLongitude(Double.parseDouble(resources
+                .getString(R.string.direction_target_longitude)));
+        fDirectionAngleSource.setTargetLocation(targetLocation);
     }
 
     protected void onTick() {
@@ -48,8 +63,21 @@ public class DirectionLogic {
         long deltaTimeMS = now - fLastTickTime;
         fLastTickTime = now;
         float deltaTime = (float) deltaTimeMS / 1000L;
-        float newAngle = fAngleSource.getAngle(deltaTime);
-        fDirectionCallback.onAngleChange(newAngle);
+        boolean valid = fAngleSource.isAngleValid();
+        if (valid) {
+            float newAngle = fAngleSource.getAngle(deltaTime);
+            fDirectionCallback.onAngleChange(newAngle);
+        }
+        else {
+            fDirectionCallback.onAngleInvalid();
+        }
+        // text
+        tickCount++;
+        if (tickCount >= 1000 / fDelayMS) {
+            tickCount = 0;
+            String distance = fDirectionAngleSource.getStatus();
+            fDirectionCallback.onStatusChange(distance);
+        }
     }
 
     public void onResume() {
@@ -70,7 +98,4 @@ public class DirectionLogic {
         fDirectionCallback = directionCallback;
     }
 
-    public void onTestClick() {
-        fConstantAngleSource.setAngle(fConstantAngleSource.getAngle(0.0f) + 2f);
-    }
 }

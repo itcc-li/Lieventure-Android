@@ -8,8 +8,14 @@ public class RotateAngleSource implements AngleSource {
     private float fAngle;
 
     @Override
+    public boolean isAngleValid() {
+        return true;
+    }
+
+    @Override
     public float getAngle(float deltaTime) {
-        fAngle = fAngle + fVelocity * deltaTime;;
+        fAngle = fAngle + fVelocity * deltaTime;
+        ;
         return fAngle;
     }
 
