@@ -49,27 +49,23 @@ public class DirectionFragment extends AbstractTourFragment implements Direction
 
             @Override
             public void onClick(View v) {
-                onTestClick();
+                fLogic.onTestClick();
             }
         });
 
         return rootView;
     }
-    
+
     @Override
-    public void onStart() {
-        super.onStart();
-        fLogic.onStart();
-    }
-    
-    @Override
-    public void onStop() {
-        super.onStop();
-        fLogic.onStop();
+    public void onResume() {
+        super.onResume();
+        fLogic.onResume();
     }
 
-    protected void onTestClick() {
-        fDirectionView.setAngle(fDirectionView.getAngle() + 0.3f);
+    @Override
+    public void onPause() {
+        super.onPause();
+        fLogic.onPause();
     }
 
     @Override

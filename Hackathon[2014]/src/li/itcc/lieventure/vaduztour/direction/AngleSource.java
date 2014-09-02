@@ -2,6 +2,10 @@ package li.itcc.lieventure.vaduztour.direction;
 
 public interface AngleSource {
     
-    float getAngle();
+    void onResume();
+    
+    void onPause();
+    
+    float getAngle(float deltaTime);
 
 }

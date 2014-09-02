@@ -42,8 +42,11 @@ public class DirectionView extends View {
         return fAngle;
     }
 
-    public void setAngle(float angleRad) {
-        fAngle = angleRad;
+    public void setAngle(float angle) {
+        if (fAngle == angle) {
+            return;
+        }
+        fAngle = angle;
         super.invalidate();
     }
 

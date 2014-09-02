@@ -4,6 +4,7 @@ package li.itcc.lieventure;
 import li.itcc.lieventure.vaduztour.AboutFragment;
 import li.itcc.lieventure.vaduztour.CastleFragment;
 import li.itcc.lieventure.vaduztour.CompassFragment;
+import li.itcc.lieventure.vaduztour.DirectionFragment;
 import li.itcc.lieventure.vaduztour.FinishFragment;
 import li.itcc.lieventure.vaduztour.HotColdFragment;
 import li.itcc.lieventure.vaduztour.IntroFragment;
@@ -63,7 +64,7 @@ public class MainActivity extends Activity implements
         FragmentManager fragmentManager = getFragmentManager();
         AbstractTourFragment fragment;
         if (position == 0) {
-            fragment = IntroFragment.newInstance(position + 1, 0);
+            fragment = createFragmentForPage(1, 0);
         }
         else {
             fragment = AboutFragment.newInstance(position + 1, 0);
@@ -155,7 +156,8 @@ public class MainActivity extends Activity implements
     private AbstractTourFragment createFragmentForPage(int tourNumber, int tourPage) {
         AbstractTourFragment result;
         if (tourPage == 0) {
-            result = IntroFragment.newInstance(tourNumber, tourPage);
+            result = DirectionFragment.newInstance(tourNumber, tourPage);
+            //result = IntroFragment.newInstance(tourNumber, tourPage);
         }
         else if (tourPage == 1) {
             result = HotColdFragment.newInstance(tourNumber, tourPage);
