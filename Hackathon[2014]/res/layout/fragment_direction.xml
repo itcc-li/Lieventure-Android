@@ -1,0 +1,42 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/section_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <li.itcc.lieventure.vaduztour.direction.DirectionView           
+            android:id="@+id/direction_view"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#ffff0000" />
+
+        <TextView
+            android:id="@+id/distance_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/distance_text" />
+
+        
+         <Button
+            android:id="@+id/test_button"
+            style="@style/NextButton"
+            android:text="Test" />
+        
+        <Button
+            android:id="@+id/next_button"
+            style="@style/NextButton"
+            android:text="@string/next_button" />
+    </LinearLayout>
+
+</ScrollView>
