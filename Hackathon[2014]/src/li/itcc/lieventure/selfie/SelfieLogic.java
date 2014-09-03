@@ -3,7 +3,6 @@ package li.itcc.lieventure.selfie;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 import li.itcc.lieventure.R;
 import android.app.Activity;
@@ -77,22 +76,17 @@ public class SelfieLogic {
         if (!input.exists()) {
             return;
         }
-        Bitmap b = BitmapFactory.decodeFile(input.getPath());
-
-        Bitmap result = addWatermark(b, R.raw.selfie_icon);
-
-        FileOutputStream stream;
-
         try {
+            Bitmap b = BitmapFactory.decodeFile(input.getPath());
+            Bitmap result = addWatermark(b, R.raw.selfie_icon);
+            FileOutputStream stream;
             stream = new FileOutputStream(input);
             result.compress(Bitmap.CompressFormat.JPEG, 100, stream);
             stream.close();
-            refresh();
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        } catch (Throwable th) {
+            // silent catch
         }
+        refresh();
 
     }
 
@@ -101,7 +95,7 @@ public class SelfieLogic {
         {
             Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
             File f = new File("file://"
-                    + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
+                    + fImagesFolder);
             Uri contentUri = Uri.fromFile(f);
             mediaScanIntent.setData(contentUri);
             fActivity.sendBroadcast(mediaScanIntent);
@@ -109,13 +103,12 @@ public class SelfieLogic {
         else
         {
             fActivity.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"
-                    + Environment.getExternalStorageDirectory())));
+                    + fImagesFolder)));
         }
 
     }
 
-    public Bitmap addWatermark(Bitmap pictureBitmap, int watermark)
-    {
+    public Bitmap addWatermark(Bitmap pictureBitmap, int watermark) {
         // definieren .. pfad zum bitmap
         Bitmap watermarkBitmap = BitmapFactory.decodeResource(fActivity.getResources(), watermark);
 
