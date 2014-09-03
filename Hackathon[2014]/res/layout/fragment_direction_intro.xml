@@ -10,17 +10,16 @@
 
         <TextView
             style="@style/Title"
-            android:text="@string/hotcold_title" />
+            android:text="@string/direction_intro_title" />
 
         <TextView
-            android:id="@+id/hotcold_hint_label"
             style="@style/Paragraph"
-            android:text="@string/hotcold_hint_text_default" />
+            android:text="@string/direction_intro_tour_text" />
 
         <Button
-            android:id="@+id/next_button"
+            android:id="@+id/button_next"
             style="@style/NextButton"
-            android:text="@string/hotcold_next_button" />
+            android:text="@string/direction_intro_button_next" />
     </LinearLayout>
 
 </ScrollView>

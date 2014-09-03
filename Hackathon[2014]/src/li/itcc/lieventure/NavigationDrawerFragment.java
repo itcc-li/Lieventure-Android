@@ -1,7 +1,7 @@
 package li.itcc.lieventure;
 
 import li.itcc.lieventure.R;
-import li.itcc.lieventure.Selfie.SelfieLogic;
+import li.itcc.lieventure.selfie.SelfieLogic;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
