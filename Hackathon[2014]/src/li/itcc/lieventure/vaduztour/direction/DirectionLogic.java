@@ -14,12 +14,14 @@ public class DirectionLogic {
     private DirectionCallback fDirectionCallback;
     private Handler fHandler;
     private Runnable fTickRunnable;
-    private long fDelayMS = 50L;
+    private long fDirectionUpdateMS = 50L;
+    private long fStatusUpdateMS = 1000L;
     private long fLastTickTime = 0;
     private boolean fRunning;
     private AngleSource fAngleSource;
     private DirectionAngleSource fDirectionAngleSource;
-    private int tickCount;
+    private long tickCount;
+    private int fTargetRadius = 4;
 
     public DirectionLogic(Context context) {
         fContext = context;
@@ -55,7 +57,7 @@ public class DirectionLogic {
         if (!fRunning) {
             return;
         }
-        fHandler.postDelayed(fTickRunnable, fDelayMS);
+        fHandler.postDelayed(fTickRunnable, fDirectionUpdateMS);
         long now = System.currentTimeMillis();
         if (fLastTickTime == 0L) {
             fLastTickTime = now;
@@ -71,12 +73,20 @@ public class DirectionLogic {
         else {
             fDirectionCallback.onAngleInvalid();
         }
-        // text
+        // status update every second
         tickCount++;
-        if (tickCount >= 1000 / fDelayMS) {
-            tickCount = 0;
-            String distance = fDirectionAngleSource.getStatus();
-            fDirectionCallback.onStatusChange(distance);
+        long tickInterval = fStatusUpdateMS / fDirectionUpdateMS;
+        if (tickCount % tickInterval == 0) {
+            int distance = fDirectionAngleSource.getDistance();
+            if (distance >= 0 && distance <= fTargetRadius) {
+                fDirectionCallback.onTargetReached();
+                fDirectionCallback.onAngleInvalid();
+                onPause();
+            }
+            else {
+                String status = fDirectionAngleSource.getStatus();
+                fDirectionCallback.onStatusChange(status);
+            }
         }
     }
 

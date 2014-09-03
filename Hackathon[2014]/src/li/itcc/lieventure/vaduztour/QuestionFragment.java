@@ -72,6 +72,7 @@ public class QuestionFragment extends AbstractTourFragment {
             question_spinner.setAdapter(choises_adapter); 
         }
         nextButton = (Button)rootView.findViewById(R.id.question_next_button);
+        setNextButton(nextButton);
         checkButton = (Button)rootView.findViewById(R.id.question_check_button);
         checkButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -123,8 +124,8 @@ public class QuestionFragment extends AbstractTourFragment {
                 checkButton.setOnClickListener(null);
                 checkButton.setVisibility(View.INVISIBLE);
                 resultView.append(getResources().getString(R.string.question_press_next));
-                setNextButton(nextButton);
                 onTaskSolved();
+                checkButton.setVisibility(View.GONE);
             }                               
         } else {
             resultView.append("\n"+question_spinner.getSelectedItem().toString()+" "+getResources().getString(R.string.question_wrong));

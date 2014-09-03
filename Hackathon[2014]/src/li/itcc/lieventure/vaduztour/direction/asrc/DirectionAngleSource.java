@@ -80,10 +80,18 @@ public class DirectionAngleSource implements AngleSource, GPSLocationListener {
     }
 
     public String getStatus() {
+        int distance = getDistance();
+        if (distance >= 0) {
+            return Integer.toString(distance) + fContext.getResources().getString(R.string.direction_meter);
+        }
+        return fStatusText;
+    }
+
+    public int getDistance() {
         if (fTargetLocation == null || fCurrentLocation == null) {
-            return fStatusText;
+            return -1;
         }
         int distance = (int)fCurrentLocation.distanceTo(fTargetLocation);
-        return Integer.toString(distance) + fContext.getResources().getString(R.string.direction_meter);
+        return distance;
     }
 }

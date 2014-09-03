@@ -7,6 +7,8 @@ public interface DirectionCallback {
     void onAngleInvalid();
     
     void onStatusChange(String newStatus);
+    
+    void onTargetReached();
 
 
 }

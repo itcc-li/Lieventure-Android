@@ -37,7 +37,6 @@ public class DirectionFragment extends AbstractTourFragment implements Direction
                 false);
         Button nextButton = (Button) rootView.findViewById(R.id.next_button);
         setNextButton(nextButton);
-        onTaskSolved();
         fDirectionView = (DirectionView) rootView.findViewById(R.id.direction_view);
         fStatusView = (TextView) rootView.findViewById(R.id.direction_status_text);
         fLogic = new DirectionLogic(getActivity());
@@ -70,6 +69,12 @@ public class DirectionFragment extends AbstractTourFragment implements Direction
     @Override
     public void onStatusChange(String newStatus) {
         fStatusView.setText(newStatus);
+    }
+    
+    @Override
+    public void onTargetReached() {
+        fStatusView.setText(getResources().getText(R.string.direction_finish_text));
+        onTaskSolved();
     }
 
 }
