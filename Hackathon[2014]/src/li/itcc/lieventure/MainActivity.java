@@ -3,10 +3,11 @@ package li.itcc.lieventure;
 
 import li.itcc.lieventure.vaduztour.AboutFragment;
 import li.itcc.lieventure.vaduztour.CastleFragment;
-import li.itcc.lieventure.vaduztour.CompassFragment;
 import li.itcc.lieventure.vaduztour.DirectionFragment;
+import li.itcc.lieventure.vaduztour.DirectionIntroFragment;
 import li.itcc.lieventure.vaduztour.FinishFragment;
 import li.itcc.lieventure.vaduztour.HotColdFragment;
+import li.itcc.lieventure.vaduztour.HotColdIntroFragment;
 import li.itcc.lieventure.vaduztour.IntroFragment;
 import li.itcc.lieventure.vaduztour.QuestionFragment;
 import li.itcc.lieventure.vaduztour.SculptureFragment;
@@ -155,31 +156,38 @@ public class MainActivity extends Activity implements
 
     private AbstractTourFragment createFragmentForPage(int tourNumber, int tourPage) {
         AbstractTourFragment result;
-        if (tourPage == 0) {
-            result = DirectionFragment.newInstance(tourNumber, tourPage);
-            //result = IntroFragment.newInstance(tourNumber, tourPage);
+        int index = 0;
+        if (tourPage == index++) {
+            result = IntroFragment.newInstance(tourNumber, tourPage);
         }
-        else if (tourPage == 1) {
+        else if (tourPage == index++) {
+            result = HotColdIntroFragment.newInstance(tourNumber, tourPage);
+        }
+        else if (tourPage == index++) {
             result = HotColdFragment.newInstance(tourNumber, tourPage);
         }
-        else if (tourPage == 2) {
-            result = CompassFragment.newInstance(tourNumber, tourPage);
+        else if (tourPage == index++) {
+            result = DirectionIntroFragment.newInstance(tourNumber, tourPage);
         }
-        else if (tourPage == 3) {
+        else if (tourPage == index++) {
+            result = DirectionFragment.newInstance(tourNumber, tourPage);
+            //result = CompassFragment.newInstance(tourNumber, tourPage);
+        }
+        else if (tourPage == index++) {
             result = QuestionFragment.newInstance(tourNumber, tourPage,
                     QuestionFragment.QUESTION_SET_WOMAN);
         }
-        else if (tourPage == 4) {
+        else if (tourPage == index++) {
             result = CastleFragment.newInstance(tourNumber, tourPage);
         }
-        else if (tourPage == 5) {
+        else if (tourPage == index++) {
             result = QuestionFragment.newInstance(tourNumber, tourPage,
                     QuestionFragment.QUESTION_SET_CASTLE);
         }
-        else if (tourPage == 6) {
+        else if (tourPage == index++) {
             result = SculptureFragment.newInstance(tourNumber, tourPage);
         }
-        else if (tourPage == 7) {
+        else if (tourPage == index++) {
             result = FinishFragment.newInstance(tourNumber, tourPage);
         }
         else {

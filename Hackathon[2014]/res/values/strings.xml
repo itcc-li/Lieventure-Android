@@ -14,12 +14,17 @@
 
     <string name="intro_title">Tour durch Vaduz</string>
     <string name="intro_tour_text">Herzlich Willkommen bei unserer Tour durch Vaduz. Hier in Liechtenstein spricht man sich gegenseitig mit Du an, was die Persönlichkeit in unserem kleinen Land widerspiegelt. Wir möchten Dir nun das Fürstentum Liechtenstein und insbesondere dessen Hauptstadt ein wenig näher bringen. Viel Spass bei unserem Rundgang!</string>
-    <string name="intro_start_button">Start Tour</string>
+    <string name="intro_button_next">Start Tour</string>
 
+    <!-- HotCold Intro -->
+
+    <string name="hotcold_intro_title">Tourbeginn</string>
+    <string name="hotcold_intro_tour_text">Unsere Tour beginnt auf einem wichtigen Verbindungspunkt mitten in Vaduz. Findest du diesen Startpunkt?</string>
+    <string name="hotcold_intro_button_next">Suchen</string>
+    
     <!-- HotCold -->
 
-    <string name="hotcold_title">Heiss - Kalt</string>
-    <string name="hotcold_text">Unsere Tour beginnt Mitten in Vaduz, etwa 6 Meter über der Hauptstrasse und mit grossartigem Blick auf das Schloss Vaduz. Findest Du den beschriebenen Startpunkt?</string>
+    <string name="hotcold_title">Tourbeginn</string>
     <string name="hotcold_hint_text_default"></string>
     <string name="hotcold_hint_text_finish">Du hast schon die erste Aufgabe gemeistert und den Start gefunden. Um den Moment festzuhalten, mach am besten ein Foto von Dir und dem Schloss Vaduz.</string>
     <string name="hotcold_hint_cold">Kalt</string>
@@ -36,8 +41,6 @@
     <string name="hotcold_hint_search_sat">GPS wird gestartet, bitte etwas Geduld.</string>
     <string name="hotcold_hint_turn_on_gps">Bitte GPS einschalten.</string>
     <string name="hotcold_hint_dont_turn_foo_gps">GPS nicht ausschalten, sonst funktioniert\'s nicht</string>
-    <string name="hotcold_start_button">Suche starten</string>
-    <string name="hotcold_stop_button">Suche stoppen</string>
     <string name="hotcold_next_button">Weiter</string>
     <string name="hotcold_target_latitude">47.138341</string>
     <string name="hotcold_target_longitude">9.521747</string>
@@ -46,10 +49,16 @@
     <string name="hotcold_limit_cold">68</string>
     <string name="hotcold_limit_steady">2</string>
     <string name="hotcold_speach_delay">5000</string>
+
+    <!-- Direction Intro -->
+
+    <string name="direction_intro_title">Reclining Woman</string>
+    <string name="direction_intro_tour_text">Nun führt uns der Weg quer durch das Vaduzer „Städtle“ zu der „Reclining Woman“, einer Skulptur des kolumbianischen Künstlers Fernando Botero. Der Kompass weist Dir den Weg dorthin.</string>
+    <string name="direction_intro_button_next">Weiter</string>
     
     <!-- Direction -->
     
-    <string name="direction_title">Folge dem Pfeil</string>
+    <string name="direction_title">Reclining Woman</string>
     <string name="direction_status"></string>
     <!--
     <string name="direction_target_latitude">47.139652</string>

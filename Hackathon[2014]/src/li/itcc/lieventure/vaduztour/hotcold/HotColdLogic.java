@@ -40,18 +40,21 @@ public class HotColdLogic implements GPSLocationListener {
         long speachDelay = Long.parseLong(fResources.getString(R.string.hotcold_speach_delay));
         fDeliverer = new GPSDeliverer(context, speachDelay);
     }
+    
+    public void setHotColdLogicListener(HotColdLogicListener listener) {
+        fListener = listener;
+    }
 
     public boolean isRunning() {
         return fDeliverer.isRunning();
     }
 
-    public void stopDelivery() {
+    public void onPause() {
         fDeliverer.stopDelivery();
         fSpeechGenerator.stop();
     }
 
-    public void startDelivery(HotColdLogicListener listener) {
-        fListener = listener;
+    public void onResume() {
         fDeliverer.startDelivery(this);
     }
 
