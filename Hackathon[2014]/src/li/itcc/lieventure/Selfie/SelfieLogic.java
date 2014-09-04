@@ -68,7 +68,6 @@ public class SelfieLogic {
     }
 
     public void onPictureResult(int requestCode, int resultCode, Intent data) {
-        int test = 5;
         if (resultCode != -1) {
             return;
         }
@@ -79,23 +78,17 @@ public class SelfieLogic {
             return;
         }
         Bitmap b = BitmapFactory.decodeFile(input.getPath());
-
         Bitmap result = addWatermark(b, R.raw.icon_selfie);
-        
         FileOutputStream stream;
-        
         try {
             stream = new FileOutputStream(input);
             result.compress(Bitmap.CompressFormat.JPEG, 100, stream);
             stream.close();
             refresh();
-            
-            
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } 
-
     }
     
     public void refresh(){

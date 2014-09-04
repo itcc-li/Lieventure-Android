@@ -142,7 +142,9 @@
     <!-- Selfie -->
 
     <string name="selfie_picture_path">Lieventure</string>
-
+    <string name="selfie_title">Selfie-Cam</string>
+	<string name="selfie_text">Für jeden Aufgabe kannst du ein Selfie schiessen, das hier gespeichert wird.</string>
+	<string name="selfie_start_button">Selfie schiessen!</string>
     <!-- Selfie Ende -->
 
 

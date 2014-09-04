@@ -3,7 +3,7 @@
     tools:context="li.itcc.lieventure.MainActivity" >
 
     <item
-        android:id="@+id/action_example"
+        android:id="@+id/action_selfie_cam"
         android:showAsAction="withText|ifRoom"
         android:title="@string/action_example"/>
     <item
