@@ -1,6 +1,7 @@
 package li.itcc.lieventure.vaduztour.compass;
 
 import li.itcc.lieventure.R;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -33,7 +34,7 @@ public class CanvasView extends View implements SensorEventListener {
     private GPSTracker tracker;
     private Location dest;
     
-    private static TextView distanceText;
+    private TextView distanceText;
     
     // GPS timer for battery usage
     private int timer;
@@ -154,7 +155,7 @@ public class CanvasView extends View implements SensorEventListener {
         bg = BitmapFactory.decodeResource(res, R.drawable.compass_background);
         needle = BitmapFactory.decodeResource(res, R.drawable.compass_needle);
         
-        SensorManager mSensorManager = (SensorManager)mContext.getApplicationContext().getSystemService(getContext().SENSOR_SERVICE);
+        SensorManager mSensorManager = (SensorManager)mContext.getApplicationContext().getSystemService(Activity.SENSOR_SERVICE);
         
         Sensor accelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         Sensor magnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
@@ -165,13 +166,10 @@ public class CanvasView extends View implements SensorEventListener {
         loop.run();
     }
     
-    private void updateRotation() {
-        
-    }
     
     public void onSensorChanged(SensorEvent event) {
         float azimut;
-        double locationAngle;
+        //double locationAngle;
         
         double lonDiff;
         double latDiff;
@@ -265,7 +263,8 @@ public class CanvasView extends View implements SensorEventListener {
         drawNeedle(canvas, new Point(250, 250), 500);
     }
     
-    private void drawBackground(Canvas canvas) {
+    @SuppressLint("DrawAllocation")
+	private void drawBackground(Canvas canvas) {
         Rect source = new Rect(0, 0, 1000, 1000);
         Rect bitmapRect = new Rect(0, 0, getWidth(), getHeight());
         canvas.drawBitmap(bg, source, bitmapRect, new Paint());

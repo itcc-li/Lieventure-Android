@@ -12,3 +12,6 @@ hs_err_pid*
 
 #ignore bin
 bin/
+
+#ignore eclips meta data
+.metadata/

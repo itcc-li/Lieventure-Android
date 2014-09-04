@@ -17,9 +17,9 @@
             android:text="@string/intro_tour_text" />
 
         <Button
-            android:id="@+id/intro_start_button"
+            android:id="@+id/button_next"
             style="@style/NextButton"
-            android:text="@string/intro_start_button" />
+            android:text="@string/intro_button_next" />
     </LinearLayout>
 
 </ScrollView>

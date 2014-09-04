@@ -40,18 +40,21 @@ public class HotColdLogic implements GPSLocationListener {
         long speachDelay = Long.parseLong(fResources.getString(R.string.hotcold_speach_delay));
         fDeliverer = new GPSDeliverer(context, speachDelay);
     }
+    
+    public void setHotColdLogicListener(HotColdLogicListener listener) {
+        fListener = listener;
+    }
 
     public boolean isRunning() {
         return fDeliverer.isRunning();
     }
 
-    public void stopDelivery() {
+    public void onPause() {
         fDeliverer.stopDelivery();
         fSpeechGenerator.stop();
     }
 
-    public void startDelivery(HotColdLogicListener listener) {
-        fListener = listener;
+    public void onResume() {
         fDeliverer.startDelivery(this);
     }
 
@@ -88,25 +91,25 @@ public class HotColdLogic implements GPSLocationListener {
 
     @Override
     public void onLocationSensorEnabled() {
-        fSpeechGenerator.say(R.raw.suech_satellit_mp3);
+        fSpeechGenerator.say(R.raw.hotcold_search_sat_mp3);
         fListener.onHintText(fResources.getString(R.string.hotcold_hint_search_sat));
     }
 
     @Override
     public void onLocationSensorDisabled() {
         if (locationCount > 2) {
-            fSpeechGenerator.say(R.raw.hey_gps_ischalta_mp3);
+            fSpeechGenerator.say(R.raw.hotcold_dont_turn_off_gps_mp3);
             fListener.onHintText(fResources.getString(R.string.hotcold_hint_dont_turn_foo_gps));
         }
         else {
-            fSpeechGenerator.say(R.raw.gps_ischalta_mp3);
+            fSpeechGenerator.say(R.raw.hotcold_turn_on_gps_mp3);
             fListener.onHintText(fResources.getString(R.string.hotcold_hint_turn_on_gps));
         }
     }
 
     @Override
     public void onLocationSensorSearching() {
-        fSpeechGenerator.say(R.raw.suech_satellit_mp3);
+        fSpeechGenerator.say(R.raw.hotcold_search_sat_mp3);
         fListener.onHintText(fResources.getString(R.string.hotcold_hint_search_sat));
     }
 

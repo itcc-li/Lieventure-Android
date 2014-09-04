@@ -16,7 +16,7 @@ public class CastleFragment extends AbstractTourFragment {
      */
     public static CastleFragment newInstance(int tourNumber, int tourPage) {
         CastleFragment fragment = new CastleFragment();
-        fragment.setTourArguments(tourNumber, tourPage);
+        fragment.setTourArguments("castle", tourNumber, tourPage);
         return fragment;
     }
 
