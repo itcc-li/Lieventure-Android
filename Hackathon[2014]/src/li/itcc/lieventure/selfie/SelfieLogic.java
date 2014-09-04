@@ -1,12 +1,10 @@
 
-package li.itcc.lieventure.Selfie;
+package li.itcc.lieventure.selfie;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 import li.itcc.lieventure.R;
-import li.itcc.lieventure.MainActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -59,7 +57,7 @@ public class SelfieLogic {
         Uri uriSavedImage = Uri.fromFile(output);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
         fActivity.startActivityForResult(intent, REQUEST_CODE_TAKE_PICTURE);
-    } 
+    }
 
     private File getPictureFile(int pictureNumber) {
         String fileName = "Bild_" + String.valueOf(pictureNumber) + ".jpg";
@@ -68,6 +66,7 @@ public class SelfieLogic {
     }
 
     public void onPictureResult(int requestCode, int resultCode, Intent data) {
+        // int test = 5;
         if (resultCode != -1) {
             return;
         }
@@ -77,45 +76,45 @@ public class SelfieLogic {
         if (!input.exists()) {
             return;
         }
-        Bitmap b = BitmapFactory.decodeFile(input.getPath());
-        Bitmap result = addWatermark(b, R.raw.icon_selfie);
-        FileOutputStream stream;
         try {
+            Bitmap b = BitmapFactory.decodeFile(input.getPath());
+            Bitmap result = addWatermark(b, R.raw.selfie_icon);
+            FileOutputStream stream;
             stream = new FileOutputStream(input);
             result.compress(Bitmap.CompressFormat.JPEG, 100, stream);
             stream.close();
-            refresh();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } 
+        } catch (Throwable th) {
+            // silent catch
+        }
+        refresh();
+
     }
-    
-    public void refresh(){
+
+    public void refresh() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
         {
-                Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-                File f = new File("file://"+ Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
-                Uri contentUri = Uri.fromFile(f);
-                mediaScanIntent.setData(contentUri);
-                fActivity.sendBroadcast(mediaScanIntent);
+            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            File f = new File("file://"
+                    + fImagesFolder);
+            Uri contentUri = Uri.fromFile(f);
+            mediaScanIntent.setData(contentUri);
+            fActivity.sendBroadcast(mediaScanIntent);
         }
         else
         {
-               fActivity.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory())));
+            fActivity.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"
+                    + fImagesFolder)));
         }
 
-     }
+    }
 
-    public Bitmap addWatermark(Bitmap pictureBitmap, int watermark) 
-    {
+    public Bitmap addWatermark(Bitmap pictureBitmap, int watermark) {
         // definieren .. pfad zum bitmap
         Bitmap watermarkBitmap = BitmapFactory.decodeResource(fActivity.getResources(), watermark);
 
-        Bitmap.Config conf= Bitmap.Config.ARGB_8888;
-        Bitmap bmp= Bitmap.createBitmap(pictureBitmap.getWidth(),pictureBitmap.getHeight() ,conf);
-        
-        
+        Bitmap.Config conf = Bitmap.Config.ARGB_8888;
+        Bitmap bmp = Bitmap.createBitmap(pictureBitmap.getWidth(), pictureBitmap.getHeight(), conf);
+
         // create Canvas with white Image
         Canvas c = new Canvas(bmp);
         Paint p = new Paint();
@@ -125,6 +124,6 @@ public class SelfieLogic {
         c.drawBitmap(watermarkBitmap, 0, 0, p);
         c.drawBitmap(pictureBitmap, 0, 0, p);
         return bmp;
-        
+
     }
 }

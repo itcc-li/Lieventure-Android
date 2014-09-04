@@ -15,7 +15,7 @@ public class AboutFragment extends AbstractTourFragment {
      */
     public static AboutFragment newInstance(int tourNumber, int tourPage) {
         AboutFragment fragment = new AboutFragment();
-        fragment.setTourArguments(tourNumber, tourPage);
+        fragment.setTourArguments("about", tourNumber, tourPage);
         return fragment;
     }
 

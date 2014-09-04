@@ -2,7 +2,7 @@ package li.itcc.lieventure.vaduztour;
 
 
 import li.itcc.lieventure.R;
-import li.itcc.lieventure.Selfie.SelfieLogic;
+import li.itcc.lieventure.selfie.SelfieLogic;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
