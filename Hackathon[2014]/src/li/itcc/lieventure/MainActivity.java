@@ -11,8 +11,10 @@ import li.itcc.lieventure.vaduztour.HotColdIntroFragment;
 import li.itcc.lieventure.vaduztour.IntroFragment;
 import li.itcc.lieventure.vaduztour.QuestionFragment;
 import li.itcc.lieventure.vaduztour.SculptureFragment;
+import li.itcc.lieventure.vaduztour.SelfieFragment;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -135,7 +137,14 @@ public class MainActivity extends Activity implements
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            // fSelfieLogic.startTakePictureActivity();
+            return true;
+        }
+        else if (id == R.id.action_selfie_cam) {
+            Fragment fragment = SelfieFragment.instanceOf();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, fragment);
+            fragmentTransaction.commit();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -199,7 +208,6 @@ public class MainActivity extends Activity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        mNavigationDrawerFragment.myOnActivityResult(requestCode, resultCode, data);
     }
 
 }

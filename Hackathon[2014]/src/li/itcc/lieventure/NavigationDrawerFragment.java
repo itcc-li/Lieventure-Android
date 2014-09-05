@@ -63,7 +63,6 @@ public class NavigationDrawerFragment extends Fragment {
 	private int mCurrentSelectedPosition = 0;
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
-	private SelfieLogic fSelfieLogic;
 	
 	public NavigationDrawerFragment() {
 	}
@@ -84,7 +83,6 @@ public class NavigationDrawerFragment extends Fragment {
 					.getInt(STATE_SELECTED_POSITION);
 			mFromSavedInstanceState = true;
 		}
-		fSelfieLogic = new SelfieLogic(getActivity());
 		
 		// Select either the default item (0) or the last selected item.
 		selectItem(mCurrentSelectedPosition);
@@ -238,16 +236,6 @@ public class NavigationDrawerFragment extends Fragment {
 					"Activity must implement NavigationDrawerCallbacks.");
 		}
 	}
-
-    
-    public void myOnActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_TAKE_PICTURE) {
-            fSelfieLogic.onPictureResult(requestCode, resultCode, data);
-        }
-        else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
 	
 	@Override
 	public void onDetach() {
@@ -286,13 +274,6 @@ public class NavigationDrawerFragment extends Fragment {
 		if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
-
-		if (item.getItemId() == R.id.action_example) {
-		    fSelfieLogic.startTakePictureActivity();
-		    //Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
-			return true;
-		}
-
 		return super.onOptionsItemSelected(item);
 	}
 
