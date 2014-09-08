@@ -66,7 +66,6 @@ public class SelfieLogic {
     }
 
     public void onPictureResult(int requestCode, int resultCode, Intent data) {
-        // int test = 5;
         if (resultCode != -1) {
             return;
         }
