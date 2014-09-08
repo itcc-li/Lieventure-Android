@@ -208,7 +208,6 @@ public class MainActivity extends Activity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        mNavigationDrawerFragment.myOnActivityResult(requestCode, resultCode, data);
     }
 
 }
