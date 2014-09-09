@@ -33,7 +33,7 @@ public class SelfieFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_selfie,container,false);
         // I don't think its correct to pass an instance of activity
-        fSelfieLogic= new SelfieLogic(getActivity(), this);
+        fSelfieLogic = new SelfieLogic(getActivity(), this);
         Button start_button = (Button) rootView.findViewById(R.id.selfie_start_button);
         start_button.setOnClickListener(new View.OnClickListener() {
             @Override
