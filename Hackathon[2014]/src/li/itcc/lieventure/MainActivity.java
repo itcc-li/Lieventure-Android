@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -40,7 +41,8 @@ public class MainActivity extends Activity implements
     private CharSequence mTitle;
 
     private AbstractTourFragment fCurrentFragment;
-
+    public static String currentFragment;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,7 +145,7 @@ public class MainActivity extends Activity implements
             Fragment fragment = SelfieFragment.instanceOf();
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container, fragment);
+            fragmentTransaction.replace(R.id.container, fragment,"selfie");
             fragmentTransaction.commit();
             return true;
         }
@@ -161,6 +163,21 @@ public class MainActivity extends Activity implements
         FragmentTransaction trans = fragmentManager.beginTransaction();
         trans.replace(R.id.container, nextFragment);
         trans.commit();
+    }
+    
+    
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            FragmentManager fm = getFragmentManager();
+            if(currentFragment != null && currentFragment == "selfieFull") {
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.container, new SelfieFragment()).commit();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private AbstractTourFragment createFragmentForPage(int tourNumber, int tourPage) {
