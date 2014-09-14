@@ -55,12 +55,12 @@ public class DirectionView extends View {
     private void init() {
         fAngle = 0.0f;
         Resources res = getResources();
-        fCasing = BitmapFactory.decodeResource(res, R.drawable.compass_background);
+        fCasing = BitmapFactory.decodeResource(res, R.drawable.compass);
         fCasingBounds = new Rect(0, 0, fCasing.getWidth(), fCasing.getHeight());
         fNeedle = BitmapFactory.decodeResource(res, R.drawable.compass_needle);
         fNeedleBounds = new Rect(0, 0, fNeedle.getWidth(), fNeedle.getHeight());
         int halfWidth = fNeedle.getWidth() / 2;
-        fNeedlePivot = new Point(halfWidth, fNeedle.getHeight() - halfWidth);
+        fNeedlePivot = new Point(halfWidth, fNeedle.getHeight() / 2);
     }
 
     public void onDraw(Canvas canvas) {
