@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Lieventure</string>
     <string name="title_section1">Tour durch Vaduz</string>
@@ -10,15 +10,21 @@
     <string name="action_example">Selfie-Cam</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Finish -->
+    <!-- Intro -->
 
-    <string name="finish_title">Herzliche Gratulation</string>
-    <string name="finish_text">Du hast sämtliche Aufgaben gelöst. Um dies zu feiern, mach noch ein letztes Selfie mit dem Z-Würfel.</string>
+    <string name="intro_title">Tour durch Vaduz</string>
+    <string name="intro_tour_text">Herzlich Willkommen bei unserer Tour durch Vaduz. Hier in Liechtenstein spricht man sich gegenseitig mit Du an, was die Persönlichkeit in unserem kleinen Land widerspiegelt. Wir möchten Dir nun das Fürstentum Liechtenstein und insbesondere dessen Hauptstadt ein wenig näher bringen. Viel Spass bei unserem Rundgang!</string>
+    <string name="intro_button_next">Start Tour</string>
+
+    <!-- HotCold Intro -->
+
+    <string name="hotcold_intro_title">Tourbeginn</string>
+    <string name="hotcold_intro_tour_text">Unsere Tour beginnt auf einem wichtigen Verbindungspunkt mitten in Vaduz. Findest du diesen Startpunkt?</string>
+    <string name="hotcold_intro_button_next">Suchen</string>
 
     <!-- HotCold -->
 
     <string name="hotcold_title">Heiss - Kalt</string>
-    <string name="hotcold_text">Unsere Tour beginnt Mitten in Vaduz, etwa 6 Meter über der Hauptstrasse und mit grossartigem Blick auf das Schloss Vaduz. Findest Du den beschriebenen Startpunkt?</string>
     <string name="hotcold_hint_text_default"></string>
     <string name="hotcold_hint_text_finish">Du hast schon die erste Aufgabe gemeistert und den Start gefunden. Um den Moment festzuhalten, mach am besten ein Foto von Dir und dem Schloss Vaduz.</string>
     <string name="hotcold_hint_cold">Kalt</string>
@@ -27,7 +33,7 @@
     <string name="hotcold_hint_warner_proceed">Ja! Wärmer, weiter so!</string>
     <string name="hotcold_hint_hot">Heiss</string>
     <string name="hotcold_hint_hotter">Heisser!!</string>
-    <string name="hotcold_hint_hotter_proceed"></string>
+    <string name="hotcold_hint_hotter_proceed">Du hast es gleich geschafft!</string>
     <string name="hotcold_hint_at_destination">Gratulation, Ziel erreicht!</string>
     <string name="hotcold_hint_colder">Kälter</string>
     <string name="hotcold_hint_turn">Willst du nicht eine andere Richtung versuchen?</string>
@@ -35,22 +41,30 @@
     <string name="hotcold_hint_search_sat">GPS wird gestartet, bitte etwas Geduld.</string>
     <string name="hotcold_hint_turn_on_gps">Bitte GPS einschalten.</string>
     <string name="hotcold_hint_dont_turn_foo_gps">GPS nicht ausschalten, sonst funktioniert\'s nicht</string>
-    <string name="hotcold_start_button">Suche starten</string>
-    <string name="hotcold_stop_button">Suche stoppen</string>
     <string name="hotcold_next_button">Weiter</string>
     <string name="hotcold_target_latitude">47.138341</string>
-    <string name="hotcold_target_longitude">9.521747</string>
-    <string name="hotcold_limit_hot">8</string>
+    <string name="hotcold_target_longitude">9.521747</string>    <string name="hotcold_limit_hot">8</string>
     <string name="hotcold_limit_warm">38</string>
     <string name="hotcold_limit_cold">68</string>
     <string name="hotcold_limit_steady">2</string>
     <string name="hotcold_speach_delay">5000</string>
 
-    <!-- Intro -->
+    <!-- Direction Intro -->
 
-    <string name="intro_title">Tour durch Vaduz</string>
-    <string name="intro_tour_text">Herzlich Willkommen bei unserer Tour durch Vaduz. Hier in Liechtenstein spricht man sich gegenseitig mit Du an, was die Persönlichkeit in unserem kleinen Land widerspiegelt. Wir möchten Dir nun das Fürstentum Liechtenstein und insbesondere dessen Hauptstadt ein wenig näher bringen. Viel Spass bei unserem Rundgang!</string>
-    <string name="intro_start_button">Start Tour</string>
+    <string name="direction_intro_title">Reclining Woman</string>
+    <string name="direction_intro_tour_text">Nun führt uns der Weg quer durch das Vaduzer „Städtle“ zu der „Reclining Woman“, einer Skulptur des kolumbianischen Künstlers Fernando Botero. Der Kompass weist Dir den Weg dorthin.</string>
+    <string name="direction_intro_button_next">Weiter</string>
+
+    <!-- Direction -->
+
+    <string name="direction_title">Reclining Woman</string>
+    <string name="direction_status"></string>
+    <string name="direction_target_latitude">47.139649</string>
+    <string name="direction_target_longitude">9.522305</string>    <string name="direction_next_button">Weiter</string>
+    <string name="direction_search_GPS" tools:ignore="TypographyEllipsis">GPS wird gestartet...</string>
+    <string name="direction_enable_GPS">Bitte GPS aktivieren</string>
+    <string name="direction_meter">Meter</string>
+    <string name="direction_finish_text">Du hast die gigantische liegende Frau gefunden? Sehr gut! Dann kannst Du bestimmt die folgenden Fragen beantworten.</string>
 
     <!-- Castle -->
 
@@ -59,6 +73,7 @@
     <string name="castle_start_button">Fragen zu Schildern</string>
 
     <!-- Questions -->
+
     <string name="question_first_text">Aus welchem Material besteht diese Skulptur?</string>
 
     <string-array name="question_first_choises">
@@ -127,22 +142,31 @@
     <string name="question_press_next">Bitte mit WEITER fortfahren.</string>
 
     <!-- compass -->
+
     <string name="compass_next_button">Weiter</string>
     <string name="gps_text">GPS Fragment!</string>
     <string name="next_button">Weiter</string>
     <string name="distance_text"></string>
 
     <!-- Neigunssensor -->
+
     <string name="sculpture_info_text">Nun geht es zurück zu unserem Startpunkt. Dort angekommen, fällt Dir folgende Skulptur,  der Z-Würfel, auf. Lege Dein Handy an die markierte Stelle und messe die Schräge des Z.</string>
     <string name="sculpture_measurement_button">Messung</string>
     <string name="sculpture_next_button">Weiter</string>
     <string name="sculpture_please_wait">Bitte warten</string>
     <string name="sculpture_this_can_take_a_few_secound">Das kann einige Sekunden dauern</string>
 
+    <!-- Finish -->
+
+    <string name="finish_title">Herzliche Gratulation</string>
+    <string name="finish_text">Du hast sämtliche Aufgaben gelöst. Um dies zu feiern, mach noch ein letztes Selfie mit dem Z-Würfel.</string>
+
     <!-- Selfie -->
 
     <string name="selfie_picture_path">Lieventure</string>
-
+    <string name="selfie_title">Selfie-Cam</string>
+	<string name="selfie_text">Für jeden Aufgabe kannst du ein Selfie schiessen, das hier gespeichert wird.</string>
+	<string name="selfie_start_button">Selfie schiessen!</string>
     <!-- Selfie Ende -->
 
 
