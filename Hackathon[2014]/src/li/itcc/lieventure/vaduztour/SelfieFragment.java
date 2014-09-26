@@ -1,8 +1,7 @@
+
 package li.itcc.lieventure.vaduztour;
 
-
 import li.itcc.lieventure.R;
-import li.itcc.lieventure.selfie.ImageAdapter;
 import li.itcc.lieventure.selfie.SelfieLogic;
 import android.app.Fragment;
 import android.content.Intent;
@@ -15,15 +14,15 @@ import android.widget.GridView;
 
 public class SelfieFragment extends Fragment {
     private SelfieLogic fSelfieLogic;
-    
+
     public static SelfieFragment instanceOf() {
         return new SelfieFragment();
     }
-    
+
     public SelfieFragment() {
 
     }
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +30,7 @@ public class SelfieFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_selfie,container,false);
+        View rootView = inflater.inflate(R.layout.fragment_selfie, container, false);
         // I don't think its correct to pass an instance of activity
         fSelfieLogic = new SelfieLogic(getActivity(), this);
         Button start_button = (Button) rootView.findViewById(R.id.selfie_start_button);
@@ -39,7 +38,7 @@ public class SelfieFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 fSelfieLogic.startTakePictureActivity();
-                
+
             }
         });
         GridView gridview = (GridView) rootView.findViewById(R.id.selfie_gridview);

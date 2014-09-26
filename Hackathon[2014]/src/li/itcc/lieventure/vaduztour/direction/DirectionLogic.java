@@ -43,6 +43,7 @@ public class DirectionLogic {
         // fAngleSource = new RotationalMassAngleSource(new
         // AzimuthAngleSource(fContext));
         fDirectionAngleSource = new DirectionAngleSource(fContext);
+        //fAngleSource = fDirectionAngleSource;
         fAngleSource = new RotationalMassAngleSource(fDirectionAngleSource);
         Resources resources = context.getResources();
         Location targetLocation = new Location("Target");
@@ -50,6 +51,7 @@ public class DirectionLogic {
                 .getString(R.string.direction_target_latitude)));
         targetLocation.setLongitude(Double.parseDouble(resources
                 .getString(R.string.direction_target_longitude)));
+        fTargetRadius = Integer.parseInt(resources.getString(R.string.direction_target_radius));
         fDirectionAngleSource.setTargetLocation(targetLocation);
     }
 
