@@ -1,0 +1,31 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/Title"
+            android:text="@string/selfie_title" />
+        
+        <TextView
+            style="@style/Paragraph"
+            android:text="@string/selfie_text" />
+        
+         <Button
+            android:id="@+id/selfie_start_button"
+            style="@style/NextButton"
+            android:text="@string/selfie_start_button" />
+         <GridView
+            android:id="@+id/selfie_gridview"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:numColumns="3"
+		    android:gravity="center"
+		    android:columnWidth="100dp"
+		    android:stretchMode="columnWidth"
+		    android:scrollbars="vertical">
+         </GridView>
+          
+    </LinearLayout>

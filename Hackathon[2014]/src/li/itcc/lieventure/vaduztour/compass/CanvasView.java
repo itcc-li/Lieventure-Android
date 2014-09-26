@@ -152,7 +152,7 @@ public class CanvasView extends View implements SensorEventListener {
         
         // distanceText = (TextView)((View)this.getV.getParent().relativeLayout.getParent()).findViewBy  (TextView)(mContext.getResources().findViewById(R.id.distance_text));
 
-        bg = BitmapFactory.decodeResource(res, R.drawable.compass_background);
+        bg = BitmapFactory.decodeResource(res, R.drawable.compass);
         needle = BitmapFactory.decodeResource(res, R.drawable.compass_needle);
         
         SensorManager mSensorManager = (SensorManager)mContext.getApplicationContext().getSystemService(Activity.SENSOR_SERVICE);

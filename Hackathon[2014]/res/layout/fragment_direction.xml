@@ -17,8 +17,7 @@
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/text_title_top"
-            android:background="#ffff0000" />
+            android:layout_marginTop="@dimen/text_title_top" />
 
         <TextView
             android:id="@+id/direction_status_text"

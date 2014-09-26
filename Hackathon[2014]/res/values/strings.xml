@@ -59,8 +59,8 @@
 
     <string name="direction_title">Reclining Woman</string>
     <string name="direction_status"></string>
-    <string name="direction_target_latitude">47.139652</string>
-    <string name="direction_target_longitude">9.522078</string>    <string name="direction_next_button">Weiter</string>
+    <string name="direction_target_latitude">47.139649</string>
+    <string name="direction_target_longitude">9.522305</string>    <string name="direction_next_button">Weiter</string>
     <string name="direction_search_GPS" tools:ignore="TypographyEllipsis">GPS wird gestartet...</string>
     <string name="direction_enable_GPS">Bitte GPS aktivieren</string>
     <string name="direction_meter">Meter</string>
@@ -164,7 +164,9 @@
     <!-- Selfie -->
 
     <string name="selfie_picture_path">Lieventure</string>
-
+    <string name="selfie_title">Selfie-Cam</string>
+	<string name="selfie_text">Für jeden Aufgabe kannst du ein Selfie schiessen, das hier gespeichert wird.</string>
+	<string name="selfie_start_button">Selfie schiessen!</string>
     <!-- Selfie Ende -->
 
 

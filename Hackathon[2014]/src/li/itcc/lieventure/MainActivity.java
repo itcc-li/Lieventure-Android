@@ -11,14 +11,17 @@ import li.itcc.lieventure.vaduztour.HotColdIntroFragment;
 import li.itcc.lieventure.vaduztour.IntroFragment;
 import li.itcc.lieventure.vaduztour.QuestionFragment;
 import li.itcc.lieventure.vaduztour.SculptureFragment;
+import li.itcc.lieventure.vaduztour.SelfieFragment;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -38,7 +41,8 @@ public class MainActivity extends Activity implements
     private CharSequence mTitle;
 
     private AbstractTourFragment fCurrentFragment;
-
+    public static String currentFragment;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,7 +139,14 @@ public class MainActivity extends Activity implements
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            // fSelfieLogic.startTakePictureActivity();
+            return true;
+        }
+        else if (id == R.id.action_selfie_cam) {
+            Fragment fragment = SelfieFragment.instanceOf();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, fragment,"selfie");
+            fragmentTransaction.commit();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -152,6 +163,21 @@ public class MainActivity extends Activity implements
         FragmentTransaction trans = fragmentManager.beginTransaction();
         trans.replace(R.id.container, nextFragment);
         trans.commit();
+    }
+    
+    
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            FragmentManager fm = getFragmentManager();
+            if(currentFragment != null && currentFragment == "selfieFull") {
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.container, new SelfieFragment()).commit();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private AbstractTourFragment createFragmentForPage(int tourNumber, int tourPage) {
@@ -199,7 +225,6 @@ public class MainActivity extends Activity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        mNavigationDrawerFragment.myOnActivityResult(requestCode, resultCode, data);
     }
 
 }
