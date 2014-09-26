@@ -1,11 +1,8 @@
 package li.itcc.lieventure;
 
-import li.itcc.lieventure.R;
-import li.itcc.lieventure.selfie.SelfieLogic;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
